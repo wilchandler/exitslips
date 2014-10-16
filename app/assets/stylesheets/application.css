@@ -101,7 +101,8 @@ button:active, input[type=submit]:active {
   background-color: #FF832C;
   border-radius: 10px;
   list-style: none;
-	
+  line-height: 2em;
+	max-width: 20%
 }
 
 input[type=submit] {
