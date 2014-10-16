@@ -19,8 +19,11 @@ Alternatively,
 2. Clone your fork
 3. Run
   ``` bundle ```
+
   ``` rake db:reset ```
+  
   ``` rails s ```
+  
 4. Open your localhost and start creating exit slips. 
 
 ## Technologies
