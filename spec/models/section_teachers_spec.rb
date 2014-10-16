@@ -1,5 +1,6 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe SectionTeachers, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe SectionTeacher, :type => :model do
+  it { should belong_to :section }
+  it { should belong_to :teacher }
 end

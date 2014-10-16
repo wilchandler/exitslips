@@ -40,9 +40,10 @@ gem 'devise'
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.1'
   gem 'debugger'
-  gem 'capybara'
-  gem 'launchy'
+  gem 'capybara', '~> 2.2.1'
   gem 'database_cleaner', '~> 1.2.0'
-  gem 'shoulda-matchers'
+  gem 'devise'
+  gem 'launchy'
+  gem 'shoulda-matchers'#, require: false
 end
 
