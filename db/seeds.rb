@@ -13,13 +13,6 @@ end
 Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: "dbc@mail.com")
 Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: "dbc@mail.com")
 
-students = User.all
-students.each do |s|
-  Enrollment.create!(student_id: s.id, section_id: rand(1..5) )
-end
-
-
-
 3.times do
   Section.create!(teacher_id: 26, name: "Math" )
 end
@@ -27,6 +20,25 @@ end
 2.times do
   Section.create!(teacher_id: 27, name: Faker::Education.major )
 end
+
+students = User.all
+students.each do |s|
+  Enrollment.create!(student_id: s.id, section_id: 1 )
+end
+students.each do |s|
+  Enrollment.create!(student_id: s.id, section_id: 2 )
+end
+students.each do |s|
+  Enrollment.create!(student_id: s.id, section_id: 3 )
+end
+students.each do |s|
+  Enrollment.create!(student_id: s.id, section_id: 4 )
+end
+students.each do |s|
+  Enrollment.create!(student_id: s.id, section_id: 5 )
+end
+
+
 
 students = Student.all
 students.each do |s|
