@@ -50,7 +50,7 @@ group :development, :test do
   gem 'debugger'
   gem 'capybara', '~> 2.2.1'
   gem 'database_cleaner', '~> 1.2.0'
-  # gem 'devise'
+  gem 'devise'
   gem 'launchy'
   gem 'shoulda-matchers'#, require: false
 end
