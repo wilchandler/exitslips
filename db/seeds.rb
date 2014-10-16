@@ -50,8 +50,10 @@ end
   Standard.create!(abbreviation: "CCSS.MATH.CONTENT.4.NBT.A.2", description: "Read and write multi-digit whole numbers using base-ten numerals, number names, and expanded form. Compare two multi-digit numbers based on the meanings of the digits in each place, using >,=, and < symbols ro record the results of comparisons", section_id: 1)
   Standard.create!(abbreviation: "CCSS.MATH.CONTENT.4.NBT.A.3", description: "Use place value understanding to round multi-digit whole numbers to any place.", section_id: 1)
 
-  Quiz.create!(name: "Numbers & Operations in Base Ten", section_id: 1)
-
+students = Student.all
+students.each do |s|
+  Quiz.create!(name: "Numbers & Operations in Base Ten", section_id: 1, student_id: s.id)
+end
 standards = Standard.all
 standards.each do |s|
   Question.create!(query: "Is 153 greater, less than, or equal to 84?", quiz_id: 1, standard_id: s.id, topic: "Place value understanding for multi-digit whole numbers")
