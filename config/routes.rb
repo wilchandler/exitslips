@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  devise_for :users, controllers: { sessions: "admins/sessions" }
+  devise_scope :user do 
+    get "sign_in", to: "sessions#new"
+  end
 
-  root to: 'users#index'
+
+  root to: 'home#index'
 
   resources :teachers
 
