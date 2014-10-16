@@ -64,6 +64,7 @@ GEM
     execjs (2.2.2)
     faker (1.2.0)
       i18n (~> 0.5)
+    ffaker (1.25.0)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (2.2.2)
@@ -171,6 +172,7 @@ DEPENDENCIES
   debugger
   devise
   faker
+  ffaker
   jbuilder (~> 2.0)
   jquery-rails
   launchy

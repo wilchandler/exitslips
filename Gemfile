@@ -42,6 +42,8 @@ gem 'devise'
 
 gem 'faker'
 
+gem 'ffaker'
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.1'

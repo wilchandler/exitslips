@@ -6,29 +6,29 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 25.times do
-  Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
+  Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: "dbc@mail.com")
 end
 
 students = User.all
 students.each do |s|
-  Enrollment.create!(student_id: s, section_id: rand(1..5) )
+  Enrollment.create!(student_id: s.id, section_id: rand(1..5) )
 end
 
-Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
-Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
+Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: "dbc@mail.com")
+Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: "dbc@mail.com")
 
 3.times do
-  Section.create!(teacher_id: 26, name: Faker::Address.city )
+  Section.create!(teacher_id: 26, name: "Math" )
 end
 
 2.times do
-  Section.create!(teacher_id: 27, name: Faker::Address.city )
+  Section.create!(teacher_id: 27, name: Faker::Education.major )
 end
 
 sections = Section.all
 sections.each do |s|
-  SectionTeacher.create!(section_id: s, teacher_id: 26 )
-  SectionTeacher.create!(section_id: s, teacher_id: 27 )
+  SectionTeacher.create!(section_id: s.id, teacher_id: 26 )
+  SectionTeacher.create!(section_id: s.id, teacher_id: 27 )
 end
 
 
@@ -46,7 +46,7 @@ end
 
 student = Student.all
 student.each do |s|
-  Answer.create!(question_id: 1, student_id: s, content: ["greater","less than"].sample)
+  Answer.create!(question_id: 1, student_id: s.id, content: ["greater","less than"].sample)
 end
 
 
