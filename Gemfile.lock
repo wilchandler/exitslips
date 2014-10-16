@@ -62,8 +62,6 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.2)
-    faker (1.2.0)
-      i18n (~> 0.5)
     ffaker (1.25.0)
     hike (1.2.3)
     i18n (0.6.11)
@@ -171,7 +169,6 @@ DEPENDENCIES
   database_cleaner (~> 1.2.0)
   debugger
   devise
-  faker
   ffaker
   jbuilder (~> 2.0)
   jquery-rails

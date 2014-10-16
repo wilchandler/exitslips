@@ -40,7 +40,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
-gem 'faker'
+# gem 'faker'
 
 gem 'ffaker'
 
