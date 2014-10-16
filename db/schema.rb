@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20141016155707) do
   create_table "quizzes", force: true do |t|
     t.string   "name"
     t.integer  "section_id"
+    t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
