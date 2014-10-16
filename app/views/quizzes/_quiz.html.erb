@@ -1,0 +1,13 @@
+<%= form_for @quiz, url: section_quizzes_path(@section_id, @quiz) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br/>
+  <%= f.label :instructions %>
+  <%= f.text_area :instructions %><br/>
+
+  <%= f.fields_for :questions do |builder| %>
+    <%= render 'question_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Question", f, :questions %>
+
+  <%= f.submit %>
+<% end %>
