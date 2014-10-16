@@ -20,11 +20,11 @@ Alternatively,
 3. Run
 
   ```` 
-bundle
+$ bundle
 
-rake db:reset
+$ rake db:reset
   
-rails s 
+$ rails s 
 ````
   
 4. Open your localhost and start creating exit slips. 
