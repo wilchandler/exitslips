@@ -90,10 +90,18 @@ button:active, input[type=submit]:active {
 }
 
 #error_explanation ul {
-  color: #ED1C2D;
+  color: white;
   list-style: none;
-  background-color: #332F3E;
+  background-color: #FF832C;
   border-radius: 10px;
+}
+
+.notice {
+  color: white;
+  background-color: #FF832C;
+  border-radius: 10px;
+  list-style: none;
+	
 }
 
 input[type=submit] {

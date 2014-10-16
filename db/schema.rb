@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016014115) do
+ActiveRecord::Schema.define(version: 20141016155707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20141016014115) do
     t.string   "query"
     t.integer  "quiz_id"
     t.integer  "standard_id"
-    t.string   "type"
+    t.string   "topic"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20141016014115) do
   create_table "quizzes", force: true do |t|
     t.string   "name"
     t.integer  "section_id"
+    t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,7 +66,6 @@ ActiveRecord::Schema.define(version: 20141016014115) do
 
   create_table "sections", force: true do |t|
     t.integer  "teacher_id"
-    t.integer  "class_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20141016014115) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "user_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

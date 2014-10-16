@@ -3,6 +3,7 @@ class CreateQuizzes < ActiveRecord::Migration
     create_table :quizzes do |t|
       t.string :name
       t.integer :section_id
+      t.integer :student_id
 
       t.timestamps
     end
