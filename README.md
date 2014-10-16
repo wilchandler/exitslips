@@ -3,11 +3,11 @@
 
 Tagline for exit slips
 
-== Purpose
+## Purpose
 
 ExitSlips provides teachers with a simple way to collect data and act on it. Teachers add a class and students to that class, then create a quiz for that class. Students take the quiz and the results are immediately available for the teacher to view. ExitSlips also sorts students into groups based on the results of the quiz so the teacher can use them in the next day's instruction.
 
-=== Getting Started
+### Getting Started
 
 Visit our deployed app at:
 
@@ -23,7 +23,7 @@ Alternatively,
   ``` rails s ```
 4. Open your localhost and start creating exit slips. 
 
-== Technologies
+## Technologies
 
 * Ruby on Rails
 * Backbone.js
@@ -32,7 +32,7 @@ Alternatively,
 * Heroku
 * CI Testing: 
 
-== Contributors
+## Contributors
 
 | Name          |   Github                                   |   LinkedIn                                  |
 | :-----------: | :----------------------------------------: | :-----------------------------------------: |
