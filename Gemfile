@@ -40,11 +40,17 @@ gem 'spring',        group: :development
 
 
 # gem 'faker'
+gem 'devise'
 
 gem 'ffaker'
 
+gem 'devise'
+
+
+
 
 group :development, :test do
+	gem "factory_girl_rails", "~> 4.0"
   gem 'rspec-rails', '~> 2.14.1'
   
   gem 'capybara', '~> 2.2.1'
