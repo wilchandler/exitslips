@@ -21,33 +21,23 @@ end
   Section.create!(teacher_id: 27, name: Faker::Education.major )
 end
 
-students = User.all
-students.each do |s|
-  Enrollment.create!(student_id: s.id, section_id: 1 )
-end
-students.each do |s|
-  Enrollment.create!(student_id: s.id, section_id: 2 )
-end
-students.each do |s|
-  Enrollment.create!(student_id: s.id, section_id: 3 )
-end
-students.each do |s|
-  Enrollment.create!(student_id: s.id, section_id: 4 )
-end
-students.each do |s|
-  Enrollment.create!(student_id: s.id, section_id: 5 )
-end
-
-
-
 students = Student.all
 students.each do |s|
   Enrollment.create!(student_id: s.id, section_id: 1 )
+end
+students.each do |s|
   Enrollment.create!(student_id: s.id, section_id: 2 )
+end
+students.each do |s|
   Enrollment.create!(student_id: s.id, section_id: 3 )
+end
+students.each do |s|
   Enrollment.create!(student_id: s.id, section_id: 4 )
+end
+students.each do |s|
   Enrollment.create!(student_id: s.id, section_id: 5 )
 end
+
 
 sections = Section.all
 sections.each do |s|
