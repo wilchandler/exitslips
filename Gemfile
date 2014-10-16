@@ -52,7 +52,7 @@ gem 'devise'
 group :development, :test do
 	gem "factory_girl_rails", "~> 4.0"
   gem 'rspec-rails', '~> 2.14.1'
-  gem 'debugger'
+  
   gem 'capybara', '~> 2.2.1'
   gem 'database_cleaner', '~> 1.2.0'
   gem 'devise'
