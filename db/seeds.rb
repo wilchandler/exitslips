@@ -9,11 +9,6 @@
   Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
 end
 
-students = User.all
-students.each do |s|
-  Enrollment.create!(student_id: s, section_id: rand(1..5) )
-end
-
 Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
 Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
 
@@ -25,10 +20,19 @@ end
   Section.create!(teacher_id: 27, name: Faker::Address.city )
 end
 
+students = Student.all
+students.each do |s|
+  Enrollment.create!(student_id: s.id, section_id: 1 )
+  Enrollment.create!(student_id: s.id, section_id: 2 )
+  Enrollment.create!(student_id: s.id, section_id: 3 )
+  Enrollment.create!(student_id: s.id, section_id: 4 )
+  Enrollment.create!(student_id: s.id, section_id: 5 )
+end
+
 sections = Section.all
 sections.each do |s|
-  SectionTeacher.create!(section_id: s, teacher_id: 26 )
-  SectionTeacher.create!(section_id: s, teacher_id: 27 )
+  SectionTeacher.create!(section_id: s.id, teacher_id: 26 )
+  SectionTeacher.create!(section_id: s.id, teacher_id: 27 )
 end
 
 
@@ -38,7 +42,11 @@ end
 
   Quiz.create!(name: "Numbers & Operations in Base Ten", section_id: 1)
 
-  Question.create!(query: "Is 153 greater, less than, or equal to 84?", quiz_id: 1, standard_id: 2, topic: "Place value understanding for multi-digit whole numbers")
+standards = Standard.all
+standards.each do |s|
+  Question.create!(query: "Is 153 greater, less than, or equal to 84?", quiz_id: 1, standard_id: s.id, topic: "Place value understanding for multi-digit whole numbers")
+end
+
 
   Option.create!(content: "greather than", question_id: 1, correct?: true )
   Option.create!(content: "less than", question_id: 1, correct?: false )
@@ -46,7 +54,9 @@ end
 
 student = Student.all
 student.each do |s|
-  Answer.create!(question_id: 1, student_id: s, content: ["greater","less than"].sample)
+  Answer.create!(question_id: 1, student_id: s.id, content: ["greater","less than"].sample)
+  Answer.create!(question_id: 2, student_id: s.id, content: ["greater","less than"].sample)
+  Answer.create!(question_id: 3, student_id: s.id, content: ["greater","less than"].sample)
 end
 
 
