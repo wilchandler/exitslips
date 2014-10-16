@@ -18,6 +18,7 @@ Alternatively,
 1. Clone our respository
 2. Clone your fork
 3. Run
+
   ``` bundle ```
 
   ``` rake db:reset ```
