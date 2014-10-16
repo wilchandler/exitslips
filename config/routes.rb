@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     resources :students
   end
 
+  resources :quizzes do
+    resources :answers, only: [:show, :edit, :update]
+  end
+
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
