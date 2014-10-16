@@ -39,8 +39,6 @@ students.each do |s|
 end
 
 
-
-
 sections = Section.all
 sections.each do |s|
   SectionTeacher.create!(section_id: s.id, teacher_id: 26 )

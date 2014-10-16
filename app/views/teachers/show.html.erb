@@ -1,1 +1,14 @@
-<h1> Welcome, <%= current_user.full_name %>!</h1>
+<h1> Welcome, <%= @teacher.full_name %>!</h1>
+
+<div id="sidebar">
+<h3> Sections </h3>	
+<ul>
+<% @sections.each do |section| %>
+<li><%= link_to section.name, section_path(section) %></li>
+<% end %>
+ </ul>
+</div>
+
+<div id="main">
+<h3> Mastery </h3>
+</div>
