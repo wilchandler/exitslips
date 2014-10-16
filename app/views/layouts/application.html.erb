@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Exitslips</title>
+  <title>ExitSlips</title>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<header>
-    <div id="header_text"><%= link_to 'Exit Slips', root_path %></div>
+    <div id="header_text"><%= link_to 'ExitSlips', root_path %></div>
     <nav>
       <% if user_signed_in? %>
       <button>
