@@ -9,6 +9,7 @@ class SectionsController < ApplicationController
 	end
 
 	def new
+		
 		@section = Section.new
 		render :layout =>false
 	end
@@ -24,6 +25,7 @@ class SectionsController < ApplicationController
 	end
 
 	def edit
+
 		@section = Section.find(params[:id])
 	end
 

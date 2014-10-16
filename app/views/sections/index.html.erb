@@ -4,11 +4,11 @@
 <%if @sections.length !=0 %>
 	<table>
 	  <tr>
-	    <th>Name</th>
+	    
 	    <th colspan="2"></th>
 	  </tr>
  
-	<% @sections.each do |section| %>
+	<% @sections.reverse.each do |section| %>
 	  <tr>
 	    <td><%= link_to section.name, section_path(section) %><td>
 	    
