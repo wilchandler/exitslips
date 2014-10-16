@@ -1,5 +1,5 @@
 
-= ExitSlips
+# ExitSlips
 
 Tagline for exit slips
 
@@ -18,7 +18,7 @@ Alternatively,
 1. Clone our respository
 2. Clone your fork
 3. Run
-  ```bundle```
+  ``` bundle ```
   ``` rake db:reset ```
   ``` rails s ```
 4. Open your localhost and start creating exit slips. 
