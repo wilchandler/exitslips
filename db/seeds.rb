@@ -9,16 +9,36 @@
   Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
 end
 
+
 Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
 Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
 
 3.times do
-  Section.create!(teacher_id: 26, name: Faker::Address.city )
+  Section.create!(teacher_id: 26, name: "Math" )
 end
 
 2.times do
-  Section.create!(teacher_id: 27, name: Faker::Address.city )
+  Section.create!(teacher_id: 27, name: Faker::Education.major )
 end
+
+students = User.all
+students.each do |s|
+  Enrollment.create!(student_id: s.id, section_id: 1 )
+end
+students.each do |s|
+  Enrollment.create!(student_id: s.id, section_id: 2 )
+end
+students.each do |s|
+  Enrollment.create!(student_id: s.id, section_id: 3 )
+end
+students.each do |s|
+  Enrollment.create!(student_id: s.id, section_id: 4 )
+end
+students.each do |s|
+  Enrollment.create!(student_id: s.id, section_id: 5 )
+end
+
+
 
 students = Student.all
 students.each do |s|
@@ -57,6 +77,7 @@ student.each do |s|
   Answer.create!(question_id: 1, student_id: s.id, content: ["greater","less than"].sample)
   Answer.create!(question_id: 2, student_id: s.id, content: ["greater","less than"].sample)
   Answer.create!(question_id: 3, student_id: s.id, content: ["greater","less than"].sample)
+
 end
 
 

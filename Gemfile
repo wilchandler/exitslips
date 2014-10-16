@@ -39,7 +39,9 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 
-gem 'faker'
+# gem 'faker'
+
+gem 'ffaker'
 
 
 group :development, :test do
