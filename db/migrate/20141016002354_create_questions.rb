@@ -4,7 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.string :query
       t.integer :quiz_id
       t.integer :standard_id
-      t.string :type
+      t.string :topic
 
       t.timestamps
     end
