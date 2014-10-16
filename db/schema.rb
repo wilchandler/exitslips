@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20141016014115) do
 
   create_table "sections", force: true do |t|
     t.integer  "teacher_id"
-    t.integer  "class_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
