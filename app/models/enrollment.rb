@@ -1,4 +1,4 @@
 class Enrollment < ActiveRecord::Base
-	belongs_to :student, class_name: "User"
-	belongs_to :section 
+	belongs_to :student
+	belongs_to :section
 end

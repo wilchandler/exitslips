@@ -36,10 +36,15 @@ gem 'spring',        group: :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'devise'
+
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails', '~> 2.14.1'
   gem 'debugger'
-  gem 'capybara'
+  gem 'capybara', '~> 2.2.1'
+  gem 'database_cleaner', '~> 1.2.0'
   gem 'devise'
+  gem 'launchy'
+  gem 'shoulda-matchers'#, require: false
 end
 
