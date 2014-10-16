@@ -4,7 +4,7 @@
 <h3> Sections </h3>	
 <ul>
 <% @sections.each do |section| %>
-<li><a href=""><%= section.name %></a></li>
+<li><%= link_to section.name, section_path(section) %></li>
 <% end %>
  </ul>
 </div>

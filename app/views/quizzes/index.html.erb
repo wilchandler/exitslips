@@ -1,1 +1,11 @@
-index.html.erb
+<h1> Welcome, <%= current_user.full_name %>! </h1>
+
+<h3> Quizzes </h3>
+<% current_user.section.each do |section|%>
+<h5><%= section.name %> </h5>
+<%	section.quizzes.each do |quiz| %>
+<div class="quiz">
+	<%= link_to quiz.name, quiz_path(quiz) %> 
+</div>
+<% end %>
+<% end %>

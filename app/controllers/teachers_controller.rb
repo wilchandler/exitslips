@@ -1,13 +1,13 @@
 class TeachersController < ApplicationController
   
   def index
-    @teacher = current_user
-    @sections = current_user.sections
-    @quizzes = current_user.quizzes
+    
   end
 
   def show
-
+    @teacher = current_user
+    @sections = current_user.sections
+    @quizzes = current_user.quizzes
   end 
 
   def new
