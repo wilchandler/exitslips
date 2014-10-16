@@ -3,9 +3,9 @@
 <h3> Quizzes </h3>
 <% current_user.sections.each do |section|%>
 <h5><%= section.name %> </h5>
-<%	section.quizzes.each do |quiz| %>
+<%	current_user.quizzes.each do |quiz| %>
 <div class="quiz">
-	<%= link_to quiz.name, quiz_path(quiz) %> 
+	<%= link_to quiz.name, quiz_path(quiz) %>
 </div>
 <% end %>
 <% end %>
