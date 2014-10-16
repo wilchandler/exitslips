@@ -20,6 +20,7 @@ body {
 
 header {
   display: block;
+  line-height: 6em;
   top: 0;
   width: 100%;
   background: rgba(0,168,198,1.0);;
