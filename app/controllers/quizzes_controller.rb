@@ -1,14 +1,16 @@
 class QuizzesController < ApplicationController
 
+
 	def index
 	end
 
 	def show
-		@quiz = quiz.find_by(params[:id])
+		@quiz = Quiz.find_by(id: params[:id])
 	end
 
 	def new
-		@section_id = 1 #FIX ME
+		@section = Section.find_by(id: params[:section_id])
+		# @section_id = 1 #FIX ME
 		@quiz = Quiz.new
 		@questions = @quiz.questions
 	end
@@ -18,15 +20,17 @@ class QuizzesController < ApplicationController
 		@quiz.section_id = params[:section_id]
 		@quiz.save
 		#pass off options
-		raise params.inspect
-		Option.process_options({ quiz_id: @quiz.id, questions: params[:quiz][:questions_attributes] })
+		# Question.process_quiz_form({ quiz_id: @quiz.id, questions: params[:quiz][:questions_attributes] })
 		redirect_to section_quiz_path(params[:section_id], @quiz)
 	end
 
 	def edit
+		@quiz = Quiz.find_by(id: params[:id])
+		@section = Section.find_by(id: params[:section_id])
 	end
 
 	def update
+		raise params.inspect
 	end
 
 	def delete

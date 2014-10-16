@@ -6,5 +6,5 @@
   <%= f.fields_for :options do |builder| %>
     <%= render 'option_fields', f: builder %>
   <% end %>
-  <%= link_to_add_fields "Add Answer", f, :answers %>
+  <%= link_to_add_fields "Add Answer", f, :options %>
 </fieldset>
