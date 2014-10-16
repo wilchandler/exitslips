@@ -1,28 +1,42 @@
-== README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+= ExitSlips
 
-Things you may want to cover:
+Tagline for exit slips
 
-* Ruby version
+== Purpose
 
-* System dependencies
+ExitSlips provides teachers with a simple way to collect data and act on it. Teachers add a class and students to that class, then create a quiz for that class. Students take the quiz and the results are immediately available for the teacher to view. ExitSlips also sorts students into groups based on the results of the quiz so the teacher can use them in the next day's instruction.
 
-* Configuration
+=== Getting Started
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Visit our deployed app at:
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+Alternatively, 
+
+1. Clone our respository
+2. Clone your fork
+3. Run
+  ```bundle```
+  ``` rake db:reset ```
+  ``` rails s ```
+4. Open your localhost and start creating exit slips. 
+
+== Technologies
+
+* Ruby on Rails
+* Backbone.js
+* PostgreSQL
+* RSpec, Capybara, Jasmine
+* Heroku
+* CI Testing: 
+
+== Contributors
+
+| Name          |   Github                                   |   LinkedIn                                  |
+| :-----------: | :----------------------------------------: | :-----------------------------------------: |
+| Wil Chandler | [TODO](https://github.com/graceekyim) | [TODO](https://www.linkedin.com/in/graceekyim) ||
+| Lovinder Pnag | [TODO](https://github.com/axhi) | [TODO](https://www.linkedin.com/in/joeysabani) ||
+| Neel Shah | [TODO](https://github.com/jochambo) | [TODO](https://www.linkedin.com/in/joeychamberlin) ||
+| Colin Shevlin | [TODO](https://github.com/robschwartz) | [TODO](https://www.linkedin.com/in/robschwartz10) ||
