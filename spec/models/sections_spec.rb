@@ -1,5 +1,5 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe Sections, :type => :model do
+RSpec.describe Section, :type => :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end
