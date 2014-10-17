@@ -5,7 +5,9 @@
 <h5><%= section.name %> </h5>
 <%	current_user.quizzes.each do |quiz| %>
 <div class="quiz">
-	<%= link_to quiz.name, quiz_path(quiz) %>
+  <ul>
+    <li><%= link_to "#{quiz.name}", quiz_path(quiz) %></li>
+  </ul>
 </div>
 <% end %>
 <% end %>

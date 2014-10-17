@@ -1,0 +1,10 @@
+<nav id="sidebar">
+      <h3> Sections </h3>
+      <ul>
+        <% @sections.each do |section| %>
+        <li><%= link_to section.name, section_path(section) %></li>
+        <% end %>
+      </ul>
+      <%= link_to "Create Section", new_section_path %>
+      <br clear="all">
+ </nav>

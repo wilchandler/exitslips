@@ -1,1 +1,5 @@
-new.html.erb
+<h1>New Quiz</h1>
+
+<%= form_for @quiz, url: section_quizzes_path(@section, @quiz) do |f| %>
+  <%= render 'quiz', f: f %>
+<% end %>

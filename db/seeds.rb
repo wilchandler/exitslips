@@ -5,75 +5,54 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-25.times do
-  Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
+
+
+load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
+
+
+teacher = Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
+
+section1 = Section.create!(name: "4th grade Math Section", teacher: teacher, subject: "Math", grade: "4")
+section2 = Section.create!(name: "4th grade ELA Section", teacher: teacher, subject: "ELA", grade: "4")
+
+standard1 = Standard.create!(subject: "Math", grade: "4", code: "B.A.4", description: "Do advanced math")
+standard2 = Standard.create!(subject: "Math", grade: "4", code: "B.A.5", description: "Do basic math")
+standard3 = Standard.create!(subject: "ELA", grade: "4", code: "E.A.5", description: "Learn empathy")
+
+s1quiz1 = Quiz.create!(name: "Advanced Math", instructions: "Do these, children!", standard: standard1, section_id: 1)
+q1 = Question.create!(quiz: s1quiz1, query: "What is 2 + 2?", question_type: "multiple_choice")
+Option.create!(question: q1, content: "4", correct?: true)
+Option.create!(question: q1, content: "22", correct?: false)
+q2 = Question.create!(quiz: s1quiz1, query: "What is the square root of 144?", question_type: "multiple_choice")
+Option.create!(question: q2, content: "14", correct?: false)
+Option.create!(question: q2, content: "12", correct?: true)
+
+s1quiz2 = Quiz.create!(name: "Beginner Math", instructions: "Don't mess it up, children!", standard: standard2, section_id: 1)
+q3 = Question.create!(quiz: s1quiz2, query: "What is 13.5 x 78.1?", question_type: "multiple_choice")
+Option.create!(question: q3, content: "1054.35", correct?: true)
+Option.create!(question: q3, content: "1044.35", correct?: false)
+
+s2quiz1 = Quiz.create!(name: "Advanced grammar", instructions: "Do these, children!", standard: standard3, section_id: 2)
+q4 = Question.create!(quiz: s2quiz1, query: "I want to tell Suzie her brother smells bad.  How do I refer to her brother possessively?", question_type: "multiple_choice")
+Option.create!(question: q4, content: "You're", correct?: false)
+Option.create!(question: q4, content: "Your", correct?: true)
+
+
+5.times do
+  s = Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
+  s.sections << section1
+  s.sections << section2
+
+
+  sitting1 = Sitting.create!(student: s, quiz: s1quiz1, possible: 2, correct: 1)
+  sitting2 = Sitting.create!(student: s, quiz: s1quiz2, possible: 1, correct: 1)
+  sitting3 = Sitting.create!(student: s, quiz: s2quiz1, possible: 1, correct: 1)
+
+  Answer.create!(question_id: q1, content: "4", correct?: true, student: s, sitting: sitting1)
+  Answer.create!(question_id: q2, content: "14", correct?: false, student: s, sitting: sitting1)
+  Answer.create!(question_id: q3, content: "1054.35", correct?: true, student: s, sitting: sitting2)
+  Answer.create!(question_id: q4, content: "Your", correct?: true, student: s, sitting: sitting3)
+
+  s.save
 end
-
-
-Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
-Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
-
-3.times do
-  Section.create!(teacher_id: 26, name: "Math" )
-end
-
-2.times do
-  Section.create!(teacher_id: 27, name: Faker::Education.major )
-end
-
-students = Student.all
-students.each do |s|
-  Enrollment.create!(student_id: s.id, section_id: 1 )
-end
-students.each do |s|
-  Enrollment.create!(student_id: s.id, section_id: 2 )
-end
-students.each do |s|
-  Enrollment.create!(student_id: s.id, section_id: 3 )
-end
-students.each do |s|
-  Enrollment.create!(student_id: s.id, section_id: 4 )
-end
-students.each do |s|
-  Enrollment.create!(student_id: s.id, section_id: 5 )
-end
-
-
-sections = Section.all
-sections.each do |s|
-  SectionTeacher.create!(section_id: s.id, teacher_id: 26 )
-  SectionTeacher.create!(section_id: s.id, teacher_id: 27 )
-end
-
-
-  Standard.create!(abbreviation: "CCSS.MATH.CONTENT.4.NBT.A.1", description: "Recognize that in a multi-digit whole number, a ditit in one place represents ten times what it represents in the place to its right.", section_id: 1)
-  Standard.create!(abbreviation: "CCSS.MATH.CONTENT.4.NBT.A.2", description: "Read and write multi-digit whole numbers using base-ten numerals, number names, and expanded form. Compare two multi-digit numbers based on the meanings of the digits in each place, using >,=, and < symbols ro record the results of comparisons", section_id: 1)
-  Standard.create!(abbreviation: "CCSS.MATH.CONTENT.4.NBT.A.3", description: "Use place value understanding to round multi-digit whole numbers to any place.", section_id: 1)
-
-students = Student.all
-students.each do |s|
-  Quiz.create!(name: "Numbers & Operations in Base Ten", section_id: 1, student_id: s.id)
-end
-standards = Standard.all
-standards.each do |s|
-  Question.create!(query: "Is 153 greater, less than, or equal to 84?", quiz_id: 1, standard_id: s.id, topic: "Place value understanding for multi-digit whole numbers")
-end
-
-
-  Option.create!(content: "greather than", question_id: 1, correct?: true )
-  Option.create!(content: "less than", question_id: 1, correct?: false )
-  Option.create!(content: "equal to", question_id: 1, correct?: false )
-
-student = Student.all
-student.each do |s|
-  Answer.create!(question_id: 1, student_id: s.id, content: ["greater","less than"].sample)
-  Answer.create!(question_id: 2, student_id: s.id, content: ["greater","less than"].sample)
-  Answer.create!(question_id: 3, student_id: s.id, content: ["greater","less than"].sample)
-
-end
-
-
-
-
-
 

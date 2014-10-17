@@ -1,4 +1,6 @@
 class Answer < ActiveRecord::Base
-	belongs_to :question
-	belongs_to :student, class_name: "User"
+  belongs_to :question
+  belongs_to :student
+  belongs_to :sitting
+
 end
