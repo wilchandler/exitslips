@@ -5,12 +5,13 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
-
-  resources :quizzes
+  resources :quizzes do
+    resources :sittings, only: [:create]
+  end
   resources :sections
   resources :users, except: [:index]
 
-  post "/quizzes/take" => "quizzes#take", as: "quiz_take"
+  post "/q/take" => "quizzes#take", as: "quiz_take"
 
   # resources :teachers
   # resources :students, except: [:index]

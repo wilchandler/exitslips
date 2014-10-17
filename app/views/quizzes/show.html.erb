@@ -1,17 +1,21 @@
 <h1><%= @quiz.name %></h1>
 <p><%= @quiz.instructions %></p>
 
+<% form_for @sitting, quiz_sittings_path do |f| %>
+  <% @quiz.questions.each do |question| %>
+    <div>
+      <p><%= question.query %></p>
+      <p><% question.options.each do |option| %>
+        <input type="hidden" name="<%=@sitting.quiz_id%>", value="@quiz.id">
+        <input type="radio" name="<%= question.id %>" value="<%= option.id %>"><%= option.content %><br>
+        <%= f.submit "Submit" %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
 
-<form action="/quizzes/take" method="post">
-    <% @quiz.questions.each do |q| %>
-      <h4><%= q.query %></h4>
-    <% q.options.each do |o| %>
-      <input type="radio" name="<%= q.id %>" value="<%= o.id%>"><%= o.content %>
 
-    <% end %>
-    <% end %>
-    <p><input type="submit" value="submit"></p>
 
-</form>
-
+<%= hidden_field_tag :stock_symbol, 'test' %>
 <!-- THIS LAYOUT IS ONLY FOR DEVELOPMENT!!! -->

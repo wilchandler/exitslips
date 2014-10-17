@@ -9,10 +9,7 @@ class QuizzesController < ApplicationController
 
 	def show
 		@quiz = Quiz.find_by(id: params[:id])
-	end
-
-	def take
-
+		@sitting = Sitting.create(quiz_id: @quiz.id, student_id: current_user.id)
 	end
 
 	def new
