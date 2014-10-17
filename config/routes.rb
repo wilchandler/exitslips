@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :teachers
 
   resources :sections do
+     get 'confirm', :to => "sections#confirm"
+     patch 'confirmed', :to => "sections#confirmed"
+     
     resources :quizzes
     resources :students
   end
@@ -20,7 +23,8 @@ Rails.application.routes.draw do
   resources :quizzes do
     resources :answers, only: [:show, :edit, :update]
   end
-
+  
+ 
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

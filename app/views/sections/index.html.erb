@@ -1,6 +1,6 @@
-<h1> Your Sections</h1>
+<h1>  Sections</h1>
 <div id = "sections">
-<%= link_to 'New Section', new_section_path %>
+<%= link_to 'Join A Section', new_section_path %>
 <%if @sections.length !=0 %>
 	<table>
 	  <tr>
@@ -12,10 +12,7 @@
 	  <tr>
 	    <td><%= link_to section.name, section_path(section) %><td>
 	    
-	    <td><%= link_to 'Edit', edit_section_path(section) %></td>
-	    <td><%= link_to 'Destroy', section_path(section),
-	                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	  </tr>
+	   
 	<% end %>
 
 	</table>

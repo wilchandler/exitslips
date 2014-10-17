@@ -1,18 +1,40 @@
 class SectionsController < ApplicationController
+	include SectionsHelper
 
 	def index
 		@sections = Section.all
+
 	end
 
 	def show
 		@section = Section.find(params[:id])
+		logged_in?
+		permission
+		
 	end
 
 	def new
-		
+     	student_leave
 		@section = Section.new
-		render :layout =>false
 	end
+		      
+    def confirm
+    	@section = Section.find(params[:section_id])
+    end
+
+    def confirmed
+    	@section = Section.find(params[:section_id])
+    	if params[:passcode] = @section.passcode
+    		Enrollment.create(section_id:@section.id,student_id:current_user.id)
+    		redirect_to section_path(@section)
+    	else
+    		redirect_to sections_path
+    	
+		end
+
+    end
+		    
+		
 
 	def create
 		
@@ -25,8 +47,8 @@ class SectionsController < ApplicationController
 	end
 
 	def edit
-
-		@section = Section.find(params[:id])
+		    leave
+		    @section = Section.find(params[:id])
 	end
 
 	def update
@@ -51,6 +73,6 @@ class SectionsController < ApplicationController
 	private
     def section_params
     	params.require(:section).permit(:name, :text)
-  end
+    end
 	
 end
