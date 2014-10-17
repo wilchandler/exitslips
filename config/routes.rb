@@ -10,14 +10,20 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :teachers
+  # resources :teachers
 
-  resources :sections do
-    resources :quizzes
-    resources :students
-  end
+  resources :quizzes
+  resources :sections
+  resources :users, except: [:index]
+  # resources :students, except: [:index]
 
-  get "/quizzes" => "quizzes#index", as: "quizzes"
+  # resources :sections do
+  #   resources :quizzes
+  #   resources :students
+  # end
+
+  # get "/quizzes" => "quizzes#index", as: "quizzes"
+
 
 
   # You can have the root of your site routed with "root"
