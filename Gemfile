@@ -38,16 +38,21 @@ gem 'spring',        group: :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise'
 
 # gem 'faker'
+gem 'devise'
 
 gem 'ffaker'
 
+gem 'devise'
+
+
+
 
 group :development, :test do
+	gem "factory_girl_rails", "~> 4.0"
   gem 'rspec-rails', '~> 2.14.1'
-  gem 'debugger'
+  
   gem 'capybara', '~> 2.2.1'
   gem 'database_cleaner', '~> 1.2.0'
   gem 'devise'

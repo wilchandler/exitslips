@@ -4,11 +4,12 @@
   <title>Exitslips</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<header>
-    <div id="header_text"><%= link_to 'Exit Slips', root_path %></div>
+    <div id="header_text"><%= link_to 'ExitSlips', root_path %></div>
     <nav>
       <% if user_signed_in? %>
       <button>
