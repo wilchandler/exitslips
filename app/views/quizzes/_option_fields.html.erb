@@ -1,0 +1,10 @@
+<fieldset>
+  <%= f.label :content, "Option" %>
+  <%= f.text_area :content %><br />
+  <%= f.check_box :correct? %>
+  <%= f.label :correct? %>
+
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", "#", class: "remove_fields" %>
+
+</fieldset>

@@ -1,0 +1,11 @@
+<fieldset>
+  <%= f.label :query, "Question" %>
+  <%= f.text_area :query %>
+
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "Delete question", "#", class: "remove_question", confirm: "Are you sure?" %>
+  <%= f.fields_for :options do |builder| %>
+    <%= render 'option_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Answer", f, :options %>
+</fieldset>
