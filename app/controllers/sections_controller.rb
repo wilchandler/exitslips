@@ -5,13 +5,13 @@ class SectionsController < ApplicationController
 
 		student_leave
 		@sections = Section.all
-
-
 		@teacher = current_user
-    @sections = current_user.sections
-    @quizzes = current_user.quizzes
-
+	    @sections = current_user.sections
+	    @quizzes = current_user.quizzes
 	end
+
+
+
 
 	def show
 		@section = Section.find(params[:id])
@@ -23,17 +23,17 @@ class SectionsController < ApplicationController
 
 	def new
      	student_leave
-
 		@teacher = current_user
-    @sections = current_user.sections
-    @quizzes = current_user.quizzes
+	    @sections = current_user.sections
+	    @quizzes = current_user.quizzes
 	end
+
 
 	def new
-
-
 		@section = Section.new
 	end
+
+
 		      
     def confirm
     	@section = Section.find(params[:section_id])
@@ -94,7 +94,7 @@ class SectionsController < ApplicationController
     end
 	
 
-  end
+  
 
 
 end
