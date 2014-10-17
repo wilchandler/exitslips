@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20141017160355) do
     t.integer "teacher_id"
     t.string  "subject"
     t.integer "grade"
+    t.string  "passcode"
   end
 
   create_table "sittings", force: true do |t|
