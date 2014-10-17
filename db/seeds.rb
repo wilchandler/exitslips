@@ -37,10 +37,12 @@ q4 = Question.create!(quiz: s2quiz1, query: "I want to tell Suzie her brother sm
 Option.create!(question: q4, content: "You're", correct?: false)
 Option.create!(question: q4, content: "Your", correct?: true)
 
+
 5.times do
   s = Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
   s.sections << section1
   s.sections << section2
+
 
   sitting1 = Sitting.create!(student: s, quiz: s1quiz1, possible: 2, correct: 1)
   sitting2 = Sitting.create!(student: s, quiz: s1quiz2, possible: 1, correct: 1)
