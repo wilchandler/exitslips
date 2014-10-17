@@ -2,13 +2,20 @@ class SectionsController < ApplicationController
 	include SectionsHelper
 
 	def index
+
 		student_leave
 		@sections = Section.all
+
+
+		@teacher = current_user
+    @sections = current_user.sections
+    @quizzes = current_user.quizzes
 
 	end
 
 	def show
 		@section = Section.find(params[:id])
+
 		logged_in?
 		permission
 		
@@ -16,6 +23,15 @@ class SectionsController < ApplicationController
 
 	def new
      	student_leave
+
+		@teacher = current_user
+    @sections = current_user.sections
+    @quizzes = current_user.quizzes
+	end
+
+	def new
+
+
 		@section = Section.new
 	end
 		      
@@ -38,9 +54,9 @@ class SectionsController < ApplicationController
 		
 
 	def create
-		
+
 		@section = Section.new(section_params)
-		if @section.save! 
+		if @section.save!
 			redirect_to sections_path
 
 		end
@@ -74,6 +90,11 @@ class SectionsController < ApplicationController
 	private
     def section_params
     	params.require(:section).permit(:name, :text)
+
     end
 	
+
+  end
+
+
 end
