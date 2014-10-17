@@ -1,0 +1,47 @@
+/*#sidebar {
+    background:grey;
+    min-width: 200px;
+    display: table-cell;
+}*/
+
+nav#sidebar {
+  position:fixed;
+  background-color: lightgray;
+  border-right: 2px solid black;
+  height: 100%;
+  width:150px;
+  top:11.5%;
+  left:0;
+}
+
+nav#sidebar ul {
+  margin-top:0;
+  list-style: none;
+  padding-left:0;
+}
+
+nav#sidebar li, h3 {
+  padding:5px;
+  border-bottom: 1px solid darkgray;
+}
+
+nav#sidebar a {
+  text-decoration: none;
+  color:black;
+}
+
+nav#sidebar a:hover {
+  color:white;
+}
+
+h1, h3 .content{
+  margin-left: 150px;
+  padding-left: 10px;
+      display: table;
+
+}
+
+.main {
+  margin-left: 150px;
+  padding-left: 10px;
+}

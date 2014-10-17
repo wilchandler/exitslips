@@ -56,7 +56,7 @@ students.each do |s|
 end
 standards = Standard.all
 standards.each do |s|
-  Question.create!(query: "Is 153 greater, less than, or equal to 84?", quiz_id: 1, standard_id: s.id, topic: "Place value understanding for multi-digit whole numbers")
+  Question.create!(query: "Is 153 greater, less than, or equal to 84?", quiz_id: 1, standard_id: s.id, question_type: "Place value understanding for multi-digit whole numbers")
 end
 
 
