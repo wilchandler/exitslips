@@ -6,11 +6,11 @@
 </p>
 
  <p>
-    <%= f.select_tag(:subject, options_for_select(Section.all.collect { |s| s.subject })) %>
+    <%= f.select :subject, Section.all.collect {|section| [ section.subject ] } %>
   </p>
 
  <p>
-    <%= f.select_tag(:grade, options_for_select(Section.all.collect { |s| s.grade })) %>
+     <%= f.select :grade, Section.all.collect {|section| [ section.grade ] } %>
  </p>
  
 

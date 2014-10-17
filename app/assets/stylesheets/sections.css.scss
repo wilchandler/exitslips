@@ -1,3 +1,14 @@
 // Place all the styles related to the Sections controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+button, input[type=submit] {
+  outline: none;
+  width: 100px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #8FBE00;
+  border-radius: 10px;
+  border: 1px solid #80C8B5;
+}
