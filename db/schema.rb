@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20141017160355) do
     t.string  "name"
     t.integer "teacher_id"
     t.string  "subject"
-    t.integer "grade"
+    t.string  "grade"
     t.string  "passcode"
   end
 

@@ -4,7 +4,7 @@ class CreateSections < ActiveRecord::Migration
       t.string :name
       t.integer :teacher_id
       t.string :subject
-      t.integer :grade
+      t.string :grade
       t.string :passcode
     end
   end
