@@ -3,8 +3,8 @@ class SectionsController < ApplicationController
 
 	def index
 
-		# student_leave
-		# @sections = Section.all
+		student_leave
+		@sections = Section.all
 		@teacher = current_user
 	   @sections = current_user.sections
 	   @quizzes = current_user.quizzes
@@ -14,27 +14,20 @@ class SectionsController < ApplicationController
 
 
 	def show
-		@section = Section.find(params[:id])
 		logged_in?
 		student_leave
+		@section = Section.find(params[:id])
+		
 
 
 	end
 
 
 
-	def new
-     	student_leave
-		@teacher = current_user
-	    @sections = current_user.sections
-	    @quizzes = current_user.quizzes
-	end
 
 
-	def new
-		@section = Section.new
-	end
 
+	
 
 
     def confirm
@@ -53,12 +46,23 @@ class SectionsController < ApplicationController
 
     end
 
+    def new
+    	logged_in?
+     	student_leave
+     	@section = Section.new
+		@teacher = current_user
+	    @sections = current_user.sections
+	    @quizzes = current_user.quizzes
+	 
+	end
+
 
 
 	def create
 		@section = Section.new(section_params)
+		@section.teacher_id = current_user.id
 		if @section.save!
-			redirect_to sections_path
+			redirect_to '/'
 		end
 	end
 
@@ -66,7 +70,8 @@ class SectionsController < ApplicationController
 
 
 	def edit
-	    leave
+	    logged_in?
+	    student_leave
 	    @section = Section.find(params[:id])
 	end
 
@@ -91,7 +96,7 @@ class SectionsController < ApplicationController
 
 	private
     def section_params
-    	params.require(:section).permit(:name, :text)
+    	params.require(:section).permit(:name,:subject,:grade)
 
     end
 end
