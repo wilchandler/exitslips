@@ -23,8 +23,13 @@ feature "Student_show" do
 
   context "Welcome page for Teacher" do
     it "should display name of teacher logged in" do
-      save_and_open_page
       expect(page).to have_content("Welcome, liberty valance")
+    end
+    it "should display Sections of the teacher" do
+      expect(page).to have_content("Math")
+    end
+    it "should put Sections before Mastery on page" do
+      ("Sections").should appear_before("Mastery")
     end
   end
 end
