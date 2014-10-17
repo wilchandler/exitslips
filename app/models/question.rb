@@ -6,19 +6,34 @@ class Question < ActiveRecord::Base
 
   accepts_nested_attributes_for :options, allow_destroy: true
 
-  def self.process_quiz_form(args = {})
-    quiz = Quiz.find_by(id: args[:quiz_id])
-    questions = args[:questions]
-    questions.each_value do |q|
-      new_question = Question.create(
-        query: q["query"],
-        quiz_id: quiz.id
-        # standard_id
-        # type
+  def self.process_quiz_form(quiz_id, question_info)
+    question = Question.find_by(id: question_info[:id]) || Question.new
+    if question_info[:_destroy] == "1" || question_info[:query].strip.empty?
+      question.options { |option| option.destroy }
+      question.destroy
+    else
+      question.update_attributes(
+        quiz_id: quiz_id,
+        query: question_info[:query].strip,
+        # standard_id: question_info[:standard_id],
+        # topic: question_info[:topic]
       )
-      options = Option.process_quiz_form
-      raise options.inspect
+      options = question_info[:options_attributes].values
+      options.each do |option_data|
+        Option.process_quiz_form(question.id, option_data)
+      end
     end
   end
-
 end
+
+
+
+# Quiz controller
+#   pass to...
+# Quiz model
+#   pass questions to...
+# Question model
+#   update question
+#   pass options to...
+# Option model
+#   update options
