@@ -1,0 +1,8 @@
+<h1>Edit <%= @quiz.name %></h1>
+
+<%= form_for @quiz, url: section_quiz_path(@section, @quiz) do |f| %>
+  <%= render 'quiz', f: f %>
+<% end %>
+
+
+

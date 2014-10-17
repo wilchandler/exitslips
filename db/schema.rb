@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20141016155707) do
     t.string   "name"
     t.integer  "section_id"
     t.integer  "student_id"
+    t.text     "instructions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
