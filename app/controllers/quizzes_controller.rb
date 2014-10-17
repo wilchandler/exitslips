@@ -1,7 +1,10 @@
 class QuizzesController < ApplicationController
-   
+
 
 	def index
+	end
+
+	def teacher_index
 	end
 
 	def show
