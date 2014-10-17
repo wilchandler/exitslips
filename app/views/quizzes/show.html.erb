@@ -1,1 +1,19 @@
-show.html.erb
+<h1><%= @quiz.name %></h1>
+<p><%= @quiz.instructions %></p>
+
+<ol>
+  <% @quiz.questions.each do |q| %>
+    <li>
+      <%= q.query %>
+      <ul>
+        <% q.options.each do |o| %>
+          <li><%= o.content %></li>
+        <% end %>
+      </ul>
+    </li>
+
+  <% end %>
+</ol>
+
+
+<!-- THIS LAYOUT IS ONLY FOR DEVELOPMENT!!! -->
