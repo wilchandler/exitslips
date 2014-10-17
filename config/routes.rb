@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :students
   end
 
+  get "/quizzes" => "quizzes#index", as: "quizzes"
+
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
