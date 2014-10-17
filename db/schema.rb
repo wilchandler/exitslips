@@ -49,13 +49,13 @@ ActiveRecord::Schema.define(version: 20141017160355) do
   end
 
   create_table "sections", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "teacher_id"
-    t.string   "subject"
-    t.integer  "grade"
-    t.string   "passcode"
+
+    t.string  "name"
+    t.integer "teacher_id"
+    t.string  "subject"
+    t.string  "grade"
+    t.string  "passcode"
+
   end
 
   create_table "sittings", force: true do |t|
