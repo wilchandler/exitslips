@@ -1,5 +1,5 @@
 class Option < ActiveRecord::Base
-	belongs_to :question
+  belongs_to :question
 
   def self.process_quiz_form(question_id, option_info)
     option = Option.find_by(id: option_info[:id]) || Option.new

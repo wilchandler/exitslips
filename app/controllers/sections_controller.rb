@@ -15,11 +15,11 @@ class SectionsController < ApplicationController
 
 	def show
 		@section = Section.find(params[:id])
-
 		logged_in?
 		permission
-		
 	end
+
+		
 
 	def new
      	student_leave
@@ -54,18 +54,18 @@ class SectionsController < ApplicationController
 		
 
 	def create
-
 		@section = Section.new(section_params)
 		if @section.save!
 			redirect_to sections_path
-
 		end
-
 	end
 
+
+
+
 	def edit
-		    leave
-		    @section = Section.find(params[:id])
+	    leave
+	    @section = Section.find(params[:id])
 	end
 
 	def update
@@ -92,9 +92,9 @@ class SectionsController < ApplicationController
     	params.require(:section).permit(:name, :text)
 
     end
+end
 	
 
   
 
 
-end

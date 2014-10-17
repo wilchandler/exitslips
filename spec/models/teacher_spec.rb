@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe Teacher, :type => :model do
-  it { should have_many :section_teachers }
   it { should have_many :sections }
   it { should have_many :quizzes }
   it { should validate_presence_of :password }

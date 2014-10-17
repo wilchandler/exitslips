@@ -1,8 +1,7 @@
 class Question < ActiveRecord::Base
-	belongs_to :quiz
-	belongs_to :standard
-	has_many :options
-	has_many :answers
+  belongs_to :quiz
+  has_many :answers
+  has_many :options
 
   accepts_nested_attributes_for :options, allow_destroy: true
 
@@ -25,15 +24,3 @@ class Question < ActiveRecord::Base
     end
   end
 end
-
-
-
-# Quiz controller
-#   pass to...
-# Quiz model
-#   pass questions to...
-# Question model
-#   update question
-#   pass options to...
-# Option model
-#   update options

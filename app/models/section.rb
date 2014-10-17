@@ -1,8 +1,9 @@
 class Section < ActiveRecord::Base
-	has_many :section_teachers
-	has_many :teachers, through: :section_teachers
-	has_many :standards
-	has_many :quizzes
-  has_many :enrollments
-  has_many :students, through: :enrollments
+ has_many :enrollments
+ has_many :students, through: :enrollments
+ belongs_to :teacher
+ has_many :quizzes
+ has_many :sittings, through: :quizzes
+ has_many :standards, through: :quizzes
+
 end
