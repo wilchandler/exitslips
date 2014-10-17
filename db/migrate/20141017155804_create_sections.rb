@@ -5,6 +5,7 @@ class CreateSections < ActiveRecord::Migration
       t.integer :teacher_id
       t.string :subject
       t.integer :grade
+      t.string :passcode
     end
   end
 end
