@@ -3,7 +3,7 @@
 <h3> Quizzes </h3>
 <% current_user.sections.each do |section|%>
 <h5><%= section.name %> </h5>
-<%	current_user.quizzes.each do |quiz| %>
+<% current_user.quizzes.each do |quiz| %>
 <div class="quiz">
   <ul>
     <li><%= link_to "#{quiz.name}", section_quiz_path(section, quiz) %></li>

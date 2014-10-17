@@ -4,6 +4,9 @@ class QuizzesController < ApplicationController
 	def index
 	end
 
+	def index_teacher
+	end
+
 	def show
 		@quiz = Quiz.find_by(id: params[:id])
 	end

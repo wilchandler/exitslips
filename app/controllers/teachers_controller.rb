@@ -4,7 +4,6 @@ class TeachersController < ApplicationController
     @teacher = current_user
     @sections = current_user.sections
     @quizzes = current_user.quizzes
-
   end
 
   def show
