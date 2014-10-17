@@ -1,10 +1,10 @@
 class CreateSections < ActiveRecord::Migration
   def change
     create_table :sections do |t|
-      t.integer :teacher_id
       t.string :name
-
-      t.timestamps
+      t.integer :teacher_id
+      t.string :subject
+      t.integer :grade
     end
   end
 end

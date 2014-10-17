@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe Question, :type => :model do
+RSpec.describe Sitting, :type => :model do
+  it { should belong_to :student }
   it { should belong_to :quiz }
   it { should have_many :answers }
-  it { should have_many :options }
 end
