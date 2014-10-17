@@ -11,6 +11,10 @@ class QuizzesController < ApplicationController
 		@quiz = Quiz.find_by(id: params[:id])
 	end
 
+	def take
+
+	end
+
 	def new
 		@section = Section.find_by(id: params[:section_id])
 		@quiz = Quiz.new
@@ -41,6 +45,7 @@ class QuizzesController < ApplicationController
 
 	def delete
 	end
+
 
 		private
 

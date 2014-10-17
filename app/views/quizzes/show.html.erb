@@ -2,17 +2,16 @@
 <p><%= @quiz.instructions %></p>
 
 
+<form action="/quizzes/take" method="post">
+    <% @quiz.questions.each do |q| %>
+      <h4><%= q.query %></h4>
+    <% q.options.each do |o| %>
+      <input type="radio" name="<%= q.id %>" value="<%= o.id%>"><%= o.content %>
 
-  <% @quiz.questions.each do |q| %>
-    <h4><%= q.query %></h4>
-  <% q.options.each do |o| %>
-    <input type="radio" name="<%= q.id %>" value="<%= o.id%>"><%= o.content %>
+    <% end %>
+    <% end %>
+    <p><input type="submit" value="submit"></p>
 
-
-
-  <% end %>
-  <% end %>
-
-
+</form>
 
 <!-- THIS LAYOUT IS ONLY FOR DEVELOPMENT!!! -->
