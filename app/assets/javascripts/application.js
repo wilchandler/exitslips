@@ -12,5 +12,39 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-2.1.1.js
+//= require jquery-ui.js
+//= require jquery.ui.touch-punch.js
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+
+
+
+	$('.sortable').draggable({revert: "invalid"})
+
+
+	$('#correct').droppable({
+		activeClass: "ui-state-default",
+		hoverClass: "ui-state-hover",
+		drop: function(event, ui) {
+			ui.draggable.remove();
+		}
+	})
+
+
+	$('#incorrect').droppable({
+		activeClass: "ui-state-default",
+		hoverClass: "ui-state-hover",
+		drop: function(event, ui) {
+			ui.draggable.remove();
+		}
+	})
+
+
+});
+
+
+
+

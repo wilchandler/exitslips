@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get "sign_in", to: "sessions#new"
   end
 
+  get "sections/:section_id/quizzes/:id/sort_results", to: "quizzes#sort_results"
 
   root to: 'home#index'
 
