@@ -31,6 +31,7 @@ feature "Student_show" do
     it "should put Sections before Mastery on page" do
       ("Sections").should appear_before("Mastery")
     end
+
   end
 end
 
