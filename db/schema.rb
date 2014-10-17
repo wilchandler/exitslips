@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016155707) do
+ActiveRecord::Schema.define(version: 20141017005309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20141016155707) do
     t.string   "query"
     t.integer  "quiz_id"
     t.integer  "standard_id"
-    t.string   "topic"
+    t.string   "question_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20141016155707) do
     t.string   "name"
     t.integer  "section_id"
     t.integer  "student_id"
+    t.text     "instructions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 20141016155707) do
 
   create_table "sections", force: true do |t|
     t.integer  "teacher_id"
+    t.integer  "class_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
