@@ -5,9 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-# 25.times do
-#   Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
-# end
+
+
+load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
+
 
 teacher = Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
 
@@ -54,3 +55,4 @@ Option.create!(question: q4, content: "Your", correct?: true)
 
   s.save
 end
+

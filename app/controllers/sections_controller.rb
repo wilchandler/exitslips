@@ -3,11 +3,11 @@ class SectionsController < ApplicationController
 
 	def index
 
-		student_leave
-		@sections = Section.all
+		# student_leave
+		# @sections = Section.all
 		@teacher = current_user
-	    @sections = current_user.sections
-	    @quizzes = current_user.quizzes
+	   @sections = current_user.sections
+	   @quizzes = current_user.quizzes
 	end
 
 
@@ -17,11 +17,11 @@ class SectionsController < ApplicationController
 		@section = Section.find(params[:id])
 		logged_in?
 		student_leave
-		
-		
+
+
 	end
 
-		
+
 
 	def new
   #    	student_leave
@@ -37,24 +37,24 @@ class SectionsController < ApplicationController
 	end
 
 
-		      
+
     def confirm
     	@section = Section.find(params[:section_id])
     end
 
     def confirmed
     	@section = Section.find(params[:section_id])
-    	if params[:passcode] = @section.passcode || 
+    	if params[:passcode] = @section.passcode ||
     		Enrollment.create(section_id:@section.id,student_id:current_user.id)
     		redirect_to section_path(@section)
     	else
     		redirect_to sections_path
-    	
+
 		end
 
     end
-		    
-		
+
+
 
 	def create
 		@section = Section.new(section_params)
@@ -96,8 +96,8 @@ class SectionsController < ApplicationController
 
     end
 end
-	
 
-  
+
+
 
 
