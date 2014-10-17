@@ -4,6 +4,7 @@ class CreateQuizzes < ActiveRecord::Migration
       t.integer :standard_id
       t.string :name
       t.text :instructions
+      t.integer :section_id
     end
   end
 end
