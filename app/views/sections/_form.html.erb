@@ -1,10 +1,20 @@
 
 <p>
 <%= form_for @section do |f| %>
-  <%= f.label :name%><br>
-  <%=  f.text_field :name %>
+  <%= f.text_field :name,:placeholder => "name"%>
+  
 </p>
-  <p>
+
+ <p>
+    <%= f.select_tag(:subject, options_for_select(Section.all.collect { |s| s.subject })) %>
+  </p>
+
+ <p>
+    <%= f.select_tag(:grade, options_for_select(Section.all.collect { |s| s.grade })) %>
+ </p>
+ 
+
+	<p>
     <%= f.submit %>
   </p>
 <% end %>

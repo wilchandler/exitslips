@@ -24,10 +24,11 @@ class SectionsController < ApplicationController
 		
 
 	def new
-     	student_leave
-		@teacher = current_user
-	    @sections = current_user.sections
-	    @quizzes = current_user.quizzes
+  #    	student_leave
+		# @teacher = current_user
+	 #    @sections = current_user.sections
+	 #    @quizzes = current_user.quizzes
+	 @subjects = ["Math","ELA"]
 	end
 
 
@@ -58,7 +59,7 @@ class SectionsController < ApplicationController
 	def create
 		@section = Section.new(section_params)
 		if @section.save!
-			redirect_to sections_path
+			redirect_to '/'
 		end
 	end
 
@@ -91,7 +92,7 @@ class SectionsController < ApplicationController
 
 	private
     def section_params
-    	params.require(:section).permit(:name, :text)
+    	params.require(:section).permit(:name,:subject,:grade)
 
     end
 end
