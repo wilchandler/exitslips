@@ -11,73 +11,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017005309) do
+ActiveRecord::Schema.define(version: 20141017160355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: true do |t|
-    t.integer  "question_id"
-    t.integer  "student_id"
-    t.string   "content"
-    t.boolean  "correct?"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "question_id"
+    t.string  "content"
+    t.boolean "correct?"
+    t.integer "student_id"
+    t.integer "sitting_id"
   end
 
   create_table "enrollments", force: true do |t|
-    t.integer  "section_id"
-    t.integer  "student_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "section_id"
+    t.integer "student_id"
   end
 
   create_table "options", force: true do |t|
-    t.string   "content"
-    t.integer  "question_id"
-    t.boolean  "correct?"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "question_id"
+    t.string  "content"
+    t.boolean "correct?"
   end
 
   create_table "questions", force: true do |t|
-    t.string   "query"
-    t.integer  "quiz_id"
-    t.integer  "standard_id"
-    t.string   "question_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "quiz_id"
+    t.text    "query"
+    t.string  "question_type"
   end
 
   create_table "quizzes", force: true do |t|
-    t.string   "name"
-    t.integer  "section_id"
-    t.integer  "student_id"
-    t.text     "instructions"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "section_teachers", force: true do |t|
-    t.integer  "section_id"
-    t.integer  "teacher_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "standard_id"
+    t.string  "name"
+    t.text    "instructions"
+    t.integer "section_id"
   end
 
   create_table "sections", force: true do |t|
-    t.integer  "teacher_id"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "name"
+    t.integer "teacher_id"
+    t.string  "subject"
+    t.integer "grade"
+  end
+
+  create_table "sittings", force: true do |t|
+    t.integer "student_id"
+    t.integer "quiz_id"
+    t.integer "possible"
+    t.integer "correct"
   end
 
   create_table "standards", force: true do |t|
-    t.string   "abbreviation"
-    t.string   "description"
-    t.integer  "section_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "subject"
+    t.string "grade"
+    t.string "code"
+    t.text   "description"
   end
 
   create_table "users", force: true do |t|
@@ -96,7 +85,6 @@ ActiveRecord::Schema.define(version: 20141017005309) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "user_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
