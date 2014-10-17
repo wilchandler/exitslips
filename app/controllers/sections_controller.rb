@@ -1,8 +1,10 @@
 class SectionsController < ApplicationController
 	include SectionsHelper
 
+	before_action :authenticate_user!
+
 	def index
-		student_leave
+		# student_leave
 		@sections = Section.all
 		@teacher = current_user
 	  @sections = current_user.sections
@@ -30,8 +32,8 @@ class SectionsController < ApplicationController
   end
 
   def new
-		logged_in?
-	 	student_leave
+		# logged_in?
+	 # 	student_leave
 	 	@section = Section.new
 		@teacher = current_user
 	  @sections = current_user.sections
@@ -49,8 +51,8 @@ class SectionsController < ApplicationController
 
 
 	def edit
-	  logged_in?
-	  student_leave
+	  # logged_in?
+	  # student_leave
 	  @section = Section.find(params[:id])
 	end
 
