@@ -1,13 +1,7 @@
 
-    <nav id="sidebar">
-      <h3> Sections </h3>
-      <ul>
-        <% @sections.each do |section| %>
-        <li><%= link_to section.name, section_path(section) %></li>
-        <% end %>
-      </ul>
-      <br clear="all">
-    </nav>
+
+<%= render 'sections_sidebar' %>
+
   <div class="content">
     <h1> Welcome, <%= @teacher.full_name %>!</h1>
     <hr>
