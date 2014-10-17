@@ -2,6 +2,7 @@ class SectionsController < ApplicationController
 	include SectionsHelper
 
 	def index
+		student_leave
 		@sections = Section.all
 
 	end
@@ -24,7 +25,7 @@ class SectionsController < ApplicationController
 
     def confirmed
     	@section = Section.find(params[:section_id])
-    	if params[:passcode] = @section.passcode
+    	if params[:passcode] = @section.passcode || 
     		Enrollment.create(section_id:@section.id,student_id:current_user.id)
     		redirect_to section_path(@section)
     	else
