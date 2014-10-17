@@ -1,14 +1,19 @@
-<h1> Welcome, <%= @teacher.full_name %>!</h1>
 
-<div id="sidebar">
-<h3> Sections </h3>	
-<ul>
-<% @sections.each do |section| %>
-<li><%= link_to section.name, section_path(section) %></li>
-<% end %>
- </ul>
-</div>
-
-<div id="main">
-<h3> Mastery </h3>
-</div>
+    <nav id="sidebar">
+      <h3> Sections </h3>
+      <ul>
+        <% @sections.each do |section| %>
+        <li><%= link_to section.name, section_path(section) %></li>
+        <% end %>
+      </ul>
+      <br clear="all">
+    </nav>
+  <div class="content">
+    <h1> Welcome, <%= @teacher.full_name %>!</h1>
+    <hr>
+    <h1> All Sections</h1>
+    <hr>
+    <h1> Latest Quiz</h1>
+  </div>
+  <div id="main">
+  </div>
