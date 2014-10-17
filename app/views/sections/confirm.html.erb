@@ -1,0 +1,11 @@
+<h4>Enter code provided by your teacher</h4>
+<p>
+<%= form_for @section,url:section_confirmed_path(@section) do |f| %>
+  <%= f.label :passcode%><br>
+  <%=  f.text_field :passcode %>
+</p>
+  <p>
+
+    <%= f.submit %>
+  </p>
+<% end %>

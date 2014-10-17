@@ -6,6 +6,15 @@ class CreateSections < ActiveRecord::Migration
       t.string :subject
       t.string :grade
       t.string :passcode
+      t.timestamps
     end
   end
 end
+
+
+
+      
+
+    
+
+
