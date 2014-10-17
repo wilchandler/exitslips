@@ -19,7 +19,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
   <div><%= f.label :account_type %><br />
-    <%= f.select :user_type, [["Student", "Teacher"], "Teacher"] %></div>
+    <%= f.select :user_type, ["Student", "Teacher"] %></div>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
