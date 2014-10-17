@@ -40,10 +40,7 @@ end
 
 
 sections = Section.all
-sections.each do |s|
-  SectionTeacher.create!(section_id: s.id, teacher_id: 26 )
-  SectionTeacher.create!(section_id: s.id, teacher_id: 27 )
-end
+
 
 
   Standard.create!(abbreviation: "CCSS.MATH.CONTENT.4.NBT.A.1", description: "Recognize that in a multi-digit whole number, a ditit in one place represents ten times what it represents in the place to its right.", section_id: 1)

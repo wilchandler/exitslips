@@ -16,7 +16,9 @@ class SectionsController < ApplicationController
 	def show
 		@section = Section.find(params[:id])
 		logged_in?
-		permission
+		student_leave
+		
+		
 	end
 
 		
