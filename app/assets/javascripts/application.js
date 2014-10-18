@@ -12,4 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.dataTables.min.js
 //= require_tree .
+
+$(document).ready( function () {
+		console.log("Go Royals");
+    $('#section_table').DataTable({
+    	"ordering": true
+    });
+} );
