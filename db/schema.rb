@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017160355) do
+ActiveRecord::Schema.define(version: 20141018172433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,17 @@ ActiveRecord::Schema.define(version: 20141017160355) do
     t.integer "sitting_id"
   end
 
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+  add_index "answers", ["sitting_id"], name: "index_answers_on_sitting_id", using: :btree
+  add_index "answers", ["student_id"], name: "index_answers_on_student_id", using: :btree
+
   create_table "enrollments", force: true do |t|
     t.integer "section_id"
     t.integer "student_id"
   end
+
+  add_index "enrollments", ["section_id"], name: "index_enrollments_on_section_id", using: :btree
+  add_index "enrollments", ["student_id"], name: "index_enrollments_on_student_id", using: :btree
 
   create_table "options", force: true do |t|
     t.integer "question_id"
@@ -35,11 +42,15 @@ ActiveRecord::Schema.define(version: 20141017160355) do
     t.boolean "correct?"
   end
 
+  add_index "options", ["question_id"], name: "index_options_on_question_id", using: :btree
+
   create_table "questions", force: true do |t|
     t.integer "quiz_id"
     t.text    "query"
     t.string  "question_type"
   end
+
+  add_index "questions", ["quiz_id"], name: "index_questions_on_quiz_id", using: :btree
 
   create_table "quizzes", force: true do |t|
     t.integer "standard_id"
@@ -47,6 +58,9 @@ ActiveRecord::Schema.define(version: 20141017160355) do
     t.text    "instructions"
     t.integer "section_id"
   end
+
+  add_index "quizzes", ["section_id"], name: "index_quizzes_on_section_id", using: :btree
+  add_index "quizzes", ["standard_id"], name: "index_quizzes_on_standard_id", using: :btree
 
   create_table "sections", force: true do |t|
     t.string   "name"
@@ -58,6 +72,9 @@ ActiveRecord::Schema.define(version: 20141017160355) do
     t.datetime "updated_at"
   end
 
+  add_index "sections", ["passcode"], name: "index_sections_on_passcode", using: :btree
+  add_index "sections", ["teacher_id"], name: "index_sections_on_teacher_id", using: :btree
+
   create_table "sittings", force: true do |t|
     t.integer "student_id"
     t.integer "quiz_id"
@@ -65,12 +82,18 @@ ActiveRecord::Schema.define(version: 20141017160355) do
     t.integer "correct"
   end
 
+  add_index "sittings", ["quiz_id", "student_id"], name: "index_sittings_on_quiz_id_and_student_id", using: :btree
+  add_index "sittings", ["student_id"], name: "index_sittings_on_student_id", using: :btree
+
   create_table "standards", force: true do |t|
     t.string "subject"
     t.string "grade"
     t.string "code"
     t.text   "description"
   end
+
+  add_index "standards", ["grade"], name: "index_standards_on_grade", using: :btree
+  add_index "standards", ["subject", "grade"], name: "index_standards_on_subject_and_grade", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"

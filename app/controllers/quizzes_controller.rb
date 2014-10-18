@@ -46,6 +46,10 @@ class QuizzesController < ApplicationController
 	def delete
 	end
 
+	def finish
+
+	end
+
 
 		private
 

@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   post "/q/take" => "quizzes#take", as: "quiz_take"
   resources :standards, only: [:index], :defaults => { :format => 'json' }
 
+  get "/quizzes/:id/finished_quiz" => "quizzes#finish", as: "quizzes_finish"
+
+
   # resources :teachers
   # resources :students, except: [:index]
   # resources :sections do
