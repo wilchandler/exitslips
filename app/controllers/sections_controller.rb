@@ -15,7 +15,14 @@ class SectionsController < ApplicationController
 		student_leave
 		@section = Section.find(params[:id])
 		@quizzes = @section.quizzes
+		@quiz = @section.quizzes.first
 		@students = @section.students
+		@table = {}
+
+		respond_to do |format|
+			format.html {}
+			format.json { head :no_content}
+		end
 	end
 
   def confirm

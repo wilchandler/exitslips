@@ -16,11 +16,8 @@
 //= require_tree .
 
 $(document).ready( function () {
+		console.log("Go Royals");
     $('#section_table').DataTable({
-    	ordering: true,
-    	"ajax": {
-    "url": "/sections/",
-    "dataSrc": "tableData"
-  }
+    	"ordering": true
     });
 } );
