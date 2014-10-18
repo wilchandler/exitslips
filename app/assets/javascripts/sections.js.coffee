@@ -4,13 +4,34 @@
 
 $("#table-all-standards").ready ->
   sectionID = $('#section_id').val()
-  console.log(sectionID)
 
   $.get "/sections/#{sectionID}", (data) ->
-    console.log(data)
-    # $(:contains(data.))
+    populateSectionTable(data)
 
+populateSectionTable = (data) ->
+  for key, value of data
+    row = findRowById(key)
+    populateRow(row, value)
 
-# FOR EACH student name
-  # FIND the table row that corresponds with that name
-  # FOR EACH
+findRowById = (id) ->
+  $("tr##{id}")
+
+populateRow = (row, scores) ->
+  tds = row.children("td")
+  for code, score of scores
+    match = findHeader(tds, code)
+    assignColor(match, score)
+
+findHeader = (cells, content) ->
+  for cell in cells
+    header = $(cell).closest('table').find('th').eq( cell.cellIndex )[0];
+    if $(header).text() == content
+      return cell
+
+assignColor = (element, score) ->
+  if score < 60
+    $(element).attr('class', 'red-cell')
+  else if score < 80
+    $(element).attr('class', 'yellow-cell')
+  else
+    $(element).attr('class', 'green-cell')
