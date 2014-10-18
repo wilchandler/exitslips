@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users, except: [:index]
 
   post "/q/take" => "quizzes#take", as: "quiz_take"
+  resources :standards, only: [:index], :defaults => { :format => 'json' }
 
   # resources :teachers
   # resources :students, except: [:index]

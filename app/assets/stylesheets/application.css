@@ -84,9 +84,10 @@ button:active, input[type=submit]:active {
   color: white;
 }
 #container {
-  width: 80%;
+  margin-left: 20%;
+  margin-right: 3%;
+  width: 77%;
   padding-top: 75px;
-  margin: 0 auto;
 }
 
 #error_explanation ul {

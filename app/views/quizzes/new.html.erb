@@ -1,6 +1,8 @@
 <h1>New Quiz</h1>
 
 <%= form_for @quiz, url: quizzes_path do |f| %>
+  <%= render 'standards', f: f %>
+
   <% @sections.each do |section| %>
     <%= check_box_tag "[sections][#{section.id}]" %>
     <%= label_tag section.name %><br/>

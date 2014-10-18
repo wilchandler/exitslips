@@ -5,8 +5,6 @@ class Sitting < ActiveRecord::Base
 
   def self.process_response(args={})
 
-
-
   end
 
 end

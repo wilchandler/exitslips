@@ -1,30 +1,8 @@
 class TeachersController < ApplicationController
 
-  def index
-    @teacher = current_user
-    @sections = current_user.sections
-    @quizzes = current_user.quizzes
-
-  end
-
   def show
-
-  end
-
-  def new
-
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+    teacher = Teacher.find_by(id: params[:id])
+    render json: teacher.standards  # some unnecessary fields being passed back
   end
 
 end
