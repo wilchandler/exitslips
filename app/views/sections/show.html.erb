@@ -1,7 +1,9 @@
 <%= render 'layouts/teacher_section_header' %>
 <%= render 'sections_sidebar' %>
 
-<h1>Your <%=@section.name%> Section</h1>
+<h1><%=@section.name%></h1>
+
+<%= render 'section_data_table' %>
  
 <%= button_to 'Edit', {:controller => 'sections', :action => 'edit'}, {:method => :get} %>
 

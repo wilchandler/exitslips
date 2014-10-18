@@ -4,17 +4,18 @@ class SectionsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		# student_leave
+		student_leave
 		@sections = Section.all
 		@teacher = current_user
-	  @sections = current_user.sections
-	  @quizzes = current_user.quizzes
+	  @sections = @teacher.sections
+	  @quizzes = @teacher.quizzes
 	end
 
 	def show
-		logged_in?
 		student_leave
 		@section = Section.find(params[:id])
+		@quizzes = @section.quizzes
+		@students = @section.students
 	end
 
   def confirm
@@ -32,8 +33,7 @@ class SectionsController < ApplicationController
   end
 
   def new
-		# logged_in?
-	 # 	student_leave
+	 	student_leave
 	 	@section = Section.new
 		@teacher = current_user
 	  @sections = current_user.sections
@@ -51,8 +51,7 @@ class SectionsController < ApplicationController
 
 
 	def edit
-	  # logged_in?
-	  # student_leave
+	  student_leave
 	  @section = Section.find(params[:id])
 	end
 

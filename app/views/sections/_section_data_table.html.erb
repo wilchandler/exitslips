@@ -1,0 +1,13 @@
+<table id="section_table">
+	<tr>
+		<th>Student Name</th>
+		<% @quizzes.each do |quiz| %>
+			<th><%= quiz.name %></th>
+		<% end %>
+	</tr>
+		<% @students.each do |student| %>
+		<tr>
+			<th><%= student.full_name %></th>
+		</tr>
+		<% end %>
+</table>
