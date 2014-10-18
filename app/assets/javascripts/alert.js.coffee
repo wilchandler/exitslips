@@ -1,13 +1,13 @@
 $(".new_quiz, .edit_quiz").ready ->
-  options = []
+  fuse = undefined
+
+  options =
+    shouldSort: true
+    threshold: 0.6
+    keys: [
+      "code"
+      "description"
+    ]
 
   $.get '/teachers/1', (data) ->
-    for i of data
-      options.push( new Standard(data[i]) )
-    console.log(options)
-
-class Standard
-  constructor: (args) ->
-    @id = args.id
-    @code = args.code
-    @description = args.description
+    fuse = new Fuse(data, options)
