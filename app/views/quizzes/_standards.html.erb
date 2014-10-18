@@ -1,2 +1,5 @@
-<%= label_tag :standard_query, "Search for a standard:" %>
-<%= text_field_tag :standard_query %><br/>
+
+  <%= f.label :standard, "Standard:" %>
+  <%= f.collection_select(:standard, @standards, :id, :to_s) %>
+
+  <br />
