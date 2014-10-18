@@ -1,5 +1,7 @@
 <h1>New Quiz</h1>
 
+<%= render 'standards' %>
+
 <%= form_for @quiz, url: quizzes_path do |f| %>
   <%= hidden_field_tag :standard %>
 

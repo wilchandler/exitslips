@@ -12,3 +12,6 @@ $(".new_quiz, .edit_quiz").ready ->
   $.get '/standards', (data) ->
     fuse = new Fuse(data, options)
     console.log(data)
+
+  $('#standard_query').bind ->
+    alert "FUCK YEAH"
