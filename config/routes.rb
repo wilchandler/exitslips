@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
-
+  resources :enrollments,only: [:new,:create]
   resources :quizzes
   resources :sections
   resources :users, except: [:index]
