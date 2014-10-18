@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require fuse.min.js
+//= require jquery-readyselector
 //= require_tree .
