@@ -5,12 +5,12 @@
 }*/
 
 nav#sidebar {
-  position:fixed;
+  position: absolute;
   background-color: lightgray;
   border-right: 2px solid black;
   height: 100%;
-  width:150px;
-  top:11.5%;
+  width: 17%;
+  top:6em;
   left:0;
 }
 
