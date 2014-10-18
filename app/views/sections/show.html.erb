@@ -2,8 +2,9 @@
 <%= render 'sections_sidebar' %>
 
 <h1>Your <%=@section.name%> Section</h1>
- 
+
+<div class="content">
 <%= button_to 'Edit', {:controller => 'sections', :action => 'edit'}, {:method => :get} %>
 <%= button_to 'Delete', section_path, :confirm => 'Are you sure?', :method => :delete %>
-
+</div>
 

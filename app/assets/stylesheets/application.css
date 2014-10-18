@@ -29,7 +29,7 @@ header {
 
 header nav {
   float: right;
-} 
+}
 
 button, input[type=submit] {
   outline: none;
@@ -81,7 +81,7 @@ button:active, input[type=submit]:active {
   position: relative;
   display: inline-block;
   margin-left: 10px;
-  color: white; 
+  color: white;
 }
 #container {
   width: 80%;
@@ -111,4 +111,4 @@ input[type=submit] {
 
 input, textarea {
   color: black;
-} 
+}
