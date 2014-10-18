@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :sections
   resources :users, except: [:index]
 
+  resources :standards, only: [:index], :defaults => { :format => 'json' }
+
   # resources :teachers
   # resources :students, except: [:index]
   # resources :sections do

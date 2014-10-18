@@ -21,3 +21,7 @@ $(document).ready( function () {
     	"ordering": true
     });
 } );
+
+
+// require fuse.min.js
+// require jquery-readyselector
