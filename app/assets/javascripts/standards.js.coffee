@@ -9,5 +9,6 @@ $(".new_quiz, .edit_quiz").ready ->
       "description"
     ]
 
-  $.get '/teachers/1', (data) ->
+  $.get '/standards', (data) ->
     fuse = new Fuse(data, options)
+    console.log(data)
