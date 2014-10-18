@@ -4,7 +4,7 @@ class SectionsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		student_leave
+		# student_leave
 		@sections = Section.all
 		@teacher = current_user
 	  @sections = @teacher.sections
@@ -12,17 +12,47 @@ class SectionsController < ApplicationController
 	end
 
 	def show
-		student_leave
+		# student_leave
 		@section = Section.find(params[:id])
-		@quizzes = @section.quizzes
-		@quiz = @section.quizzes.first
 		@students = @section.students
-		@table = {}
+    @standards = @section.standards
+
+
 
 		respond_to do |format|
-			format.html {}
-			format.json { head :no_content}
+      format.json {
+        render json: @section.calculate_scores_by_standard
+      }
+			format.html {
+        @quizzes = @section.quizzes
+      }
 		end
+
+
+    # FIND all students
+    # FIND all standards
+    # RENDER empty table
+
+    # ON READY
+      # GET data
+
+    # ON select menu change
+      # HIDE active table
+      # make new GET request
+
+    # STANDARDS TABLE
+    #   class: table-active/table-inactive
+    #   ID: table-all-standards
+
+    # QUIZ TABLE
+    #   class: table-active/table-inactive
+    #   ID: table-quiz (or table-quiz-(:id) )
+
+    # TABLE DATA
+    #   red: class red
+    #   yellow: class yellow
+    #   green: class green
+
 	end
 
   def confirm
@@ -40,12 +70,12 @@ class SectionsController < ApplicationController
   end
 
   def new
-	 	student_leave
+	 	# student_leave
 	 	@section = Section.new
 		@teacher = current_user
 	  @sections = current_user.sections
 	  @quizzes = current_user.quizzes
-	 
+
 	end
 
 	def create
