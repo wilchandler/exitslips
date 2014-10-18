@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   resources :quizzes do
-    resources :sittings, only: [:create]
+    resources :sittings, only: [:create, :new]
   end
   resources :sections
   resources :users, except: [:index]

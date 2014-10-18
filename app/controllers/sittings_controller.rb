@@ -1,4 +1,10 @@
 class SittingsController < ApplicationController
+
+
+  def new
+    @quiz = Quiz.find_by(id: params[:quiz_id])
+  end
+
   def create
     @responses = params[:response].values
     num_correct = @responses.count("true")

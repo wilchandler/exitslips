@@ -2,6 +2,7 @@ class QuizzesController < ApplicationController
 
 
 	def index
+		@quizzes = current_user.quizzes.uniq
 	end
 
 	def teacher_index
