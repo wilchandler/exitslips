@@ -12,31 +12,31 @@ class QuizzesController < ApplicationController
 	end
 
 	def new
-		@section = Section.find_by(id: params[:section_id])
+		@sections = Section.where(teacher_id: current_user.id)
 		@quiz = Quiz.new
 		@questions = @quiz.questions
 	end
 
 	def create
-		# @quiz = Quiz.new(quiz_params)
-		# @quiz.section_id = params[:section_id]
-		# @quiz.save
-		# redirect_to section_quiz_path(params[:section_id], @quiz)
-		quiz = Quiz.new(section_id: params[:section_id])
-		quiz.process_quiz_form(params[:quiz])
-		redirect_to section_quiz_path(params[:section_id], quiz)
+		# NEED TO VALIDATE IF NO SECTIONS ARE SELECTED
+		params[:sections].keys.each do |section_id|
+			section = section.find_by(id: section_id)
+			if section && section.teacher_id == current_user.id
+				quiz = Quiz.new(section_id: section)
+			end
+			quiz.process_quiz_form(params[:quiz])
+		end
+		redirect_to sections_path
 	end
 
 	def edit
 		@quiz = Quiz.find_by(id: params[:id])
-		@section = Section.find_by(id: params[:section_id])
 	end
 
 	def update
-		# raise params[:quiz][:questions_attributes].values.inspect
 		quiz = Quiz.find_by(id: params[:id])
 		quiz.process_quiz_form(params[:quiz])
-		redirect_to section_quiz_path(params[:section_id], quiz)
+		redirect_to quiz_path(quiz)
 	end
 
 	def delete
