@@ -2,16 +2,12 @@
 <p><%= @quiz.instructions %></p>
 
 <%= form_for :response, url: quiz_sittings_path(@quiz) do |f| %>
-  <% @quiz.questions.each do |question| %>
-    <div>
-      <p><%= question.query %></p>
-      <p><% question.options.each do |option| %>
+  <% @questions.each_with_index do |question, i| %>
 
-        <%= f.radio_button question.id, option.id %>
-        <%= f.label question.id, option.content %><br>
-        <% end %>
-      </p>
-    </div>
+    <%= render 'question', f: f, question: question, i: i %>
+
   <% end %>
-        <%= f.submit "Submit" %>
+
+  <%= submit_tag "Submit" %>
 <% end %>
+

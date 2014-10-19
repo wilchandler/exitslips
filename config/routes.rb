@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :quizzes do
-    resources :sittings, only: [:create, :new]
+    resources :sittings, only: [:new, :create]
   end
 
   resources :sections
@@ -17,14 +17,5 @@ Rails.application.routes.draw do
   resources :standards, only: [:index], :defaults => { :format => 'json' }
 
   get "/quizzes/:id/finished_quiz" => "quizzes#finish", as: "quizzes_finish"
-
-
-  # resources :teachers
-  # resources :students, except: [:index]
-  # resources :sections do
-  #   resources :quizzes
-  #   resources :students
-  # end
-  # get "/quizzes" => "quizzes#index", as: "quizzes"
 
 end

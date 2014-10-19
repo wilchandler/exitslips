@@ -3,7 +3,7 @@ class Student < User
   has_many :sections, through: :enrollments
   has_many :answers
   has_many :sittings
-  has_many :quizzes, through: :sittings
+  has_many :quizzes, through: :sections
 
   def calculate_scores_by_standard(args = {})
     scores_by_standard = {}
