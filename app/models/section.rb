@@ -4,7 +4,8 @@ class Section < ActiveRecord::Base
   belongs_to :teacher
   has_many :quizzes
   has_many :sittings, through: :quizzes
-  has_many :standards, through: :quizzes
+  has_many :requirements
+  has_many :standards, through: :requirements
 
   after_create { generate_passcode }
 
