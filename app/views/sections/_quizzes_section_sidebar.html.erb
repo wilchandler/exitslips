@@ -1,7 +1,6 @@
 <nav id="quiz_sidebar">
       <h5> Quizzes </h5>
        <%= form_tag quiz_path,:method => :get do %>
-	   <%= select_tag :id, options_from_collection_for_select(@quizzes.all, :id, :name) %>
-       
+	   <%= select_tag :id, options_from_collection_for_select(@quizzes.all, :id, :name), prompt: "All Standards" %>
        <%end%>
 </nav>

@@ -36,3 +36,5 @@ assignColor = (element, score) ->
     $(element).attr('class', 'yellow-cell')
   else
     $(element).attr('class', 'green-cell')
+
+$
