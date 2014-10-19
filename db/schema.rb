@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20141019011312) do
   create_table "options", force: true do |t|
     t.integer "question_id"
     t.string  "content"
-    t.boolean "correct"
+    t.boolean "correct?"
   end
 
   add_index "options", ["question_id"], name: "index_options_on_question_id", using: :btree

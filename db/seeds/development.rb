@@ -34,7 +34,7 @@ q3 = Question.create!(quiz: s1quiz2, query: "What is 13.5 x 78.1?", question_typ
 Option.create!(question: q3, content: "1054.35", correct?: true)
 Option.create!(question: q3, content: "1044.35", correct?: false)
 
-git s2quiz1 = Quiz.create!(name: "Advanced grammar", instructions: "Do these, children!", section_id: 2)
+s2quiz1 = Quiz.create!(name: "Advanced grammar", instructions: "Do these, children!", section_id: 2)
 # s1quiz3.standard = standard3
 q4 = Question.create!(quiz: s2quiz1, query: "I want to tell Suzie her brother smells bad.  How do I refer to her brother possessively?", question_type: "multiple_choice")
 Option.create!(question: q4, content: "You're", correct?: false)
@@ -51,10 +51,10 @@ Option.create!(question: q4, content: "Your", correct?: true)
   sitting2 = Sitting.create!(student: s, quiz: s1quiz2, possible: 1, correct: 1)
   sitting3 = Sitting.create!(student: s, quiz: s2quiz1, possible: 1, correct: 1)
 
-  Answer.create!(question_id: q1, content: "4", correct?: true, student: s, sitting: sitting1)
-  Answer.create!(question_id: q2, content: "14", correct?: false, student: s, sitting: sitting1)
-  Answer.create!(question_id: q3, content: "1054.35", correct?: true, student: s, sitting: sitting2)
-  Answer.create!(question_id: q4, content: "Your", correct?: true, student: s, sitting: sitting3)
+  Answer.create!(question_id: q1, content: "4", correct: true, student: s, sitting: sitting1)
+  Answer.create!(question_id: q2, content: "14", correct: false, student: s, sitting: sitting1)
+  Answer.create!(question_id: q3, content: "1054.35", correct: true, student: s, sitting: sitting2)
+  Answer.create!(question_id: q4, content: "Your", correct: true, student: s, sitting: sitting3)
 
   s.save
 end
