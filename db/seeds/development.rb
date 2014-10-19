@@ -59,26 +59,26 @@ Option.create!(question: q4, content: "Your", correct?: true)
   s.save
 end
 
-standard_id = 1177
+# standard_id = 1177
 
-47.times do
-  section3.standards << Standard.find_by_id(standard_id)
-  standard_id += 1
-end
+# 47.times do
+#   section3.standards << Standard.find_by_id(standard_id)
+#   standard_id += 1
+# end
 
-standard_id = 1177
+# standard_id = 1177
 
-47.times do
-  section4.standards << Standard.find_by_id(standard_id)
-  standard_id += 1
-end
+# 47.times do
+#   section4.standards << Standard.find_by_id(standard_id)
+#   standard_id += 1
+# end
 
-standard_id = 1177
+# standard_id = 1177
 
-47.times do
-  section5.standards << Standard.find_by_id(standard_id)
-  standard_id += 1
-end
+# 47.times do
+#   section5.standards << Standard.find_by_id(standard_id)
+#   standard_id += 1
+# end
 
 
 sixth_standard1 = Standard.find_by_code("6.RP.1")
