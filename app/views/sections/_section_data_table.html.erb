@@ -1,31 +1,19 @@
 
-<%= form_tag("/sections/#{@section.id}/refresh", method: "POST") do %>
-	<%= select_tag(:quiz, options_from_collection_for_select(@quizzes, "id", "name")) %>
-	<%= submit_tag("See Quiz")%>
-
-<% end %>
-
-
-<table id="section_table">
-	<thead>
-	  <tr>
+<table id="table-all-standards" class="table-active">
+  <thead>
+    <tr>
       <th>Name</th>
-      <% @quiz.questions.each do |question| %>
-      <th><%= question.query %></th>
+      <% @standards.each do |standard| %>
+        <th><%= standard.code %></th>
       <% end %>
-	  </tr>
-	</thead>
-
-	<tfoot>
-	   <tr>
-      <th>Name</th>
-      <% @quiz.questions.each do |question| %>
-      <th><%= question.query %></th>
+    </tr>
+  </thead>
+  <% @students.each do |student| %>
+    <tr id=<%= student.id %>>
+      <td><%= student.full_name %></td>
+      <% @standards.count.times do %>
+        <td></td>
       <% end %>
-	  </tr>
-	</tfoot>
-
-	<tbody>
-	  
-	</tbody>
+    </tr>
+  <% end %>
 </table>
