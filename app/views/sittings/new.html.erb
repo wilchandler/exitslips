@@ -7,7 +7,7 @@
       <p><%= question.query %></p>
       <p><% question.options.each do |option| %>
 
-        <%= f.radio_button question.id, option.correct?%>
+        <%= f.radio_button question.id, option.id %>
         <%= f.label question.id, option.content %><br>
         <% end %>
       </p>

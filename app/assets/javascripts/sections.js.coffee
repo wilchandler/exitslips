@@ -6,6 +6,7 @@ $("#table-all-standards").ready ->
   sectionID = $('#section_id').val()
 
   $.get "/sections/#{sectionID}", (data) ->
+    console.log(data) #
     populateSectionTable(data)
 
 populateSectionTable = (data) ->

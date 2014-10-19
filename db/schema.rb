@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018172433) do
+ActiveRecord::Schema.define(version: 20141019011312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,14 +53,24 @@ ActiveRecord::Schema.define(version: 20141018172433) do
   add_index "questions", ["quiz_id"], name: "index_questions_on_quiz_id", using: :btree
 
   create_table "quizzes", force: true do |t|
-    t.integer "standard_id"
+    t.integer "requirement_id"
     t.string  "name"
     t.text    "instructions"
     t.integer "section_id"
   end
 
+  add_index "quizzes", ["requirement_id"], name: "index_quizzes_on_requirement_id", using: :btree
   add_index "quizzes", ["section_id"], name: "index_quizzes_on_section_id", using: :btree
-  add_index "quizzes", ["standard_id"], name: "index_quizzes_on_standard_id", using: :btree
+
+  create_table "requirements", force: true do |t|
+    t.integer  "standard_id"
+    t.integer  "section_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "requirements", ["section_id"], name: "index_requirements_on_section_id", using: :btree
+  add_index "requirements", ["standard_id", "section_id"], name: "index_requirements_on_standard_id_and_section_id", using: :btree
 
   create_table "sections", force: true do |t|
     t.string   "name"
@@ -79,7 +89,7 @@ ActiveRecord::Schema.define(version: 20141018172433) do
     t.integer "student_id"
     t.integer "quiz_id"
     t.integer "possible"
-    t.integer "correct"
+    t.integer "correct?"
   end
 
   add_index "sittings", ["quiz_id", "student_id"], name: "index_sittings_on_quiz_id_and_student_id", using: :btree

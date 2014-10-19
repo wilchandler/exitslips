@@ -1,5 +1,5 @@
 class Quiz < ActiveRecord::Base
- belongs_to :standard
+ belongs_to :requirement
  has_many :sittings
  has_many :students, through: :sittings
  belongs_to :section

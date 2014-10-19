@@ -4,7 +4,8 @@ class Section < ActiveRecord::Base
   belongs_to :teacher
   has_many :quizzes
   has_many :sittings, through: :quizzes
-  has_many :standards, through: :quizzes
+  has_many :requirements
+  has_many :standards, through: :requirements
 
   after_create { generate_passcode }
 
@@ -13,12 +14,13 @@ class Section < ActiveRecord::Base
     end
 
     def calculate_scores_by_standard
-      standards = self.standards
+      requirements = self.requirements
       students = self.students
       scores = {}
+
       students.each do |student|
         s = student.calculate_scores_by_standard({
-          standards: standards,
+          requirements: requirements,
           section_id: self.id
         })
         scores[student.id] = s

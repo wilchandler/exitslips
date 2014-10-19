@@ -40,9 +40,9 @@ Option.create!(question: q4, content: "Your", correct?: true)
   s.sections << section2
 
 
-  sitting1 = Sitting.create!(student: s, quiz: s1quiz1, possible: 2, correct: 1)
-  sitting2 = Sitting.create!(student: s, quiz: s1quiz2, possible: 1, correct: 1)
-  sitting3 = Sitting.create!(student: s, quiz: s2quiz1, possible: 1, correct: 1)
+  sitting1 = Sitting.create!(student: s, quiz: s1quiz1, possible: 2, correct?: 1)
+  sitting2 = Sitting.create!(student: s, quiz: s1quiz2, possible: 1, correct?: 1)
+  sitting3 = Sitting.create!(student: s, quiz: s2quiz1, possible: 1, correct?: 1)
 
   Answer.create!(question_id: q1, content: "4", correct?: true, student: s, sitting: sitting1)
   Answer.create!(question_id: q2, content: "14", correct?: false, student: s, sitting: sitting1)
