@@ -2,6 +2,8 @@
 load(Rails.root.join( 'db', 'seeds', "production.rb"))
 
 teacher1 = Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
+teacher2 = Teacher.create!(first_name: "Alexis", last_name: "Lassus", password: "12345678", email: "alassus@gmail.com")
+
 
 section1 = Section.create!(name: "4th grade Math Section", teacher: teacher1, subject: "Math", grade: "4")
 section2 = Section.create!(name: "4th grade ELA Section", teacher: teacher1, subject: "ELA", grade: "4")
@@ -50,11 +52,6 @@ Option.create!(question: q4, content: "Your", correct?: true)
   s.save
 end
 
-teacher2 = Teacher.create!(first_name: "Alexis", last_name: "Lassus", password: "12345678", email: "alassus@gmail.com")
-
-section3 = Section.create!(name: "6th Grade Math 1st Hour", teacher: teacher2, subject: "Math", grade: "6")
-section4 = Section.create!(name: "6th Grade Math 2nd Hour", teacher: teacher2, subject: "Math", grade: "6")
-section5 = Section.create!(name: "6th Grade Math 5th Hour", teacher: teacher2, subject: "Math", grade: "6")
 
 sixth_standard1 = Standard.find_by_code("6.RP.1")
 sixth_standard2 = Standard.find_by_code("6.RP.2")
@@ -237,5 +234,26 @@ end
 
   s.save
 end
+
+30.times do
+  s = Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
+  s.sections << section5
+
+
+  Sitting.create!(student: s, quiz: sixth_quiz21, possible: 5, correct: rand(5))
+  Sitting.create!(student: s, quiz: sixth_quiz22, possible: 2, correct: rand(2))
+  Sitting.create!(student: s, quiz: sixth_quiz23, possible: 10, correct: rand(10))
+  Sitting.create!(student: s, quiz: sixth_quiz24, possible: 10, correct: rand(10))
+  Sitting.create!(student: s, quiz: sixth_quiz25, possible: 10, correct: rand(10))
+  Sitting.create!(student: s, quiz: sixth_quiz26, possible: 10, correct: rand(10))
+  Sitting.create!(student: s, quiz: sixth_quiz27, possible: 10, correct: rand(10))
+  Sitting.create!(student: s, quiz: sixth_quiz28, possible: 10, correct: rand(10))
+  Sitting.create!(student: s, quiz: sixth_quiz29, possible: 10, correct: rand(10))
+  Sitting.create!(student: s, quiz: sixth_quiz30, possible: 10, correct: rand(10))
+
+  s.save
+end
+
+
 
 
