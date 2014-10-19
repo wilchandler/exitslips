@@ -46,3 +46,19 @@ h1, h3 .content{
   margin-left: 150px;
   padding-left: 10px;
 }
+
+
+nav#quiz_sidebar {
+  position: absolute;
+  background-color: lightgray;
+  border-right: 2px solid black;
+  height: 10%;
+  width: 17%;
+  top:6em;
+  right:0;
+}
+  
+    
+    
+
+}

@@ -23,6 +23,8 @@ jQuery ->
       $(this).closest('fieldset').hide()
       event.preventDefault()
 
+  
+
 # FUNCTION BELOW! WHY DON'T YOU WORK!?!?!?
 
 # removeField (deletion_link) ->

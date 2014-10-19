@@ -48,7 +48,6 @@ gem 'rails_12factor', group: :production
 
 gem 'unicorn'
 
-ruby "2.0.0"
 
 group :development, :test do
 	gem "factory_girl_rails", "~> 4.0"

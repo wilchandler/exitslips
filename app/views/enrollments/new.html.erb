@@ -1,0 +1,12 @@
+<p>
+<%= form_tag(enrollments_path, method: "post",:multipart => true) do %>
+<p>
+   Passcode:<br />
+   <%= text_field_tag "passcode" %>
+ </p>
+ <p>
+    <%= submit_tag 'Submit' %>
+  </p>
+
+<% end %>
+</p>
