@@ -1,6 +1,7 @@
 <h1> Welcome, <%= current_user.full_name %>! </h1>
 
 <h3> Quizzes </h3>
+
 <% @sections.each do |section|%>
   <% section_quizzes = @quizzes.select{ |q| q.section_id == section.id } %>
   <h5><%= section.name %> </h5>

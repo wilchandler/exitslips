@@ -14,7 +14,7 @@ class SectionsController < ApplicationController
 	def show
 		# student_leave
 		@section = Section.find(params[:id])
-
+        
 		respond_to do |format|
       format.json {
         render json: @section.calculate_scores_by_standard

@@ -25,6 +25,7 @@ header {
   top: 0;
   width: 100%;
   background: rgba(0,168,198,1.0);;
+  overflow:hidden;
 }
 
 header nav {
@@ -115,13 +116,13 @@ input, textarea {
 }
 
 .red-cell {
-  background-color: c60013;
+  background-color: #c60013;
 }
 
 .yellow-cell {
-  background-color: bfcb40;
+  background-color: #bfcb40;
 }
 
 .green-cell {
-  background-color: AEE239;
+  background-color: #AEE239;
 }

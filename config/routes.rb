@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
+
   resources :quizzes do
     resources :sittings, only: [:new, :create]
   end
+
   resources :sections
   resources :users, except: [:index]
 
