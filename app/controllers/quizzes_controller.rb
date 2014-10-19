@@ -14,16 +14,16 @@ class QuizzesController < ApplicationController
 	end
 
 	def new
-		@sections = Section.where(teacher_id: current_user.id)
 		@quiz = Quiz.new
 		@questions = []
-
-		@standards = Teacher.find( current_user.id ).standards #UGH
+		@sections = Section.where(teacher_id: current_user.id).includes(:standards)
+		@standards = Set.new
+		@sections.each do |section|
+			section.standards.each { |standard| @standards << standard }
+		end
 	end
 
 	def create
-		raise "POPOP".inspect
-
 		# NEED TO VALIDATE IF NO SECTIONS ARE SELECTED OR NO Q/A
 
 		params[:sections].keys.each do |section_id|
