@@ -112,9 +112,13 @@ class SectionsController < ApplicationController
 	def add_section
 		passcode = params[:add_section].values[0]
 		section = Section.find_by(passcode: passcode)
-		Enrollment.create(section_id: section.id, student_id: current_user_id)
-
-		redirect_to quizzes_path
+		if section == nil
+			# add error message
+			redirect_to quizzes_path
+		else
+			Enrollment.create(section_id: section.id, student_id: current_user_id)
+			redirect_to quizzes_path
+		end
 	end
 
 	private

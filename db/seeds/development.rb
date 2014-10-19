@@ -332,9 +332,6 @@ end
 # end
 
 
-
-
-
-section1 = Section.create!(name: "Testing woohoo", teacher: teacher1, subject: "Math", grade: "12", passcode: "test123")
+section1 = Section.create!(name: "Testing woohoo", teacher: teacher, subject: "Math", grade: "12", passcode: "test123")
 # sixth_standard10 = Standard.find_by_code("6.G.1")
 # r10 = Requirement.find_by(section: section3, standard: sixth_standard10)
