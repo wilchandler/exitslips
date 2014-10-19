@@ -8,8 +8,10 @@ class Student < User
   def calculate_scores_by_standard(args = {})
     # return array with scores for all standards passed in (in context of section)
     scores_by_standard = {}
-    args[:standards].map do |standard|
-      quizzes = Quiz.where(standard: standard.id, section: args[:section_id])
+    args[:requirements].map do |requirement|
+      # quizzes = Quiz.where(standard: standard.id, section: args[:section_id])
+      # debugger
+      quizzes = requirement.quizzes
       quiz_scores = quizzes.map do |quiz|
         sittings = self.find_sittings_by_quiz(quiz.id)
         Sitting.average_sittings(sittings)
@@ -18,7 +20,7 @@ class Student < User
 
       return nil if quiz_scores.empty?
       score_by_standard = (quiz_scores.inject(:+).to_f / quiz_scores.length.to_f).round
-      scores_by_standard[standard.code] = score_by_standard
+      scores_by_standard[requirement.standard.code] = score_by_standard
     end
     scores_by_standard
   end

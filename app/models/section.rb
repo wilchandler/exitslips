@@ -14,13 +14,16 @@ class Section < ActiveRecord::Base
     end
 
     def calculate_scores_by_standard
-      standards = self.standards
+      requirements = self.requirements
+      # standards = self.standards
       students = self.students
       scores = {}
 
+
       students.each do |student|
         s = student.calculate_scores_by_standard({
-          standards: standards,
+          # standards: standards,
+          requirements: requirements,
           section_id: self.id
         })
         scores[student.id] = s
