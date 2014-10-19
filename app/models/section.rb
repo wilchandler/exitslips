@@ -1,5 +1,4 @@
 class Section < ActiveRecord::Base
-  before_save :passcode_generator
   has_many :enrollments
   has_many :students, through: :enrollments
   belongs_to :teacher
@@ -7,7 +6,7 @@ class Section < ActiveRecord::Base
   has_many :sittings, through: :quizzes
   has_many :standards, through: :quizzes
 
-  after_create { generate_passcord }
+  after_create { generate_passcode }
 
     def generate_passcode
       self.passcode = ('a'..'z').to_a.sample(7).join

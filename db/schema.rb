@@ -63,11 +63,13 @@ ActiveRecord::Schema.define(version: 20141018172433) do
   add_index "quizzes", ["standard_id"], name: "index_quizzes_on_standard_id", using: :btree
 
   create_table "sections", force: true do |t|
-    t.string  "name"
-    t.integer "teacher_id"
-    t.string  "subject"
-    t.string  "grade"
-    t.string  "passcode"
+    t.string   "name"
+    t.integer  "teacher_id"
+    t.string   "subject"
+    t.string   "grade"
+    t.string   "passcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "sections", ["passcode"], name: "index_sections_on_passcode", using: :btree
@@ -97,6 +99,7 @@ ActiveRecord::Schema.define(version: 20141018172433) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "password"
+    t.string   "user_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                  default: "", null: false
