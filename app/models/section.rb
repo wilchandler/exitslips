@@ -7,24 +7,35 @@ class Section < ActiveRecord::Base
   has_many :requirements
   has_many :standards, through: :requirements
 
-  after_create { generate_passcode }
+  after_create do |section|
+    generate_requirements
+    generate_passcode
+  end
 
-    def generate_passcode
-      self.passcode = ('a'..'z').to_a.sample(7).join
+  def generate_passcode
+    self.passcode = ('a'..'z').to_a.sample(7).join
+  end
+
+  def generate_requirements
+    standards = Standard.where(grade: self.grade, subject: self.subject).pluck(:id)
+    standards.each do |standard_id|
+      Requirement.create(standard_id: standard_id, section_id: self.id)
     end
+  end
 
-    def calculate_scores_by_standard
-      requirements = self.requirements
-      students = self.students
-      scores = {}
+  def calculate_scores_by_standard
+    requirements = self.requirements
+    students = self.students
+    scores = {}
 
-      students.each do |student|
-        s = student.calculate_scores_by_standard({
-          requirements: requirements,
-          section_id: self.id
-        })
-        scores[student.id] = s
-      end
-      scores
+    students.each do |student|
+      s = student.calculate_scores_by_standard({
+        requirements: requirements,
+        section_id: self.id
+      })
+      scores[student.id] = s
     end
+    scores
+  end
+
 end
