@@ -1,62 +1,80 @@
 class SectionsController < ApplicationController
 	include SectionsHelper
 
-	def index
+	before_action :authenticate_user!
 
-		student_leave
+	def index
+		# student_leave
 		@sections = Section.all
 		@teacher = current_user
-	   @sections = current_user.sections
-	   @quizzes = current_user.quizzes
+	  @sections = @teacher.sections
+	  @quizzes = @teacher.quizzes
 	end
-
-
-
 
 	def show
-		logged_in?
-		student_leave
+		# student_leave
 		@section = Section.find(params[:id])
-		
 
-
-	end
-
-
-
-
-
-
-	
-
-
-    def confirm
-    	@section = Section.find(params[:section_id])
-    end
-
-    def confirmed
-    	@section = Section.find(params[:section_id])
-    	if params[:passcode] = @section.passcode ||
-    		Enrollment.create(section_id:@section.id,student_id:current_user.id)
-    		redirect_to section_path(@section)
-    	else
-    		redirect_to sections_path
-
+		respond_to do |format|
+      format.json {
+        render json: @section.calculate_scores_by_standard
+      }
+			format.html {
+        @students = @section.students
+        @standards = @section.standards
+        @quizzes = @section.quizzes
+      }
 		end
 
-    end
 
-    def new
-    	logged_in?
-     	student_leave
-     	@section = Section.new
-		@teacher = current_user
-	    @sections = current_user.sections
-	    @quizzes = current_user.quizzes
-	 
+    # FIND all students
+    # FIND all standards
+    # RENDER empty table
+
+    # ON READY
+      # GET data
+
+    # ON select menu change
+      # HIDE active table
+      # make new GET request
+
+    # STANDARDS TABLE
+    #   class: table-active/table-inactive
+    #   ID: table-all-standards
+
+    # QUIZ TABLE
+    #   class: table-active/table-inactive
+    #   ID: table-quiz (or table-quiz-(:id) )
+
+    # TABLE DATA
+    #   red: class red
+    #   yellow: class yellow
+    #   green: class green
+
 	end
 
+  def confirm
+  	@section = Section.find(params[:section_id])
+  end
 
+  def confirmed
+  	@section = Section.find(params[:section_id])
+  	if params[:passcode] = @section.passcode ||
+  		Enrollment.create(section_id:@section.id,student_id:current_user.id)
+  		redirect_to section_path(@section)
+  	else
+  		redirect_to sections_path
+		end
+  end
+
+  def new
+	 	# student_leave
+	 	@section = Section.new
+		@teacher = current_user
+	  @sections = current_user.sections
+	  @quizzes = current_user.quizzes
+
+	end
 
 	def create
 		@section = Section.new(section_params)
@@ -67,12 +85,9 @@ class SectionsController < ApplicationController
 	end
 
 
-
-
 	def edit
-	    logged_in?
-	    student_leave
-	    @section = Section.find(params[:id])
+	  student_leave
+	  @section = Section.find(params[:id])
 	end
 
 	def update
@@ -80,9 +95,9 @@ class SectionsController < ApplicationController
 		@section.update(section_params)
 		if @section.save
 			redirect_to sections_path
-	    else
-	    	render 'edit'
-	    end
+    else
+    	render 'edit'
+    end
 	end
 
 	def destroy
@@ -97,7 +112,6 @@ class SectionsController < ApplicationController
 	private
     def section_params
     	params.require(:section).permit(:name,:subject,:grade)
-
     end
 end
 

@@ -14,8 +14,6 @@ class Question < ActiveRecord::Base
       question.update_attributes(
         quiz_id: quiz_id,
         query: question_info[:query].strip,
-        # standard_id: question_info[:standard_id],
-        # topic: question_info[:topic]
       )
       options = question_info[:options_attributes].values
       options.each do |option_data|
@@ -23,4 +21,24 @@ class Question < ActiveRecord::Base
       end
     end
   end
+
+  def check(option)
+    if self.question_type == "multiple_choice"
+      return check_multiple_choice(option)
+    else
+      # open response...
+    end
+    debugger
+  end
+
+  def check_multiple_choice(user_option_id)
+    options = Option.where(question_id: self.id)
+    options.each do |option|
+      if option.id.to_s == user_option_id
+        return option.correct?
+      end
+    end
+    return false
+  end
+
 end

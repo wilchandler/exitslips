@@ -12,4 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-readyselector
 //= require_tree .
+
+// $(document).ready( function () {
+//     $('#section_table').DataTable({
+//     	"ordering": true
+//     });
+// } );
+
+
+// require fuse.min.js
+// require jquery.dataTables.min.js

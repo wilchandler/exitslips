@@ -2,8 +2,15 @@
 <%= render 'sections_sidebar' %>
 
 <h1>Your <%=@section.name%> Section</h1>
- 
+
+<div class="content">
+<h1><%=@section.name%></h1>
+
+<%= render 'section_data_table' %>
+
+<%= hidden_field_tag :section_id, @section.id %>
+
 <%= button_to 'Edit', {:controller => 'sections', :action => 'edit'}, {:method => :get} %>
 <%= button_to 'Delete', section_path, :confirm => 'Are you sure?', :method => :delete %>
-
+</div>
 

@@ -1,0 +1,10 @@
+    <div class="taking-quiz-question">
+      <p><%= "#{i + 1}. #{question.query}" %></p>
+
+      <% question.options.each do |option| %>
+        <%= f.radio_button question.id, option.id %>
+        <%= f.label option.id, option.content %>
+        <br />
+      <% end %>
+
+    </div>
