@@ -336,5 +336,6 @@ end
 end
 
 
+section1 = Section.create!(name: "Testing woohoo", teacher: teacher1, subject: "Math", grade: "12", passcode: "test123")
 
 

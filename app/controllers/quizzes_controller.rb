@@ -54,7 +54,6 @@ class QuizzesController < ApplicationController
 
 	end
 
-
 		private
 
 	def quiz_params

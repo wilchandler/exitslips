@@ -109,6 +109,14 @@ class SectionsController < ApplicationController
 		 end
 	end
 
+	def add_section
+		passcode = params[:add_section].values[0]
+		section = Section.find_by(passcode: passcode)
+		Enrollment.create(section_id: section.id, student_id: current_user_id)
+
+		redirect_to quizzes_path
+	end
+
 	private
     def section_params
     	params.require(:section).permit(:name,:subject,:grade)

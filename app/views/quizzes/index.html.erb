@@ -12,3 +12,8 @@
     </div>
   <% end %>
 <% end %>
+
+	<%= form_for :add_section, url: add_section_path do |f|  %>
+		<%=f.text_field :passcode %>
+		<%= submit_tag "Add Section" %>
+	<% end %>
