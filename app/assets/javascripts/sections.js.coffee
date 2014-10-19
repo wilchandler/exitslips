@@ -2,6 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+$('#id').change ->
+  console.log("Go Royals")
+  console.log($("#id").val())
+
 $("#table-all-standards").ready ->
   sectionID = $('#section_id').val()
 
@@ -37,4 +41,5 @@ assignColor = (element, score) ->
   else
     $(element).attr('class', 'green-cell')
 
-$
+
+
