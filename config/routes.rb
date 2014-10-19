@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :sections
   resources :users, except: [:index]
 
+  get "sections/:session_id/quizzes/:id", to: "quizzes#results"
+
   post "/q/take" => "quizzes#take", as: "quiz_take"
   resources :standards, only: [:index], :defaults => { :format => 'json' }
 

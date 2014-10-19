@@ -2,15 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$('#id').change ->
-  console.log("Go Royals")
-  console.log($("#id").val())
+$(document).ready ->
 
+  $('#id').change ->
+    quizId = $("#id").val()
+    
 $("#table-all-standards").ready ->
   sectionID = $('#section_id').val()
 
   $.get "/sections/#{sectionID}", (data) ->
-    console.log(data) #
+    console.log(data) 
     populateSectionTable(data)
 
 populateSectionTable = (data) ->

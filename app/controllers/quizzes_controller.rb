@@ -54,6 +54,21 @@ class QuizzesController < ApplicationController
 
 	end
 
+	def results
+		@section = params[:section_id]
+		@quiz = params[:id]
+
+		respond_to do |format|
+		  format.json {
+		    render json: @quiz.calculate_scores_by_question
+		  }
+			format.html {
+		    @students = @section.students
+		    @questions = @quiz.standards
+		    @sittings = @quiz.sittings
+		  }
+	end
+
 
 		private
 

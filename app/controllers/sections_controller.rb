@@ -25,32 +25,6 @@ class SectionsController < ApplicationController
         @quizzes = @section.quizzes
       }
 		end
-
-
-    # FIND all students
-    # FIND all standards
-    # RENDER empty table
-
-    # ON READY
-      # GET data
-
-    # ON select menu change
-      # HIDE active table
-      # make new GET request
-
-    # STANDARDS TABLE
-    #   class: table-active/table-inactive
-    #   ID: table-all-standards
-
-    # QUIZ TABLE
-    #   class: table-active/table-inactive
-    #   ID: table-quiz (or table-quiz-(:id) )
-
-    # TABLE DATA
-    #   red: class red
-    #   yellow: class yellow
-    #   green: class green
-
 	end
 
   def confirm

@@ -22,6 +22,13 @@ class Student < User
     scores_by_standard
   end
 
+  def calculate_scores_by_question(args = {})
+    scores_by_question = {}
+    args [:questions].map do |question|
+      answers = self.find_answers_by_question_id(question.id)
+
+  end
+
   def find_sittings_by_quiz(quiz_id)
     Sitting.where(student_id: self.id, quiz_id: quiz_id) || []
   end
