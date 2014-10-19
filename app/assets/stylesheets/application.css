@@ -25,6 +25,7 @@ header {
   top: 0;
   width: 100%;
   background: rgba(0,168,198,1.0);;
+  overflow:hidden;
 }
 
 header nav {
