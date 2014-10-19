@@ -9,7 +9,6 @@ class Student < User
     scores_by_standard = {}
     args[:requirements].map do |requirement|
       quizzes = requirement.quizzes
-      debugger
       quiz_scores = quizzes.map do |quiz|
         sittings = self.find_sittings_by_quiz(quiz.id)
         Sitting.average_sittings(sittings)
