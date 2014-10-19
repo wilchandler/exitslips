@@ -85,7 +85,7 @@
 <row name="content" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="correct" null="1" autoincrement="0">
+<row name="correct?" null="1" autoincrement="0">
 <datatype>CHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
@@ -110,13 +110,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="208" y="355" name="quizzes">
+<table x="180" y="343" name="quizzes">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="standard_id" null="1" autoincrement="0">
+<row name="requirement_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="standards" row="id" />
+<default>NULL</default><relation table="requirements" row="id" />
 </row>
 <row name="name" null="1" autoincrement="0">
 <datatype>CHAR</datatype>
@@ -178,7 +178,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="36" y="405" name="standards">
+<table x="26" y="527" name="standards">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -257,6 +257,22 @@
 <row name="password" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="245" y="523" name="requirements">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="standard_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="standards" row="id" />
+</row>
+<row name="section_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="sections" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
