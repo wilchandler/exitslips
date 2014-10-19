@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20141019011312) do
   create_table "answers", force: true do |t|
     t.integer "question_id"
     t.string  "content"
-    t.boolean "correct?"
+    t.boolean "correct"
     t.integer "student_id"
     t.integer "sitting_id"
   end
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20141019011312) do
     t.integer "student_id"
     t.integer "quiz_id"
     t.integer "possible"
-    t.integer "correct?"
+    t.integer "correct"
   end
 
   add_index "sittings", ["quiz_id", "student_id"], name: "index_sittings_on_quiz_id_and_student_id", using: :btree
