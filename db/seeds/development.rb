@@ -15,6 +15,10 @@ standard1 = Standard.create!(subject: "Math", grade: "4", code: "B.A.4", descrip
 standard2 = Standard.create!(subject: "Math", grade: "4", code: "B.A.5", description: "Do basic math")
 standard3 = Standard.create!(subject: "ELA", grade: "4", code: "E.A.5", description: "Learn empathy")
 
+section1.standards << standard1
+section1.standards << standard2
+section2.standards << standard3
+
 s1quiz1 = Quiz.create!(name: "Advanced Math", instructions: "Do these, children!", section_id: 1)
 # s1quiz1.standard = standard1
 q1 = Question.create!(quiz: s1quiz1, query: "What is 2 + 2?", question_type: "multiple_choice")
@@ -30,7 +34,7 @@ q3 = Question.create!(quiz: s1quiz2, query: "What is 13.5 x 78.1?", question_typ
 Option.create!(question: q3, content: "1054.35", correct?: true)
 Option.create!(question: q3, content: "1044.35", correct?: false)
 
-s2quiz1 = Quiz.create!(name: "Advanced grammar", instructions: "Do these, children!", section_id: 2)
+git s2quiz1 = Quiz.create!(name: "Advanced grammar", instructions: "Do these, children!", section_id: 2)
 # s1quiz3.standard = standard3
 q4 = Question.create!(quiz: s2quiz1, query: "I want to tell Suzie her brother smells bad.  How do I refer to her brother possessively?", question_type: "multiple_choice")
 Option.create!(question: q4, content: "You're", correct?: false)
@@ -43,9 +47,9 @@ Option.create!(question: q4, content: "Your", correct?: true)
   s.sections << section2
 
 
-  sitting1 = Sitting.create!(student: s, quiz: s1quiz1, possible: 2, correct?: 1)
-  sitting2 = Sitting.create!(student: s, quiz: s1quiz2, possible: 1, correct?: 1)
-  sitting3 = Sitting.create!(student: s, quiz: s2quiz1, possible: 1, correct?: 1)
+  sitting1 = Sitting.create!(student: s, quiz: s1quiz1, possible: 2, correct: 1)
+  sitting2 = Sitting.create!(student: s, quiz: s1quiz2, possible: 1, correct: 1)
+  sitting3 = Sitting.create!(student: s, quiz: s2quiz1, possible: 1, correct: 1)
 
   Answer.create!(question_id: q1, content: "4", correct?: true, student: s, sitting: sitting1)
   Answer.create!(question_id: q2, content: "14", correct?: false, student: s, sitting: sitting1)
