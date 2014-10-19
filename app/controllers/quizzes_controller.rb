@@ -2,7 +2,8 @@ class QuizzesController < ApplicationController
 
 
 	def index
-		@quizzes = current_user.quizzes.uniq
+		@sections = current_user.sections
+		@quizzes = current_user.quizzes
 	end
 
 	def teacher_index
@@ -21,6 +22,8 @@ class QuizzesController < ApplicationController
 	end
 
 	def create
+		raise "POPOP".inspect
+
 		# NEED TO VALIDATE IF NO SECTIONS ARE SELECTED OR NO Q/A
 
 		params[:sections].keys.each do |section_id|

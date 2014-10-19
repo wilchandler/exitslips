@@ -1,13 +1,14 @@
 <h1> Welcome, <%= current_user.full_name %>! </h1>
 
 <h3> Quizzes </h3>
-  <% current_user.sections.each do |section|%>
-<h5><%= section.name %> </h5>
-  <% @quizzes.each do |quiz| %>
-<div class="quiz">
-  <ul>
-    <li><%= link_to "#{quiz.name}", new_quiz_sitting_path(quiz) %></li>
-  </ul>
-</div>
+<% @sections.each do |section|%>
+  <% section_quizzes = @quizzes.select{ |q| q.section_id == section.id } %>
+  <h5><%= section.name %> </h5>
+  <% section_quizzes.each do |quiz| %>
+    <div class="quiz">
+      <ul>
+        <li><%= link_to "#{quiz.name}", new_quiz_sitting_path(quiz) %></li>
+      </ul>
+    </div>
   <% end %>
-  <% end %>
+<% end %>

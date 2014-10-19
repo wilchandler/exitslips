@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_id
-    session["warden.user.user.key"][0]
+    session["warden.user.user.key"][0][0]
   end
 
 end
