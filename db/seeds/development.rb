@@ -20,7 +20,7 @@ section1.standards << standard2
 section2.standards << standard3
 
 s1quiz1 = Quiz.create!(name: "Advanced Math", instructions: "Do these, children!", section_id: 1)
-# s1quiz1.standard = standard1
+s1quiz1.requirement = Requirement.where("standard_id = 1177 AND section_id = 1")[0]
 q1 = Question.create!(quiz: s1quiz1, query: "What is 2 + 2?", question_type: "multiple_choice")
 Option.create!(question: q1, content: "4", correct?: true)
 Option.create!(question: q1, content: "22", correct?: false)
@@ -29,13 +29,13 @@ Option.create!(question: q2, content: "14", correct?: false)
 Option.create!(question: q2, content: "12", correct?: true)
 
 s1quiz2 = Quiz.create!(name: "Beginner Math", instructions: "Don't mess it up, children!", section_id: 1)
-# s1quiz2.standard = standard2
+s1quiz2.requirement = Requirement.where("standard_id = 1178 AND section_id = 1")[0]
 q3 = Question.create!(quiz: s1quiz2, query: "What is 13.5 x 78.1?", question_type: "multiple_choice")
 Option.create!(question: q3, content: "1054.35", correct?: true)
 Option.create!(question: q3, content: "1044.35", correct?: false)
 
 s2quiz1 = Quiz.create!(name: "Advanced grammar", instructions: "Do these, children!", section_id: 2)
-# s1quiz3.standard = standard3
+s2quiz1.requirement = Requirement.where("standard_id = 1177 AND section_id = 2")[0]
 q4 = Question.create!(quiz: s2quiz1, query: "I want to tell Suzie her brother smells bad.  How do I refer to her brother possessively?", question_type: "multiple_choice")
 Option.create!(question: q4, content: "You're", correct?: false)
 Option.create!(question: q4, content: "Your", correct?: true)
@@ -61,21 +61,21 @@ end
 
 standard_id = 1177
 
-46.times do
+47.times do
   section3.standards << Standard.find_by_id(standard_id)
   standard_id += 1
 end
 
 standard_id = 1177
 
-46.times do
+47.times do
   section4.standards << Standard.find_by_id(standard_id)
   standard_id += 1
 end
 
 standard_id = 1177
 
-46.times do
+47.times do
   section5.standards << Standard.find_by_id(standard_id)
   standard_id += 1
 end
@@ -90,11 +90,11 @@ sixth_standard6 = Standard.find_by_code("6.NS.8")
 sixth_standard7 = Standard.find_by_code("6.EE.1")
 sixth_standard8 = Standard.find_by_code("6.EE.5")
 sixth_standard9 = Standard.find_by_code("6.EE.6")
-sixth_standard10 = Standard.find_by_code("6.EE.7")
 sixth_standard10 = Standard.find_by_code("6.G.1")
 
 sixth_quiz1 = Quiz.create!(name: "Ratios and Percents I", instructions: "Do these, children!", section_id: 3)
-# sixth_quiz1.standard = sixth_standard1
+sixth_quiz1.requirement = Requirement.where("standard_id = 1177 AND section_id = 3")[0]
+sixth_quiz1.save
 q5 = Question.create!(quiz: sixth_quiz1, query: "60% of what number is 45", question_type: "multiple_choice")
 Option.create!(question: q5, content: "27", correct?: false)
 Option.create!(question: q5, content: "30", correct?: false)
@@ -127,28 +127,37 @@ Option.create!(question: q9, content: "4.8%", correct?: true)
 Option.create!(question: q9, content: "105%", correct?: false)
 
 sixth_quiz2 = Quiz.create!(name: "Ratios and Percents II", instructions: "Do these, children!", section_id: 3)
-# sixth_quiz2.standard = sixth_standard2
-
+sixth_quiz2.requirement = Requirement.where("standard_id = 1178 AND section_id = 3")[0]
+sixth_quiz2.save
 sixth_quiz3 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 3)
-# sixth_quiz3.standard = sixth_standard3
+sixth_quiz3.requirement = Requirement.where("standard_id = 1186 AND section_id = 3")[0]
+sixth_quiz3.save
 sixth_quiz4 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 3)
-# sixth_quiz4.standard = sixth_standard4
+sixth_quiz4.requirement = Requirement.where("standard_id = 1187 AND section_id = 3")[0]
+sixth_quiz4.save
 sixth_quiz5 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 3)
-# sixth_quiz5.standard = sixth_standard5
+sixth_quiz5.requirement = Requirement.where("standard_id = 1188 AND section_id = 3")[0]
+sixth_quiz5.save
 sixth_quiz6 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 3)
-# sixth_quiz6.standard = sixth_standard6
+sixth_quiz6.requirement = Requirement.where("standard_id = 1198 AND section_id = 3")[0]
+sixth_quiz6.save
 sixth_quiz7 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 3)
-# sixth_quiz7.standard = sixth_standard7
+sixth_quiz7.requirement = Requirement.where("standard_id = 1199 AND section_id = 3")[0]
+sixth_quiz7.save
 sixth_quiz8 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 3)
-# sixth_quiz8.standard = sixth_standard8
+sixth_quiz8.requirement = Requirement.where("standard_id = 1206 AND section_id = 3")[0]
+sixth_quiz8.save
 sixth_quiz9 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 3)
-# sixth_quiz9.standard = sixth_standard9
+sixth_quiz9.requirement = Requirement.where("standard_id = 1207 AND section_id = 3")[0]
+sixth_quiz9.save
 sixth_quiz10 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 3)
-# sixth_quiz10.standard = sixth_standard10
+sixth_quiz10.requirement = Requirement.where("standard_id = 1211 AND section_id = 3")[0]
+sixth_quiz10.save
 
 
 sixth_quiz11 = Quiz.create!(name: "Ratios and Percents I", instructions: "Do these, children!", section_id: 4)
-# sixth_quiz11.standard = sixth_standard1
+sixth_quiz11.requirement = Requirement.where("standard_id = 1177 AND section_id = 4")[0]
+sixth_quiz11.save
 q10 = Question.create!(quiz: sixth_quiz1, query: "60% of what number is 45", question_type: "multiple_choice")
 Option.create!(question: q10, content: "27", correct?: false)
 Option.create!(question: q10, content: "30", correct?: false)
@@ -181,28 +190,36 @@ Option.create!(question: q14, content: "4.8%", correct?: true)
 Option.create!(question: q14, content: "105%", correct?: false)
 
 sixth_quiz12 = Quiz.create!(name: "Ratios and Percents II", instructions: "Do these, children!", section_id: 4)
-# sixth_quiz12.standard = sixth_standard2
-
+sixth_quiz12.requirement = Requirement.where("standard_id = 1178 AND section_id = 4")[0]
+sixth_quiz12.save
 sixth_quiz13 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 4)
-# sixth_quiz13.standard = sixth_standard3
+sixth_quiz13.requirement = Requirement.where("standard_id = 1186 AND section_id = 4")[0]
+sixth_quiz13.save
 sixth_quiz14 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 4)
-# sixth_quiz14.standard = sixth_standard4
+sixth_quiz14.requirement = Requirement.where("standard_id = 1187 AND section_id = 4")[0]
+sixth_quiz14.save
 sixth_quiz15 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 4)
-# sixth_quiz15.standard = sixth_standard5
+sixth_quiz15.requirement = Requirement.where("standard_id = 1188 AND section_id = 4")[0]
+sixth_quiz15.save
 sixth_quiz16 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 4)
-# sixth_quiz16.standard = sixth_standard6
+sixth_quiz16.requirement = Requirement.where("standard_id = 1198 AND section_id = 4")[0]
+sixth_quiz16.save
 sixth_quiz17 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 4)
-# sixth_quiz17.standard = sixth_standard7
+sixth_quiz17.requirement = Requirement.where("standard_id = 1199 AND section_id = 4")[0]
+sixth_quiz17.save
 sixth_quiz18 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 4)
-# sixth_quiz18.standard = sixth_standard8
+sixth_quiz18.requirement = Requirement.where("standard_id = 1206 AND section_id = 4")[0]
+sixth_quiz18.save
 sixth_quiz19 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 4)
-# sixth_quiz19.standard = sixth_standard9
+sixth_quiz19.requirement = Requirement.where("standard_id = 1207 AND section_id = 4")[0]
+sixth_quiz19.save
 sixth_quiz20 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 4)
-# sixth_quiz20.standard = sixth_standard10
-
+sixth_quiz20.requirement = Requirement.where("standard_id = 1211 AND section_id = 4")[0]
+sixth_quiz20.save
 
 sixth_quiz21 = Quiz.create!(name: "Ratios and Percents I", instructions: "Do these, children!", section_id: 5)
-# sixth_quiz21.standard = sixth_standard1
+sixth_quiz21.requirement = Requirement.where("standard_id = 1177 AND section_id = 5")[0]
+sixth_quiz21.save
 q15 = Question.create!(quiz: sixth_quiz1, query: "60% of what number is 45", question_type: "multiple_choice")
 Option.create!(question: q15, content: "27", correct?: false)
 Option.create!(question: q15, content: "30", correct?: false)
@@ -235,25 +252,31 @@ Option.create!(question: q19, content: "4.8%", correct?: true)
 Option.create!(question: q19, content: "105%", correct?: false)
 
 sixth_quiz22 = Quiz.create!(name: "Ratios and Percents II", instructions: "Do these, children!", section_id: 5)
-# sixth_quiz22.standard = sixth_standard2
-
+sixth_quiz22.requirement = Requirement.where("standard_id = 1178 AND section_id = 5")[0]
+sixth_quiz22.save
 sixth_quiz23 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!",  section_id: 5)
-# sixth_quiz23.standard = sixth_standard3
+sixth_quiz23.requirement = Requirement.where("standard_id = 1186 AND section_id = 5")[0]
+sixth_quiz23.save
 sixth_quiz24 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!",  section_id: 5)
-# sixth_quiz24.standard = sixth_standard4
+sixth_quiz24.requirement = Requirement.where("standard_id = 1187 AND section_id = 5")[0]
+sixth_quiz24.save
 sixth_quiz25 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!",  section_id: 5)
-# sixth_quiz25.standard = sixth_standard5
+sixth_quiz25.requirement = Requirement.where("standard_id = 1188 AND section_id = 5")[0]
+sixth_quiz25.save
 sixth_quiz26 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!",  section_id: 5)
-# sixth_quiz26.standard = sixth_standard6
+sixth_quiz26.requirement = Requirement.where("standard_id = 1198 AND section_id = 5")[0]
+sixth_quiz26.save
 sixth_quiz27 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!",  section_id: 5)
-# sixth_quiz27.standard = sixth_standard7
+sixth_quiz27.requirement = Requirement.where("standard_id = 1199 AND section_id = 5")[0]
 sixth_quiz28 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!",  section_id: 5)
-# sixth_quiz28.standard = sixth_standard8
+sixth_quiz28.requirement = Requirement.where("standard_id = 1206 AND section_id = 5")[0]
+sixth_quiz28.save
 sixth_quiz29 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!",  section_id: 5)
-# sixth_quiz29.standard = sixth_standard9
+sixth_quiz29.requirement = Requirement.where("standard_id = 1207 AND section_id = 5")[0]
+sixth_quiz29.save
 sixth_quiz30 = Quiz.create!(name: Faker::Lorem.word.capitalize, instructions: "Do these, children!", section_id: 5)
-# sixth_quiz30.standard = sixth_standard30
-
+sixth_quiz30.requirement = Requirement.where("standard_id = 1211 AND section_id = 5")[0]
+sixth_quiz30.save
 
 30.times do
   s = Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
