@@ -24,6 +24,7 @@ class SectionsController < ApplicationController
         @standards = @section.standards
         @quizzes = @section.quizzes
       }
+      format.csv { render text: @section.to_csv}
 		end
 
 
