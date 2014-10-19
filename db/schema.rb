@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20141018172433) do
     t.integer "student_id"
     t.integer "quiz_id"
     t.integer "possible"
-    t.integer "correct"
+    t.integer "correct?"
   end
 
   add_index "sittings", ["quiz_id", "student_id"], name: "index_sittings_on_quiz_id_and_student_id", using: :btree
