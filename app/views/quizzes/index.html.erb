@@ -1,14 +1,15 @@
 <h1> Welcome, <%= current_user.full_name %>! </h1>
 
 <h3> Quizzes </h3>
-<% current_user.sections.each do |section|%>
+  <% current_user.sections.each do |section|%>
 <h5><%= section.name %> </h5>
-<%	current_user.quizzes.each do |quiz| %>
+  <% @quizzes.each do |quiz| %>
 <div class="quiz">
   <ul>
-    <li><%= link_to "#{quiz.name}", quiz_path(quiz) %></li>
+    <li><%= link_to "#{quiz.name}", new_quiz_sitting_path(quiz) %></li>
   </ul>
 </div>
-<% end %>
-<% end %>
-<li id ="join"> <%= link_to "Join Section",new_enrollment_path%></li>
+
+  <% end %>
+  <% end %>
+

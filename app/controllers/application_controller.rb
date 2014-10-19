@@ -15,7 +15,8 @@ class ApplicationController < ActionController::Base
     Teacher.find_by(id: session["warden.user.user.key"][0])
   end
 
-
-
+  def current_user_id
+    session["warden.user.user.key"][0]
+  end
 
 end

@@ -7,6 +7,7 @@ module SectionsHelper
 
 
   def student_leave #Student can't get access.Only teachers can.
+    return
     if current_user.class != Teacher
     	redirect_to '/'
     end
@@ -18,7 +19,7 @@ module SectionsHelper
     end
   end
 
-    		    	
+
 
 end
 

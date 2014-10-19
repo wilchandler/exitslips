@@ -1,0 +1,17 @@
+<h1><%= @quiz.name %></h1>
+<p><%= @quiz.instructions %></p>
+
+<%= form_for :response, url: quiz_sittings_path(@quiz) do |f| %>
+  <% @quiz.questions.each do |question| %>
+    <div>
+      <p><%= question.query %></p>
+      <p><% question.options.each do |option| %>
+
+        <%= f.radio_button question.id, option.id %>
+        <%= f.label question.id, option.content %><br>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+        <%= f.submit "Submit" %>
+<% end %>

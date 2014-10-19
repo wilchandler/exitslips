@@ -2,6 +2,10 @@ class QuizzesController < ApplicationController
 
 
 	def index
+		@quizzes = current_user.quizzes.uniq
+	end
+
+	def teacher_index
 	end
 
 	def show
@@ -42,6 +46,11 @@ class QuizzesController < ApplicationController
 
 	def delete
 	end
+
+	def finish
+
+	end
+
 
 		private
 
