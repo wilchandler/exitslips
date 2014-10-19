@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20141019011312) do
   create_table "answers", force: true do |t|
     t.integer "question_id"
     t.string  "content"
-    t.boolean "correct?"
+    t.boolean "correct"
     t.integer "student_id"
     t.integer "sitting_id"
   end
