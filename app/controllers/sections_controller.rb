@@ -14,16 +14,14 @@ class SectionsController < ApplicationController
 	def show
 		# student_leave
 		@section = Section.find(params[:id])
-		@students = @section.students
-    @standards = @section.standards
-
-
 
 		respond_to do |format|
       format.json {
         render json: @section.calculate_scores_by_standard
       }
 			format.html {
+        @students = @section.students
+        @standards = @section.standards
         @quizzes = @section.quizzes
       }
 		end

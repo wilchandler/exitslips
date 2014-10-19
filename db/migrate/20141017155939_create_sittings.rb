@@ -4,7 +4,7 @@ class CreateSittings < ActiveRecord::Migration
       t.integer :student_id
       t.integer :quiz_id
       t.integer :possible
-      t.integer :correct?
+      t.integer :correct
     end
   end
 end
