@@ -7,14 +7,12 @@ $(document).ready ->
   $('#id').change ->
     sectionID = $('#section_id').val()
     quizID = $("#id").val()
-    console.log(quizID)
     if quizID
-      console.log("GO ROYALS")
+      $("#table-quiz").remove()
       $("#table-all-standards").hide()
       $.get "/sections/#{sectionID}/quizzes/#{quizID}", (data) ->
-        console.log(data)
         populateQuizTable(data)
-    else if quizID
+    else
       $("#table-quiz").remove()
       $("#table-all-standards").show()
 
@@ -25,11 +23,19 @@ populateQuizTable = (data) ->
   $("#header").append("<th>Name</th>")
   for key, value of data
     buildRows(key, value)
-    buildHeaders(value)
 
 buildRows = (id, questions) ->
-  $("#table-quiz").append("<tr##{id}")
+  $("#table-quiz").append("<tr><th id=#{id}>#{id}</th>")
+  for question of questions
+    $("th##{id}").insertAfter("<td>#{question[0]}</td>")
+    $("#table-quiz").append("</tr>")
+    buildHeaders(question)
+
+buildHeaders = (question) ->
   
+    console.log("#{question} ROYALS")
+    $("#header").append("<th>#{question}</th>")
+    
 
 
 
