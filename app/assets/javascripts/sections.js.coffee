@@ -31,8 +31,8 @@ populateQuizTable = (data) ->
 buildRows = (studentID, questions) ->
   row = findRowById(studentID)
   for question, answer of questions
-    console.log(row)
-    $("tr##{studentID}").insertCell(answer)
+    console.log()
+    $("#quiz-#{studentID}").append("<td>#{answer}</td>")
 
 populateRow = (row, scores) ->
   for question, score of scores

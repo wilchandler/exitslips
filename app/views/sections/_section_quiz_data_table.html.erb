@@ -6,7 +6,7 @@
     </tr>
   </thead>
   <% @students.each do |student| %>
-    <tr id=<%= student.id %>>
+    <tr id="quiz-<%=student.id %>">
       <td><%= student.full_name %></td>
     </tr>
   <% end %>
