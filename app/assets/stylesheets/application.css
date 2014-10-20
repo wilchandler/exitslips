@@ -24,7 +24,7 @@ header {
   line-height: 6em;
   top: 0;
   width: 100%;
-  background: rgba(0,168,198,1.0);;
+  background: rgba(0,168,198,1.0);
   overflow:hidden;
 }
 
@@ -104,7 +104,7 @@ button:active, input[type=submit]:active {
   border-radius: 10px;
   list-style: none;
   line-height: 2em;
-	max-width: 20%
+	max-width: 20%;
 }
 
 input[type=submit] {
