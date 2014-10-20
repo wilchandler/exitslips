@@ -24,6 +24,7 @@ class Question < ActiveRecord::Base
       end
 
     end
+    question
   end
 
   def process_options_from_form(options)
