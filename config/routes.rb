@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     get "sign_in", to: "sessions#new"
   end
 
+  get "/sections/:section_id/quizzes/:id", to: "quizzes#results"
+
   root to: 'home#index'
 
   resources :quizzes do
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :sections
   resources :users, except: [:index]
+
 
   post "/q/take" => "quizzes#take", as: "quiz_take"
   resources :standards, only: [:index], :defaults => { :format => 'json' }

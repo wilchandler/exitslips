@@ -88,5 +88,13 @@ section5 = Section.create!(name: "6th Grade Math 5th Hour", teacher: teacher2, s
 
 end
 
+sdx = Student.all
+
+sdx.each do |s|
+  10.times do 
+    Answer.create!(question_id: [q1, q2, q3].sample, content: "Testing123", correct: [true, false].sample, student_id: s.id)
+  end
+end
+
 
 section14 = Section.create!(name: "Testing woohoo", teacher: teacher, subject: "Math", grade: "12", passcode: "test123")

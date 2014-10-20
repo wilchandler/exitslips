@@ -28,7 +28,6 @@ class Question < ActiveRecord::Base
     else
       # open response...
     end
-    debugger
   end
 
   def check_multiple_choice(user_option_id)
