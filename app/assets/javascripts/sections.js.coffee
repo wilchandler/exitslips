@@ -3,38 +3,57 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
+  $("#table-quiz").hide()
 
   $('#id').change ->
     sectionID = $('#section_id').val()
     quizID = $("#id").val()
     if quizID
-      $("#table-quiz").remove()
       $("#table-all-standards").hide()
+      $("#table-quiz").show()
       $.get "/sections/#{sectionID}/quizzes/#{quizID}", (data) ->
-        populateQuizTable(data)
+        console.log("GO ROYALS")
+        console.log(data)
+        # populateQuizTable(data)
     else
-      $("#table-quiz").remove()
+      $("#table-quiz").hide()
       $("#table-all-standards").show()
 
 
-populateQuizTable = (data) -> 
-  $("<table id='table-quiz'></table>").insertAfter("#table-all-standards")
-  $("#table-quiz").append("<tr id='header'></tr>")
-  $("#header").append("<th>Name</th>")
+populateQuizTable = (data) ->
   for key, value of data
-    buildRows(key, value)
+    populateHeader(value)
+    break
+  for key, value of data
+    row = findRowById(key)
+    populateRow(values)
 
-buildRows = (id, questions) ->
-  $("#table-quiz").append("<tr><th id=#{id}>#{id}</th>")
-  for question of questions
-    $("th##{id}").insertAfter("<td>#{question[0]}</td>")
-    $("#table-quiz").append("</tr>")
-    buildHeaders(question)
 
-buildHeaders = (question) ->
-  
-    console.log("#{question} ROYALS")
-    $("#header").append("<th>#{question}</th>")
+
+findRowById = (id) ->
+  $("tr##{id}")
+
+
+
+
+
+# populateQuizTable = (data) -> 
+#   $("<table id='table-quiz'></table>").insertAfter("#table-all-standards")
+#   $("#table-quiz").append("<tr id='header'></tr>")
+#   $("#header").append("<th>Name</th>")
+#   for key, value of data
+#     buildRows(key, value)
+
+# buildRows = (id, questions) ->
+#   $("#table-quiz").append("<tr><th id=#{id}>#{id}</th>")
+#   for question of questions
+#     $("th##{id}").insertAfter("<td>#{question[0]}</td>")
+#     $("#table-quiz").append("</tr>")
+#     buildHeaders(question)
+
+# buildHeaders = (question) ->
+#     console.log("#{question} ROYALS")
+#     $("#header").append("<th>#{question}</th>")
     
 
 
