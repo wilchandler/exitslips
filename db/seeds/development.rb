@@ -38,10 +38,7 @@ Option.create!(question: q4, content: "You're", correct?: false)
 Option.create!(question: q4, content: "Your", correct?: true)
 
 
-sdx = Student.all
-sdx.each do |s|
-  Answer.create(question_id: [q1,q2,q3].sample, correct: [true,false].sample ,student_id: s.id)
-end
+
 
 10.times do
   s = Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
@@ -92,6 +89,16 @@ section5 = Section.create!(name: "6th Grade Math 5th Hour", teacher: teacher2, s
 
   end
 
+end
+
+
+
+sdx = Student.all
+
+sdx.each do |s|
+  10.times do 
+    Answer.create!(question_id: [q1,q2,q3].sample, content: "Testing123", correct: [true,false].sample ,student_id: s.id)
+  end
 end
 
 

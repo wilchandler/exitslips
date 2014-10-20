@@ -1,19 +1,1 @@
 
-<table id="table-all-standards" class="table-active">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <% @standards.each do |standard| %>
-        <th><%= standard.code %></th>
-      <% end %>
-    </tr>
-  </thead>
-  <% @students.each do |student| %>
-    <tr id=<%= student.id %>>
-      <td><%= student.full_name %></td>
-      <% @standards.count.times do %>
-        <td></td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
