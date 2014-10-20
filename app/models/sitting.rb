@@ -20,7 +20,6 @@ class Sitting < ActiveRecord::Base
       quiz_id: args[:quiz_id],
       correct: 0,
       possible: 0
-      # status
     )
 
     args[:responses].each do |question_id, option|
