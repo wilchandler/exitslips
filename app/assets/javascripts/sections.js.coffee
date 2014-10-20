@@ -12,8 +12,7 @@ $(document).ready ->
       $("#table-all-standards").hide()
       $("#table-quiz").show()
       $.get "/sections/#{sectionID}/quizzes/#{quizID}", (data) ->
-        console.log("GO ROYALS")
-        console.log(data)
+        
         # populateQuizTable(data)
     else
       $("#table-quiz").hide()
@@ -43,7 +42,9 @@ findRowById = (id) ->
 
 populateHeader = (value) ->
   for question, answer of value
-    $('#student-name').append("<th>#{question}</th>")
+    console.log("GO ROYALS")
+    console.log(data)
+    $('#header').append("<th>#{question}</th>")
 
 findHeader = (cells, content) ->
   for cell in cells
@@ -125,6 +126,3 @@ assignColor = (element, score) ->
     $(element).attr('class', 'yellow-cell')
   else
     $(element).attr('class', 'green-cell')
-
-
-

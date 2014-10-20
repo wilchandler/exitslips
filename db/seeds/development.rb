@@ -102,6 +102,8 @@ sdx.each do |s|
 end
 
 
+
+
 section14 = Section.create!(name: "Testing woohoo", teacher: teacher, subject: "Math", grade: "12", passcode: "test123")
 
 
