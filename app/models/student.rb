@@ -26,6 +26,7 @@ class Student < User
     scores_by_question = {}
     args [:questions].map do |question|
       answers = self.find_answers_by_question_id(question.id)
+    end
 
   end
 
