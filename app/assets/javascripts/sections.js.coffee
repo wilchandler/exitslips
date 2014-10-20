@@ -4,8 +4,8 @@
 
 $(document).ready ->
   $("#table-quiz").hide()
-
   $('#id').change ->
+    depopulateTable()
     sectionID = $('#section_id').val()
     quizID = $("#id").val()
     if quizID
@@ -39,7 +39,10 @@ populateHeader = (value) ->
   for question, answer of value
     $('#header').append("<th>#{question}</th>")
 
-
+depopulateTable = -> 
+  console.log($("#table-quiz #student-name").siblings())
+  $("#table-quiz #student-name").siblings().remove()
+  $("#table-quiz .student-row").siblings().remove()
 
 
 
