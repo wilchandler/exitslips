@@ -44,9 +44,17 @@ gem 'devise'
 
 gem 'ffaker'
 
+# gems needed for heroku
 gem 'rails_12factor', group: :production
 
 gem 'unicorn'
+
+# gems needed for coveralls
+
+gem 'coveralls', require: false
+
+gem 'simplecov', :require => false, :group => :test
+
 
 
 group :development, :test do
