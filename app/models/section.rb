@@ -23,7 +23,7 @@ class Section < ActiveRecord::Base
     end
   end
 
-  def calculate_scores_by_standard
+  def calculate_scores_by_standard(key_type = :id)
     requirements = self.requirements
     students = self.students
     scores = {}
@@ -33,9 +33,27 @@ class Section < ActiveRecord::Base
         requirements: requirements,
         section_id: self.id
       })
-      scores[student.id] = s
+      if key_type == :id
+        scores[student.id] = s
+      elsif key_type == :name
+        scores[student.full_name] = s
+      end
     end
     scores
+  end
+
+  def to_csv(options = {})
+    require 'csv'
+    scores = calculate_scores_by_standard(:name)
+    standard_codes = self.standards.pluck(:code)
+
+    # raise scores.inspect
+    CSV.generate(options) do |csv|
+      csv << ["name"] + standard_codes
+      scores.each do |name, results|
+        csv << [name] + results.values_at(*standard_codes)
+      end
+    end
   end
 
 end

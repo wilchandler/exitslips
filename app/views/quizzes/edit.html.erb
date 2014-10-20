@@ -1,6 +1,8 @@
 <h1>Edit <%= @quiz.name %></h1>
 
 <%= form_for @quiz, url: quiz_path(@quiz) do |f| %>
+  <%= render 'standards' %>
+
   <p>Standard: <%= @standard.to_s %></p>
   <%= render 'quiz', f: f %>
 <% end %>
