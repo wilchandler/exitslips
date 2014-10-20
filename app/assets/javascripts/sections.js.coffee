@@ -27,8 +27,9 @@ populateQuizTable = (data) ->
     buildRows(key, value)
     buildHeaders(value)
 
-buildRows = (name, questions) ->
-  $("#table-quiz").append
+buildRows = (id, questions) ->
+  $("#table-quiz").append("<tr##{id}")
+  
 
 
 
