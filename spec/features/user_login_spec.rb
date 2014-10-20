@@ -1,11 +1,8 @@
+require 'spec_helper'
+
 feature 'Registration' do
   context "registration" do
-    # before(:each) do
-    #   visit root_path
-    #   click_link 'Sign Up'
-    #   fill_in 'user_first_name', with: "Liberty"
-    #   fill_in 'user_last_name', with: "Valance"
-    # end
+  
 
     it "can fill out registration form and click sign up" do
     end

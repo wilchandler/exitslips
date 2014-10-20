@@ -6,7 +6,7 @@ feature "Student_show" do
     @liberty = Student.create!(first_name: "liberty", last_name: "valance", email: "valance@mail.com", password: "12345678")
     @sec = Section.create!(name: "Math")
     Enrollment.create!(student_id: @liberty.id, section_id: @sec.id)
-    Quiz.create!(name: "Numbers & Operations in Base Ten", section_id: @sec.id, student_id: @liberty.id)
+    Quiz.create!(name: "Numbers & Operations in Base Ten", section_id: @sec.id)
 
     fill_in "user_email", with: "valance@mail.com"
     fill_in "user_password", with: "12345678"
