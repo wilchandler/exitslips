@@ -29,11 +29,12 @@ class Quiz < ActiveRecord::Base
 
     @students.each do |student|
       quiz_results = student.calculate_scores_by_question({
-        questions: self.questions
+        questions: self.questions,
         quiz_id: self.id
         })
       scores[student.id] = quiz_results
     end
+    scores
   end
 
 end

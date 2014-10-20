@@ -5,8 +5,48 @@
 $(document).ready ->
 
   $('#id').change ->
-    quizId = $("#id").val()
+    sectionID = $('#section_id').val()
+    quizID = $("#id").val()
+    console.log(quizID)
+    if quizID
+      console.log("GO ROYALS")
+      $("#table-all-standards").hide()
+      $.get "/sections/#{sectionID}/quizzes/#{quizID}", (data) ->
+        console.log(data)
+        populateQuizTable(data)
+    else if quizID
+      $("#table-quiz").remove()
+      $("#table-all-standards").show()
+
+
+populateQuizTable = (data) -> 
+  $("<table id='table-quiz'></table>").insertAfter("#table-all-standards")
+  $("#table-quiz").append("<tr id='header'></tr>")
+  $("#header").append("<th>Name</th>")
+  for key, value of data
+    buildRows(key, value)
+    buildHeaders(value)
+
+buildRows = (name, questions) ->
+  $("#table-quiz").append
+
+
+
+
+# NEW table
+  #NEW table row
+    #NEW table head 'name'
+    # FOR EACH question
+      # NEW table head for question
+ #FOR EACH student     
+  #NEW table row
+    # NEW table head 'student name'
+    # FOR EACH answer
+      # NEW table data for answer
+
+
     
+
 $("#table-all-standards").ready ->
   sectionID = $('#section_id').val()
 
