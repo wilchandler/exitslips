@@ -20,4 +20,6 @@ Rails.application.routes.draw do
 
   get "/quizzes/:id/finished_quiz" => "quizzes#finish", as: "quizzes_finish"
 
+  post "/sections/add_section" => "sections#add_section", as: "add_section"
+
 end

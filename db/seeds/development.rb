@@ -76,7 +76,7 @@ section5 = Section.create!(name: "6th Grade Math 5th Hour", teacher: teacher2, s
   students.each { |student| section.students << student }
 
   section.requirements.each do |requirement|
-    next if (0..50).to_a.sample == 0
+    next if rand(0..50) == 0
 
     quiz = Quiz.create!(name: Faker::Lorem.words(3).join(" "), instructions: "Do these, children!", section: section, requirement: requirement)
     students.each do |student|
@@ -87,3 +87,6 @@ section5 = Section.create!(name: "6th Grade Math 5th Hour", teacher: teacher2, s
   end
 
 end
+
+
+section14 = Section.create!(name: "Testing woohoo", teacher: teacher, subject: "Math", grade: "12", passcode: "test123")
