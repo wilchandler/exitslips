@@ -1,6 +1,5 @@
 class SittingsController < ApplicationController
 
-
   def new
     @quiz = Quiz.find_by(id: params[:quiz_id])
     @questions = @quiz.questions

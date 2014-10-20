@@ -19,7 +19,8 @@ class Sitting < ActiveRecord::Base
       student_id: args[:student_id],
       quiz_id: args[:quiz_id],
       correct: 0,
-      possible: 0
+      possible: 0,
+      graded: true
     )
 
     args[:responses].each do |question_id, option|
@@ -37,7 +38,7 @@ class Sitting < ActiveRecord::Base
     elsif mark == false
       self.possible += 1
     elsif mark == :pending
-      # handle open ended response
+      self.update_attribute(:graded, false)
     end
   end
 
