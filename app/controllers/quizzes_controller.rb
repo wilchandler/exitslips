@@ -76,6 +76,18 @@ class QuizzesController < ApplicationController
 		end
 	end
 
+	def groups
+		group_size = params[:group_size].to_i
+		sort_type = params[:sort_type].to_sym
+		quiz = Quiz.find_by(id: params[:id])
+
+		respond_to do |format|
+			format.json { render :json => {
+				groups: quiz.group_by_quiz_scores(group_size, sort_type)
+			}}
+		end
+	end
+
 
 		private
 
