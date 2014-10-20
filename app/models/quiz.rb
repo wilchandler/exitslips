@@ -23,12 +23,7 @@ class Quiz < ActiveRecord::Base
   def group_by_quiz_scores(group_size, sort_type)
     grouping_args = make_groups(group_size)
     scores = gather_student_scores
-    unless sort_type == :random
-      scores = scores.sort_by do |s|
-        s[1] ||= 0  # cannot sort numbers and nils
-        s[1]
-      end
-    end
+    scores = scores.sort_by { |s| s[1] } unless sort_type == :random
     grouping_args[:scores] = scores.map { |s| s[0] }
 
     if sort_type == :random
@@ -69,7 +64,7 @@ class Quiz < ActiveRecord::Base
     students.each do |student|
       sittings = Sitting.where(student_id: student.id, quiz_id: self.id)
       average_score = Sitting.average_sittings(sittings)
-      scores << [student.full_name, average_score]
+      scores << [student.full_name, average_score || 0]
     end
     scores
   end
@@ -94,10 +89,10 @@ class Quiz < ActiveRecord::Base
 
     groups.each do |group|
       if remainder > 0
-        scores.pop(group_size + 1).each { |student| group << student}
+        scores.shift(group_size + 1).each { |student| group << student}
         remainder -= 1
       else
-        scores.pop(group_size).each { |student| group << student}
+        scores.shift(group_size).each { |student| group << student}
       end
     end
     groups
