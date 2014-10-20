@@ -9,6 +9,22 @@ class SectionsController < ApplicationController
 		@teacher = current_user
 	  @sections = @teacher.sections
 	  @quizzes = @teacher.quizzes
+
+	  #--------Mastery---------------
+	  @possible = []
+	  @correct = []
+	  @sections.each do |section|
+	  	section.sittings.each do |sitting|
+	  		@possible << sitting.possible
+	  		@correct << sitting.correct
+	  	end
+	  end
+	  @sum_possible = @possible.sum
+	  @sum_correct = @correct.sum
+	  @mastery = (@sum_correct.to_f / @sum_possible) * 100
+
+
+
 	end
 
 	def show
