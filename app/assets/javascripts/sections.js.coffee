@@ -12,9 +12,8 @@ $(document).ready ->
       $("#table-all-standards").hide()
       $("#table-quiz").show()
       $.get "/sections/#{sectionID}/quizzes/#{quizID}", (data) ->
-        console.log("GO ROYALS")
         console.log(data)
-        # populateQuizTable(data)
+        populateQuizTable(data)
     else
       $("#table-quiz").hide()
       $("#table-all-standards").show()
@@ -26,11 +25,19 @@ populateQuizTable = (data) ->
     break
   for key, value of data
     row = findRowById(key)
-    populateRow(row, values)
+    buildRows(key, value)
+    # populateRow(row, value)
+
+buildRows = (studentID, questions) ->
+  row = findRowById(studentID)
+  for question, answer of questions
+    console.log(row)
+    $("tr##{studentID}").insertCell(answer)
 
 populateRow = (row, scores) ->
   for question, score of scores
-    match = findHeader(tds, code)
+    match = findHeader(row, question)
+    populateCell(match, score)
 
 findHeader = (cells, content) ->
   for cell in cells
@@ -43,7 +50,7 @@ findRowById = (id) ->
 
 populateHeader = (value) ->
   for question, answer of value
-    $('#student-name').append("<th>#{question}</th>")
+    $('#header').append("<th>#{question}</th>")
 
 findHeader = (cells, content) ->
   for cell in cells
