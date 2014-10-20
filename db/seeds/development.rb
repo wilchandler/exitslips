@@ -93,7 +93,7 @@ section7 = Section.create!(name: "6th Grade Math 7th Hour", teacher: teacher2, s
   end
 end
 
-sdx = Teacher.find(2).students
+sdx = section5.students
 
 sdx.each do |s|
   10.times do 
