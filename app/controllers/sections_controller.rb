@@ -14,6 +14,7 @@ class SectionsController < ApplicationController
 	def show
 		# student_leave
 		@section = Section.find(params[:id])
+		@quizzes = @section.quizzes
 
 		respond_to do |format|
       format.json {
