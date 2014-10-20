@@ -2,42 +2,38 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
-  $("#table-quiz").hide()
+$('.section_tables').ready ->
+  $(".quiz_table").hide()
   $('#id').change ->
-    depopulateTable()
     sectionID = $('#section_id').val()
     quizID = $("#id").val()
     if quizID
       $("#table-all-standards").hide()
-      $("#table-quiz").show()
-      $.get "/sections/#{sectionID}/quizzes/#{quizID}", (data) ->
-        console.log(data)
-        populateQuizTable(data)
+      $(".quiz_table").hide()
+      $("#quiz_table_#{quizID}").show()
+      unless ($("#quiz_table_#{quizID} .student-row").siblings().length)
+        $.get "/sections/#{sectionID}/quizzes/#{quizID}", (data) ->
+          populateQuizTable(data, quizID)
     else
-      $("#table-quiz").hide()
+      $(".quiz_table").hide()
       $("#table-all-standards").show()
 
 
-populateQuizTable = (data) ->
+populateQuizTable = (data, quizID) ->
   for key, value of data
-    populateHeader(value)
+    populateHeader(value, quizID)
     break
   for key, value of data
-    row = findRowById(key)
-    buildRows(key, value)
+    buildRows(key, value, quizID)
 
-buildRows = (studentID, questions) ->
-  row = findRowById(studentID)
+buildRows = (studentID, questions, quizID) ->
   for question, answer of questions
-    $("#quiz-#{studentID}").append("<td>#{answer}</td>")
+    $("#quiz_table_#{quizID} #quiz-#{studentID}").append("<td>#{answer}</td>")
 
-findRowById = (id) ->
-  $("tr##{id}")
 
-populateHeader = (value) ->
+populateHeader = (value, quizID) ->
   for question, answer of value
-    $('#header').append("<th>#{question}</th>")
+    $("#quiz_table_#{quizID} #header").append("<th>#{question}</th>")
 
 depopulateTable = -> 
   console.log($("#table-quiz #student-name").siblings())
@@ -88,7 +84,6 @@ $("#table-all-standards").ready ->
   sectionID = $('#section_id').val()
 
   $.get "/sections/#{sectionID}", (data) ->
-    console.log(data) 
     populateSectionTable(data)
 
 populateSectionTable = (data) ->

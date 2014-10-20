@@ -2,11 +2,15 @@
 <%= render 'sections_sidebar' %>
 <%= render 'quizzes_section_sidebar'%>
 
-<div class="content">
+<div class="section_tables">
 <h1><%=@section.name%></h1>
 
 <%= render 'section_data_table' %>
-<%= render 'section_quiz_data_table' %>
+<% @quizzes.each do |quiz|%>
+	<div id="quiz_table_<%=quiz.id%>" class="quiz_table">
+	<%= render 'section_quiz_data_table' %>
+	</div>
+<% end %>
 
 <%= link_to "Download as .csv", section_path(@section, format: "csv") %>
 </div>
