@@ -7,19 +7,35 @@ class Question < ActiveRecord::Base
 
   def self.process_quiz_form(quiz_id, question_info)
     question = Question.find_by(id: question_info[:id]) || Question.new
+
     if question_info[:_destroy] == "1" || question_info[:query].strip.empty?
-      question.options { |option| option.destroy }
+      question.destroy_options
       question.destroy
     else
       question.update_attributes(
         quiz_id: quiz_id,
         query: question_info[:query].strip,
       )
-      options = question_info[:options_attributes].values
-      options.each do |option_data|
-        Option.process_quiz_form(question.id, option_data)
+
+      if question_info[:question_type] == "0" # multiple choice
+        question.process_options_from_form(question_info[:options_attributes].values)
+      elsif question_info[:question_type] == "1" # open response
+        question.make_open_response
       end
+
     end
+  end
+
+  def process_options_from_form(options)
+    self.update_attribute(:question_type, "multiple_choice")
+    options.each do |option_data|
+      Option.process_quiz_form(question.id, option_data)
+    end
+  end
+
+  def make_open_response
+    destroy_options if self.question_type == "multiple_choice"
+    self.update_attribute(:question_type, "open_response")
   end
 
   def check(option)
@@ -40,4 +56,7 @@ class Question < ActiveRecord::Base
     return false
   end
 
+  def destroy_options
+    self.options { |option| option.destroy } if self.id
+  end
 end

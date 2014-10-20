@@ -23,6 +23,7 @@ class QuizzesController < ApplicationController
 
 	def create
 		# NEED TO VALIDATE IF NO SECTIONS ARE SELECTED OR NO Q/A
+		raise params.inspect
 
 		params[:sections].keys.each do |section_id|
 			section = Section.find_by(id: section_id)
