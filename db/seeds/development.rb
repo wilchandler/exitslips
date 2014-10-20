@@ -37,6 +37,12 @@ q4 = Question.create!(quiz: s2quiz1, query: "I want to tell Suzie her brother sm
 Option.create!(question: q4, content: "You're", correct?: false)
 Option.create!(question: q4, content: "Your", correct?: true)
 
+
+sdx = Student.all
+sdx.each do |s|
+  Answer.create(question_id: [q1,q2,q3].sample, correct: [true,false].sample ,student_id: s.id)
+end
+
 10.times do
   s = Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
   s.sections << section1
@@ -90,3 +96,5 @@ end
 
 
 section14 = Section.create!(name: "Testing woohoo", teacher: teacher, subject: "Math", grade: "12", passcode: "test123")
+
+
