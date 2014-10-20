@@ -38,11 +38,16 @@ class QuizzesController < ApplicationController
 
 	def edit
 		@quiz = Quiz.find_by(id: params[:id])
-		@standard = @quiz.standard
+		@questions = @quiz.questions
+		@section = @quiz.section
+		@standard_current = @quiz.requirement.standard_id
+		@standard_options = @section.standards.map{ |s| [s.code, s.id] }
 	end
 
 	def update
 		quiz = Quiz.find_by(id: params[:id])
+		requirement = Requirement.where(section_id: quiz.section_id, standard_id: params[:standard])
+		quiz.update_attribute(:requirement, requirement)
 		quiz.process_quiz_form(params[:quiz])
 		redirect_to quiz_path(quiz)
 	end
