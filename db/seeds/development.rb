@@ -70,9 +70,16 @@ teacher2 = Teacher.create!(first_name: "Alexis", last_name: "Lassus", password: 
 section3 = Section.create!(name: "6th Grade Math 1st Hour", teacher: teacher2, subject: "Math", grade: "6")
 section4 = Section.create!(name: "6th Grade Math 2nd Hour", teacher: teacher2, subject: "Math", grade: "6")
 section5 = Section.create!(name: "6th Grade Math 5th Hour", teacher: teacher2, subject: "Math", grade: "6")
+section6 = Section.create!(name: "6th Grade Math 6th Hour", teacher: teacher2, subject: "Math", grade: "6")
+section7 = Section.create!(name: "6th Grade Math 7th Hour", teacher: teacher2, subject: "Math", grade: "6")
 
-[section3, section4, section5].each do |section|
-  students = Student.all
+[section3, section4, section5, section6, section7].each do |section|
+  students = []
+  30.times do 
+    s = Student.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
+    students << s
+  end
+
   students.each { |student| section.students << student }
 
   section.requirements.each do |requirement|
@@ -81,20 +88,15 @@ section5 = Section.create!(name: "6th Grade Math 5th Hour", teacher: teacher2, s
     quiz = Quiz.create!(name: Faker::Lorem.words(3).join(" "), instructions: "Do these, children!", section: section, requirement: requirement)
     students.each do |student|
       n = [1, 2].sample
-      n.times { Sitting.create!(student: student, quiz: quiz, possible: 10, correct: rand(4..11)) }
+      n.times { Sitting.create!(student: student, quiz: quiz, possible: 10, correct: rand(4..10)) }
     end
-
   end
-
 end
 
-sdx = Student.all
+sdx = Teacher.find(2).students
 
 sdx.each do |s|
   10.times do 
     Answer.create!(question_id: [q1, q2, q3].sample, content: "Testing123", correct: [true, false].sample, student_id: s.id)
   end
 end
-
-
-section14 = Section.create!(name: "Testing woohoo", teacher: teacher, subject: "Math", grade: "12", passcode: "test123")
