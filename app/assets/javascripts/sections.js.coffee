@@ -26,12 +26,30 @@ populateQuizTable = (data) ->
     break
   for key, value of data
     row = findRowById(key)
-    populateRow(values)
+    populateRow(row, values)
 
+populateRow = (row, scores) ->
+  for question, score of scores
+    match = findHeader(tds, code)
 
+findHeader = (cells, content) ->
+  for cell in cells
+    header = $(cell).closest('table').find('th').eq( cell.cellIndex )[0];
+    if $(header).text() == content
+      return cell
 
 findRowById = (id) ->
   $("tr##{id}")
+
+populateHeader = (value) ->
+  for question, answer of value
+    $('#student-name').append("<th>#{question}</th>")
+
+findHeader = (cells, content) ->
+  for cell in cells
+    header = $(cell).closest('table').find('th').eq( cell.cellIndex )[0];
+    if $(header).text() == content
+      return cell
 
 
 
