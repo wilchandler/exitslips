@@ -46,7 +46,7 @@ class QuizzesController < ApplicationController
 
 	def update
 		quiz = Quiz.find_by(id: params[:id])
-		requirement = Requirement.where(section_id: quiz.section_id, standard_id: params[:standard])
+		requirement = Requirement.find_by(section_id: quiz.section_id, standard_id: params[:standard])
 		quiz.update_attribute(:requirement, requirement)
 		quiz.process_quiz_form(params[:quiz])
 		redirect_to quiz_path(quiz)
