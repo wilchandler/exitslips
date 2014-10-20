@@ -112,6 +112,32 @@ RSpec.describe Quiz, :type => :model do
       end
 
     end
+
+    it 'groups randomly' do
+      groups1 = quiz.group_by_quiz_scores(4, :random)
+      groups2 = quiz.group_by_quiz_scores(4, :random)
+      groups3 = quiz.group_by_quiz_scores(4, :random)
+      groups4 = quiz.group_by_quiz_scores(4, :random)
+
+      [groups1, groups2, groups3, groups4].each do |groups|
+        groups.each { |group| group.sort! }
+        groups.sort!
+      end
+
+      match = false
+      if groups1.flatten == groups2.flatten
+        if groups2.flatten == groups3.flatten
+          if groups3.flatten == groups4.flatten
+            match = true
+          end
+        end
+      end
+
+      expect(match).to be false
+    end
+
+
+
   end
 
 
