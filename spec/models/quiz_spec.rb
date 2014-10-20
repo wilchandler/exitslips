@@ -52,11 +52,28 @@ RSpec.describe Quiz, :type => :model do
 
     it 'returns groups of specified size (or +1 if remainder < number of groups)' do
       [:random, :heterogenous, :homogenous].each do |sort_type|
+        groups = quiz.group_by_quiz_scores(2, sort_type)
+        groups = groups.sort_by { |g| g.count }
+        expect(groups[0].count).to be 2
+        expect(groups[1].count).to be 2
+        expect(groups[2].count).to be 2
+        expect(groups[3].count).to be 2
+        expect(groups[4].count).to be 3
+      end
+
+      [:random, :heterogenous, :homogenous].each do |sort_type|
         groups = quiz.group_by_quiz_scores(3, sort_type)
         groups = groups.sort_by { |g| g.count }
         expect(groups[0].count).to be 3
         expect(groups[1].count).to be 4
         expect(groups[2].count).to be 4
+      end
+
+      [:random, :heterogenous, :homogenous].each do |sort_type|
+        groups = quiz.group_by_quiz_scores(5, sort_type)
+        groups = groups.sort_by { |g| g.count }
+        expect(groups[0].count).to be 5
+        expect(groups[1].count).to be 6
       end
 
     end
@@ -69,6 +86,31 @@ RSpec.describe Quiz, :type => :model do
         expect(groups[1].count).to be 4
         expect(groups[2].count).to be 4
       end
+
+      [:random, :heterogenous, :homogenous].each do |sort_type|
+        groups = quiz.group_by_quiz_scores(6, sort_type)
+        groups = groups.sort_by { |g| g.count }
+        expect(groups[0].count).to be 5
+        expect(groups[1].count).to be 6
+      end
+
+    end
+
+    it 'returns two groups of equal size if requested size > half of students size' do
+      [:random, :heterogenous, :homogenous].each do |sort_type|
+        groups = quiz.group_by_quiz_scores(7, sort_type)
+        groups = groups.sort_by { |g| g.count }
+        expect(groups[0].count).to be 5
+        expect(groups[1].count).to be 6
+      end
+
+      [:random, :heterogenous, :homogenous].each do |sort_type|
+        groups = quiz.group_by_quiz_scores(9, sort_type)
+        groups = groups.sort_by { |g| g.count }
+        expect(groups[0].count).to be 5
+        expect(groups[1].count).to be 6
+      end
+
     end
   end
 

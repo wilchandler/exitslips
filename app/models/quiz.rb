@@ -42,7 +42,14 @@ class Quiz < ActiveRecord::Base
 
   def make_groups(group_size)
     section_size = self.section.students.count
-    groups = Array.new(section_size / group_size) { [] }
+
+    if group_size > section_size / 2
+      groups = Array.new(2) { [] }
+      group_size = section_size / 2
+    else
+      groups = Array.new(section_size / group_size) { [] }
+    end
+
     remainder = section_size % group_size
 
     # if groups of 4 is requested from 11,
@@ -109,15 +116,17 @@ class Quiz < ActiveRecord::Base
       end
     end
 
-    groups.each do |group|
-      shift = scores.shift
-      group << shift unless shift.nil?
-    end
+    until scores.empty?
+      groups.each do |group|
+        shift = scores.shift
+        group << shift unless shift.nil?
+      end
 
-    groups.each do |group|
-      pop = scores.pop
-      group << pop unless pop.nil?
-    end
+      groups.each do |group|
+        pop = scores.pop
+        group << pop unless pop.nil?
+      end
+  end
 
     groups
   end
