@@ -23,7 +23,20 @@ jQuery ->
       $(this).closest('fieldset').hide()
       event.preventDefault()
 
-  
+  $('form').on 'change', '.open-response-checkbox', (event) ->
+    handleOpenResponseBox(event.target)
+
+handleOpenResponseBox = (box) ->
+  question = $(box).closest('fieldset')
+  if $(box).prop("checked") == true
+    $(question).children('fieldset').hide()
+    $(question).children('.add_fields').hide()
+  else if $(box).prop("checked") == false
+    $(question).children('fieldset').show()
+    $(question).children('.add_fields').show()
+
+
+
 
 # FUNCTION BELOW! WHY DON'T YOU WORK!?!?!?
 

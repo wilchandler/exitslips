@@ -31,7 +31,6 @@ class QuizzesController < ApplicationController
 				quiz = Quiz.new(section: section, requirement: requirement)
 			end
 			quiz.process_quiz_form(params[:quiz])
-			raise quiz.inspect
 		end
 		redirect_to sections_path
 	end
