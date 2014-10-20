@@ -23,7 +23,6 @@ class QuizzesController < ApplicationController
 
 	def create
 		# NEED TO VALIDATE IF NO SECTIONS ARE SELECTED OR NO Q/A
-		raise params.inspect
 
 		params[:sections].keys.each do |section_id|
 			section = Section.find_by(id: section_id)
@@ -32,7 +31,6 @@ class QuizzesController < ApplicationController
 				quiz = Quiz.new(section: section, requirement: requirement)
 			end
 			quiz.process_quiz_form(params[:quiz])
-			raise quiz.inspect
 		end
 		redirect_to sections_path
 	end
