@@ -13,15 +13,6 @@ feature "Student_show" do
     first('input[type="submit"]').click
   end
 
-# describe "Student" do
-#   before :each do
-#     student = FactoryGirl.create(:student)
-#     login_as(student, :scope => :student)
-#     visit quizzes_path
-#   end
-
-
-
   context "student is logged in" do
   end
 

@@ -1,13 +1,7 @@
 require 'spec_helper'
 
 feature 'Registration' do
-  context "registration" do
   
-
-    it "can fill out registration form and click sign up" do
-    end
-  end
-
   context "logging in" do
     before(:each) do
       visit new_user_session_path
