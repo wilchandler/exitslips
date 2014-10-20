@@ -26,24 +26,11 @@ populateQuizTable = (data) ->
   for key, value of data
     row = findRowById(key)
     buildRows(key, value)
-    # populateRow(row, value)
 
 buildRows = (studentID, questions) ->
   row = findRowById(studentID)
   for question, answer of questions
-    console.log()
     $("#quiz-#{studentID}").append("<td>#{answer}</td>")
-
-populateRow = (row, scores) ->
-  for question, score of scores
-    match = findHeader(row, question)
-    populateCell(match, score)
-
-findHeader = (cells, content) ->
-  for cell in cells
-    header = $(cell).closest('table').find('th').eq( cell.cellIndex )[0];
-    if $(header).text() == content
-      return cell
 
 findRowById = (id) ->
   $("tr##{id}")
@@ -52,11 +39,7 @@ populateHeader = (value) ->
   for question, answer of value
     $('#header').append("<th>#{question}</th>")
 
-findHeader = (cells, content) ->
-  for cell in cells
-    header = $(cell).closest('table').find('th').eq( cell.cellIndex )[0];
-    if $(header).text() == content
-      return cell
+
 
 
 
