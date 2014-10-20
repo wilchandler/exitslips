@@ -16,13 +16,9 @@ class QuizzesController < ApplicationController
 	def new
 		@quiz = Quiz.new
 		@questions = []
-		@sections = Section.where(teacher_id: current_user.id).includes(:standards)
-		standards = Set.new
-		@sections.each do |section|
-			section.standards.each { |standard| standards << standard }
-		end
-
-		@standard_options = standards.to_a.map { |s| ["#{s.code}", s.id] }
+		availabilities = Teacher.get_available_sections_and_standards( current_user.id)
+		@sections = availabilities[:sections]
+		@standard_options = availabilities[:standards]
 	end
 
 	def create
