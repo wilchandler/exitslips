@@ -1,1 +1,13 @@
 
+<table id="table-quiz" class="table-inactive">
+  <thead>
+    <tr>
+      <th id="student-name">Name</th>
+    </tr>
+  </thead>
+  <% @students.each do |student| %>
+    <tr id=<%= student.id %>>
+      <td><%= student.full_name %></td>
+    </tr>
+  <% end %>
+</table>

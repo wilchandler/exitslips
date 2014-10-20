@@ -6,6 +6,7 @@
 <h1><%=@section.name%></h1>
 
 <%= render 'section_data_table' %>
+<%= render 'section_quiz_data_table' %>
 
 <%= link_to "Download as .csv", section_path(@section, format: "csv") %>
 </div>
