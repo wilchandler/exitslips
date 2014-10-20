@@ -1,5 +1,6 @@
 
-  <%= f.label :standard, "Standard:" %>
-  <%= f.collection_select(:standard, @standards, :id, :to_s) %>
+  <%= label_tag :standard, "Standard:" %>
+  <%= select_tag :standard, options_for_select(@standard_options) %>
+
 
   <br />

@@ -17,10 +17,12 @@ class QuizzesController < ApplicationController
 		@quiz = Quiz.new
 		@questions = []
 		@sections = Section.where(teacher_id: current_user.id).includes(:standards)
-		@standards = Set.new
+		standards = Set.new
 		@sections.each do |section|
-			section.standards.each { |standard| @standards << standard }
+			section.standards.each { |standard| standards << standard }
 		end
+
+		@standard_options = standards.to_a.map { |s| ["#{s.code}", s.id] }
 	end
 
 	def create
@@ -28,10 +30,12 @@ class QuizzesController < ApplicationController
 
 		params[:sections].keys.each do |section_id|
 			section = Section.find_by(id: section_id)
-			if section && section.teacher_id == current_teacher.id
-				quiz = Quiz.new(section_id: section, standard_id: params[:quiz][:standard])
+			requirement = Requirement.find_by(section_id: section_id, standard_id: params[:standard])
+			if section && section.teacher_id == current_teacher.id && requirement
+				quiz = Quiz.new(section: section, requirement: requirement)
 			end
 			quiz.process_quiz_form(params[:quiz])
+			raise quiz.inspect
 		end
 		redirect_to sections_path
 	end
