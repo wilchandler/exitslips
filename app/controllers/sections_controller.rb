@@ -21,7 +21,7 @@ class SectionsController < ApplicationController
 	def show_bargraph
 		respond_to do |format|
 			format.json {
-				render plain: "hello world!s"
+				render plain: "hello world"
 			}
 		end
 	end

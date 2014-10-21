@@ -1,9 +1,9 @@
 
 #mastery_by_section {
   position: relative;
-  width: 500px;
-  border: 5px solid black;
-  padding: 10px;
+  width: 600px;
+  /*border: 5px solid black;*/
+  padding: 5px;
   display: none;
   /*background-color: #E0E0DF;*/
 }
