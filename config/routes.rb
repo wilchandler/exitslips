@@ -19,10 +19,12 @@ Rails.application.routes.draw do
   resources :sections
   resources :users, except: [:index]
 
+  patch "/answers/:id", to: "answers#update"
 
   resources :standards, only: [:index], :defaults => { :format => 'json' }
 
   get "/quizzes/:id/finished_quiz" => "quizzes#finish", as: "quizzes_finish"
+  get "/quizzes/:id/grade" => "quizzes#grade", as: "quiz_grade"
 
 
 end

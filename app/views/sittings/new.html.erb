@@ -3,9 +3,11 @@
 
 <%= form_for :response, url: quiz_sittings_path(@quiz) do |f| %>
   <% @questions.each_with_index do |question, i| %>
-
-    <%= render 'question', f: f, question: question, i: i %>
-
+    <% if question.question_type == "multiple_choice" %>
+      <%= render 'multiple_choice', f: f, question: question, i: i %>
+    <% elsif question.question_type == "open_response" %>
+      <%= render 'open_response', f: f, question: question, i: i %>
+    <% end %>
   <% end %>
 
   <%= submit_tag "Submit" %>

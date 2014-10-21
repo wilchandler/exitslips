@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020204343) do
+ActiveRecord::Schema.define(version: 20141020232915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20141020204343) do
     t.integer "quiz_id"
     t.integer "possible"
     t.integer "correct"
+    t.boolean "graded"
   end
 
   add_index "sittings", ["quiz_id", "student_id"], name: "index_sittings_on_quiz_id_and_student_id", using: :btree

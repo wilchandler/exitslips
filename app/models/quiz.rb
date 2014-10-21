@@ -141,4 +141,17 @@ class Quiz < ActiveRecord::Base
     groups
   end
 
+  def get_ungraded_answers
+    @questions = Question.where(quiz_id: self.id, question_type: "open_response").includes(:answers)
+    ungraded_answers = {}
+    @questions.each do |q|
+      answers_for_question = []
+      q.answers.each do |a|
+        answers_for_question << a if a.correct.nil?
+      end
+      ungraded_answers[q.query] = answers_for_question
+    end
+    ungraded_answers
+  end
+
 end
