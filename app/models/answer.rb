@@ -6,8 +6,13 @@ class Answer < ActiveRecord::Base
   def self.average_answers(answers = [])
   	return nil if answers.empty?
 
-  	percentages = answers.map { |answer| answer.calculate_percentage }
-  	(percentages.inject(:+).to_f / percentages.length.to_f).round
+    correct = 0
+    answers.each { |a| correct += 1 if a.correct }
+
+    (correct.to_f / answers.length * 100).round
+
+  	# percentages = answers.map { |answer| answer.calculate_percentage }
+  	# (percentages.inject(:+).to_f / percentages.length.to_f).round
   end
 
   def calculate_percentage

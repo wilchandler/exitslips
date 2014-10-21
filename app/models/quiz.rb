@@ -22,7 +22,6 @@ class Quiz < ActiveRecord::Base
 
   def calculate_scores_by_question
     @questions = self.questions
-    @answers = self.answers
     @students = self.students
     scores = {}
 
@@ -30,7 +29,7 @@ class Quiz < ActiveRecord::Base
       quiz_results = student.calculate_scores_by_question({
         questions: self.questions,
         quiz_id: self.id
-        })
+      })
       scores[student.id] = quiz_results
     end
     scores
