@@ -2,64 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-button, input[type=submit] {
-  outline: none;
-  width: 100px;
-  padding: 10px;
-  margin: 10px;
-  background-color: #8FBE00;
-  border-radius: 10px;
-  border: 1px solid #80C8B5;
+#section-name {
+  margin-left: 20%;
+  font-size: 2em;
 }
 
-.sortable {
-  position: absolute;
-  overflow: hidden;
-  display: inline-block;
-  background-color: #F9F2E7;
-  max-width: 200px;
-  z-index: 1;
-}
-
-#correct {
-  position: fixed;
-  right: 0;
-  bottom: 40%;
-  height: 200px;
-  width: 200px;
-  padding: 5px;
-  background-color: #8FBE00;
-  border-radius: 10px;
-}
-
-#correct-hit-box {
-  position: fixed;
-  right: 0;
-  bottom: 40%;
-  height: 200px;
-  width: 200px;
-}
-
-#incorrect {
-  position: fixed;
-  left: 0;
-  bottom: 40%;
-  height: 200px;
-  width: 200px;
-  padding: 5px;
-  background-color: #8FBE00;
-  border-radius: 10px;
-}
-
-#incorrect-hit-box {
-  position: fixed;
-  left: 0;
-  bottom: 40%;
-  height: 200px;
-  width: 200px;
-}
-
-.groups form {
-  display: none;
+#quiz-selection{
+  padding: 7px;
+  #id {
+    margin-left: 25%;
+    width: 200px;
+    background: transparent;
+    border-radius: 0;
+    height: 25px;
+  }
 }

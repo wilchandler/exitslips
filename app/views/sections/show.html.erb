@@ -1,9 +1,7 @@
-<%= render 'layouts/teacher_section_header' %>
-<%= render 'sections_sidebar' %>
-<%= render 'quizzes_section_sidebar'%>
 
 <div class="section_tables">
-<h1><%=@section.name%></h1>
+<h1 id="section-name"><%=@section.name%></h1>
+<%= render 'quizzes_drop_down'%>
 
 <%= render 'section_data_table' %>
 <% @quizzes.each do |quiz|%>
