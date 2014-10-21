@@ -22,8 +22,9 @@
       <%= radio_button_tag :sort_type, "heterogenous" %>
       <%= label_tag :sort_type_heterogenous, "Heterogenous" %><br/>
       <%= label_tag :group_size, "Group size:" %>
-      <%= select_tag :group_size, options_for_select(1..(@students.count / 2.0).ceil) %><br/>
+      <%= select_tag :group_size, options_for_select(2..(@students.count / 2.0).ceil) %><br/>
       <button class="get-groups-button" id="groups-<%=quiz.id%>">Get groups</button>
+      <div class="group-listing"></div>
     <% end %>
   </div>
 

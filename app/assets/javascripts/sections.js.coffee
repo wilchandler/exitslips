@@ -106,9 +106,12 @@ getGroups = (form) ->
       displayGroups(form, data.groups)
 
 displayGroups = (form, groups) ->
+  listing = $(form).children('.group-listing')
+  listing.empty()
+  $(form).children('.group-listing').empty()
   for group in groups
     list = buildGroupView(group)
-    $(form).append(list)
+    listing.append(list)
 
 buildGroupView = (group) ->
   view = "<ul>"
