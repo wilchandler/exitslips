@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   get "/sections/:section_id/quizzes/:id", to: "quizzes#results"
-  get "/sections/:section_id/quizzes/:id/groups", to: "quizzes#groups"
+  get "/quizzes/:id/groups", to: "quizzes#groups", as: "quiz_groups"
 
   root to: 'home#index'
 
