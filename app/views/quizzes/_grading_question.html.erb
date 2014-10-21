@@ -1,0 +1,24 @@
+
+<% @ungraded_answers.each do |question, responses| %>
+  <div class="grading-question">
+    <h3><%= question %></h3>
+    <% responses.each do |response| %>
+      <% next unless response.correct.nil? %>
+      <div class="sortable">
+        <p><%= response.content %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<div id="correct-hit-box">
+  <div id="correct">
+    <p>Correct<p>
+  </div>
+</div>
+
+<div id="incorrect-hit-box">
+  <div id="incorrect">
+    <p>Incorrect<p>
+  </div>
+</div>

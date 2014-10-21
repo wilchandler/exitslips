@@ -15,7 +15,7 @@ class Sitting < ActiveRecord::Base
   end
 
   def self.grade_response(args = {})
-    new_sitting = Sitting.new(
+    new_sitting = Sitting.create(
       student_id: args[:student_id],
       quiz_id: args[:quiz_id],
       correct: 0,
@@ -25,7 +25,15 @@ class Sitting < ActiveRecord::Base
 
     args[:responses].each do |question_id, option|
       question = Question.find_by(id: question_id)
-      new_sitting.update_count( question.check(option) )
+      mark = question.check(option)
+      Answer.create(
+        student_id: args[:student_id],
+        question_id: question_id,
+        sitting_id: new_sitting.id,
+        content: option,
+        correct: mark
+      )
+      new_sitting.update_count( mark )
     end
 
     new_sitting.save

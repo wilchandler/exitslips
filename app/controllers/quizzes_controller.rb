@@ -87,6 +87,16 @@ class QuizzesController < ApplicationController
 		end
 	end
 
+	def grade
+		@quiz = Quiz.find_by(id: params[:id])
+		@ungraded_answers = @quiz.get_ungraded_answers
+
+
+		# @responses = @quiz.answers.where(correct: nil).includes(:questions)
+		# @questions = Set.new
+		# @responses.each { |r| @questions << r.question }
+	end
+
 
 		private
 

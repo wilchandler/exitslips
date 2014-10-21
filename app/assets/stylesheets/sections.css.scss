@@ -12,3 +12,52 @@ button, input[type=submit] {
   border-radius: 10px;
   border: 1px solid #80C8B5;
 }
+
+.sortable {
+  position: absolute;
+  overflow: hidden;
+  display: inline-block;
+  background-color: #F9F2E7;
+}
+
+#correct {
+  position: fixed;
+  right: 0;
+  height: 2em;
+  width: 200px;
+  padding: 5px;
+  background-color: #8FBE00;
+  border-radius: 10px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+}
+
+#correct-hit-box {
+  position: fixed;
+  right: 0;
+  height: 2em;
+  width: 200px;
+
+}
+
+
+#incorrect {
+  position: fixed;
+  left: 0;
+  height: 2em;
+  width: 200px;
+  padding: 5px;
+  background-color: #8FBE00;
+  border-radius: 10px;
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+}
+
+#incorrect-hit-box {
+  position: fixed;
+  left: 0;
+  height: 200px;
+  width: 200px;
+}

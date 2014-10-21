@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui.min.js
 //= require jquery_ujs
 //= require jquery-readyselector
 //= require_tree .
@@ -23,4 +24,29 @@
 
 
 // require fuse.min.js
-// require jquery.dataTables.min.js
+
+$('.grading_area').ready( function() {
+
+
+  $('.sortable').draggable({revert: "invalid"})
+
+
+  $('#correct').droppable({
+    activeClass: "ui-state-default",
+    hoverClass: "ui-state-hover",
+    drop: function(event, ui) {
+      ui.draggable.remove();
+    }
+  });
+
+
+  $('#incorrect').droppable({
+    activeClass: "ui-state-default",
+    hoverClass: "ui-state-hover",
+    drop: function(event, ui) {
+      ui.draggable.remove();
+    }
+  })
+
+
+});

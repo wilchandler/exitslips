@@ -43,7 +43,7 @@ class Question < ActiveRecord::Base
     if self.question_type == "multiple_choice"
       return check_multiple_choice(option)
     else
-      # open response...
+      return nil
     end
   end
 
