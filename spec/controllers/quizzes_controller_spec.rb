@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe QuizzesController do
-  before(:all) do
+  before(:each) do
     section = Section.create!(teacher_id: 1, name: "test", grade: "K", subject: "Math")
     students = []
     students << student1 = Student.create!(first_name: "student", last_name: "1", email: "tester1@yahoo.com", password: "12345678")
@@ -36,7 +36,7 @@ describe QuizzesController do
   let(:quiz) { Quiz.find_by(name: "MyQuiz") }
 
   describe '#groups' do
-    before(:each) { xhr :get, :groups, section_id: 1, id: 1, sort_type: 'homogenous', group_size: '3' }
+    before(:each) { xhr :get, :groups, id: quiz.id, sort_type: 'homogenous', group_size: '3' }
     let(:json) { JSON.parse(response.body) }
 
     it 'responds to an AJAX request' do
