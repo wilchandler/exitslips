@@ -9,7 +9,7 @@ RSpec.describe Quiz, :type => :model do
   it { should have_many :answers }
   it { should have_many :options }
 
-  before(:all) do
+  before(:each) do
     section = Section.create!(teacher_id: 1, name: "test", grade: "K", subject: "Math")
     students = []
     students << student1 = Student.create!(first_name: "student", last_name: "1", email: "tester1@yahoo.com", password: "12345678")
