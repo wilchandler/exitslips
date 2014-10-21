@@ -4,7 +4,7 @@
     <h3><%= question %></h3>
     <% responses.each do |response| %>
       <% next unless response.correct.nil? %>
-      <div class="sortable">
+      <div class="sortable" id="<%=response.id%>">
         <p><%= response.content %></p>
       </div>
     <% end %>

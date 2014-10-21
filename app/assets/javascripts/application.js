@@ -31,22 +31,60 @@ $('.grading_area').ready( function() {
   $('.sortable').draggable({revert: "invalid"})
 
 
-  $('#correct').droppable({
+  $('#correct-hit-box').droppable({
     activeClass: "ui-state-default",
     hoverClass: "ui-state-hover",
     drop: function(event, ui) {
       ui.draggable.remove();
+      answerID = ui.draggable.attr("id");
+      $.ajax({
+        type: "PATCH", 
+        url: "/answers/"+answerID,
+        data: {correct: "true"},
+        success: function(response){
+          console.log(response)
+        },
+        dataType: "text"
+      })
     }
   });
 
 
-  $('#incorrect').droppable({
+  $('#incorrect-hit-box').droppable({
     activeClass: "ui-state-default",
     hoverClass: "ui-state-hover",
     drop: function(event, ui) {
       ui.draggable.remove();
+      answerID = ui.draggable.attr("id")
+      $.ajax({
+        type: "PATCH", 
+        url: "/answers/"+answerID, 
+        data: {correct: "false"},
+        success: function(response){
+          console.log(response)
+        },
+        dataType: "json"
+      })
     }
-  })
+  });
+
+  $('.hit-box').droppable({
+    activeClass: "ui-state-default",
+    hoverClass: "ui-state-hover",
+    drop: function(event, ui) {
+      ui.draggable.remove();
+      answerID = ui.draggable.attr("id")
+      $.ajax({
+        type: "PATCH", 
+        url: "/answers/"+answerID, 
+        data: {correct: "false"},
+        success: function(response){
+          console.log(response)
+        },
+        dataType: "json"
+      })
+    }
+  });
 
 
 });

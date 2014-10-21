@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :sections
   resources :users, except: [:index]
 
+  patch "/answers/:id", to: "answers#update"
 
   resources :standards, only: [:index], :defaults => { :format => 'json' }
 
