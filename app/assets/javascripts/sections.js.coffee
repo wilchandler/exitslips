@@ -35,7 +35,7 @@ populateHeader = (value, quizID) ->
   for question, answer of value
     $("#quiz_table_#{quizID} #header").append("<th>#{question}</th>")
 
-depopulateTable = -> 
+depopulateTable = ->
   console.log($("#table-quiz #student-name").siblings())
   $("#table-quiz #student-name").siblings().remove()
   $("#table-quiz .student-row").siblings().remove()
@@ -44,7 +44,9 @@ depopulateTable = ->
 
 
 
-# populateQuizTable = (data) -> 
+
+
+# populateQuizTable = (data) ->
 #   $("<table id='table-quiz'></table>").insertAfter("#table-all-standards")
 #   $("#table-quiz").append("<tr id='header'></tr>")
 #   $("#header").append("<th>Name</th>")
@@ -61,7 +63,7 @@ depopulateTable = ->
 # buildHeaders = (question) ->
 #     console.log("#{question} ROYALS")
 #     $("#header").append("<th>#{question}</th>")
-    
+
 
 
 
@@ -71,14 +73,14 @@ depopulateTable = ->
     #NEW table head 'name'
     # FOR EACH question
       # NEW table head for question
- #FOR EACH student     
+ #FOR EACH student
   #NEW table row
     # NEW table head 'student name'
     # FOR EACH answer
       # NEW table data for answer
 
 
-    
+
 
 $("#table-all-standards").ready ->
   sectionID = $('#section_id').val()
@@ -113,6 +115,3 @@ assignColor = (element, score) ->
     $(element).attr('class', 'yellow-cell')
   else
     $(element).attr('class', 'green-cell')
-
-
-

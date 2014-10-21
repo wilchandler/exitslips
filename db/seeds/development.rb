@@ -8,8 +8,8 @@ load(Rails.root.join( 'db', 'seeds', "production.rb"))
 
 teacher = Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
 
-section1 = Section.create!(name: "4th grade Math Section", teacher: teacher, subject: "Math", grade: "4")
-section2 = Section.create!(name: "4th grade ELA Section", teacher: teacher, subject: "ELA", grade: "4")
+section1 = Section.create!(name: "4th grade Math Section", teacher: teacher, subject: "nope", grade: "nope")
+section2 = Section.create!(name: "4th grade ELA Section", teacher: teacher, subject: "nope", grade: "nope")
 
 standard1 = Standard.create!(subject: "Math", grade: "4", code: "B.A.4", description: "Do advanced math")
 standard2 = Standard.create!(subject: "Math", grade: "4", code: "B.A.5", description: "Do basic math")
@@ -47,10 +47,10 @@ Option.create!(question: q4, content: "Your", correct?: true)
   sitting2 = Sitting.create!(student: s, quiz: s1quiz2, possible: 1, correct: 1)
   sitting3 = Sitting.create!(student: s, quiz: s2quiz1, possible: 1, correct: 1)
 
-  Answer.create!(question_id: q1, content: "4", correct: true, student: s, sitting: sitting1)
-  Answer.create!(question_id: q2, content: "14", correct: false, student: s, sitting: sitting1)
-  Answer.create!(question_id: q3, content: "1054.35", correct: true, student: s, sitting: sitting2)
-  Answer.create!(question_id: q4, content: "Your", correct: true, student: s, sitting: sitting3)
+  Answer.create!(question: q1, content: "4", correct: true, student: s, sitting: sitting1)
+  Answer.create!(question: q2, content: "14", correct: false, student: s, sitting: sitting1)
+  Answer.create!(question: q3, content: "1054.35", correct: true, student: s, sitting: sitting2)
+  Answer.create!(question: q4, content: "Your", correct: true, student: s, sitting: sitting3)
 
   s.save
 end
@@ -92,7 +92,7 @@ end
 sdx = Student.all
 
 sdx.each do |s|
-  10.times do 
+  10.times do
     Answer.create!(question_id: [q1, q2, q3].sample, content: "Testing123", correct: [true, false].sample, student_id: s.id)
   end
 end
