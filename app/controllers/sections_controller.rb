@@ -13,15 +13,15 @@ class SectionsController < ApplicationController
 	  	format.html{
 	  		@teacher = current_teacher
 			  @sections = @teacher.sections
+			  @mastery = @teacher.mastery_for_all_sections
 	  	}
 	  end
-
 	end
 
 	def show_bargraph
 		respond_to do |format|
 			format.json {
-				render plain: "hello world"
+				render plain: "hello world!s"
 			}
 		end
 	end

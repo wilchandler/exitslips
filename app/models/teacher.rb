@@ -19,17 +19,14 @@ class Teacher < User
   end
 
   def mastery_for_all_sections
-    mastery_by_section = {}
-    @possible = []
-    @correct = []
-    
-    self.sections.each do |section|
+    self.sections.map do |section|
+      possible = []
+      correct = []
       section.sittings.each do |sitting|
-        @possible << sitting.possible
-        @correct << sitting.correct
+        possible << sitting.possible
+        correct << sitting.correct
       end
-      mastery_by_section[section.name] = (@correct.sum.to_f / @possible.sum.to_f) * 100
+      {section: section.name, mastery: (correct.sum.to_f / possible.sum.to_f) * 100}
     end
-    mastery_by_section
   end
 end
