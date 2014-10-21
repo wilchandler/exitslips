@@ -26,7 +26,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-# Fakes data
 
 
 # Use ActiveModel has_secure_password
@@ -42,6 +41,7 @@ gem 'spring',        group: :development
 # gem 'faker'
 gem 'devise'
 
+# Fakes data
 gem 'ffaker'
 
 # gems needed for heroku
@@ -54,6 +54,9 @@ gem 'unicorn'
 gem 'coveralls', require: false
 
 gem 'simplecov', :require => false, :group => :test
+
+# D3 JavaScript library
+gem 'd3-rails'
 
 
 

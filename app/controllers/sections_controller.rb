@@ -5,26 +5,25 @@ class SectionsController < ApplicationController
 
 	def index
 		# student_leave
-		@sections = Section.all
-		@teacher = current_user
-	  @sections = @teacher.sections
-	  @quizzes = @teacher.quizzes
-
 	  #--------Mastery---------------
-	  @possible = []
-	  @correct = []
-	  @sections.each do |section|
-	  	section.sittings.each do |sitting|
-	  		@possible << sitting.possible
-	  		@correct << sitting.correct
-	  	end
+	  respond_to do |format|
+	  	format.json {
+			  render json: current_teacher.mastery_by_section
+	  	}
+	  	format.html{
+	  		@teacher = current_teacher
+			  @sections = @teacher.sections
+	  	}
 	  end
-	  @sum_possible = @possible.sum
-	  @sum_correct = @correct.sum
-	  @mastery = (@sum_correct.to_f / @sum_possible) * 100
 
+	end
 
-
+	def show_bargraph
+		respond_to do |format|
+			format.json {
+				render plain: "hello world"
+			}
+		end
 	end
 
 	def show

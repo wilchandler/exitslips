@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :quizzes do
     resources :sittings, only: [:new, :create]
   end
+  post "/sections/add_section" => "sections#add_section", as: "add_section"
+
+  get "/sections/show_bargraph" => "sections#show_bargraph", as: "show_bargraph"
 
   resources :sections
   resources :users, except: [:index]
@@ -20,6 +23,5 @@ Rails.application.routes.draw do
 
   get "/quizzes/:id/finished_quiz" => "quizzes#finish", as: "quizzes_finish"
 
-  post "/sections/add_section" => "sections#add_section", as: "add_section"
 
 end
