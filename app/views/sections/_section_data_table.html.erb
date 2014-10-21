@@ -1,19 +1,25 @@
+<div id="table-all-standards">
+  <table class="table-active">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <% @standards.each do |standard| %>
+          <th><%= standard.code %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <% @students.each do |student| %>
+      <tr id=<%= student.id %>>
+        <td><%= student.full_name %></td>
+        <% @standards.count.times do %>
+          <td></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
 
-<table id="table-all-standards" class="table-active">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <% @standards.each do |standard| %>
-        <th><%= standard.code %></th>
-      <% end %>
-    </tr>
-  </thead>
-  <% @students.each do |student| %>
-    <tr id=<%= student.id %>>
-      <td><%= student.full_name %></td>
-      <% @standards.count.times do %>
-        <td></td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+  <%= link_to "Download as .csv", section_path(@section, format: "csv") %>
+
+  <%= button_to 'Edit', {:controller => 'sections', :action => 'edit'}, {:method => :get} %>
+  <%= button_to 'Delete', section_path, :confirm => 'Are you sure?', :method => :delete %>
+</div>
