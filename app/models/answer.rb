@@ -10,9 +10,6 @@ class Answer < ActiveRecord::Base
     answers.each { |a| correct += 1 if a.correct }
 
     (correct.to_f / answers.length * 100).round
-
-  	# percentages = answers.map { |answer| answer.calculate_percentage }
-  	# (percentages.inject(:+).to_f / percentages.length.to_f).round
   end
 
   def calculate_percentage
