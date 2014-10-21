@@ -47,7 +47,6 @@ class Section < ActiveRecord::Base
     scores = calculate_scores_by_standard(:name)
     standard_codes = self.standards.pluck(:code)
 
-    # raise scores.inspect
     CSV.generate(options) do |csv|
       csv << ["name"] + standard_codes
       scores.each do |name, results|

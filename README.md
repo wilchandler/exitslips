@@ -1,7 +1,7 @@
 
 # ExitSlips
 
-Tagline for exit slips
+Quicker feedback. Less paperwork. 
 
 ## Purpose
 

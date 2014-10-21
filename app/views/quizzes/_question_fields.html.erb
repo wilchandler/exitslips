@@ -8,4 +8,6 @@
     <%= render 'option_fields', f: builder %>
   <% end %>
   <%= link_to_add_fields "Add Answer", f, :options %>
+  <%= f.check_box :question_type, class: 'open-response-checkbox'%>
+  <%= f.label :question_type, "Open response" %>
 </fieldset>
