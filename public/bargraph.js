@@ -1,7 +1,9 @@
 $(function() {
-  var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 500 - margin.left - margin.right,
-    height = 250 - margin.top - margin.bottom;
+
+
+var margin = {top: 10, right: 30, bottom: 30, left: 30},
+    width = 600 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
 var formatPercent = d3.format(".%");
 
@@ -9,7 +11,7 @@ var x = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1, 1);
 
 var y = d3.scale.linear()
-    .range([height, 0]);
+    .range([height, 40]);
 
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -83,11 +85,5 @@ var data = window.masteries_data;
       .selectAll("g")
         .delay(delay);
   }
-
-
-
-
-
-
 
 });

@@ -19,6 +19,7 @@ class Teacher < User
   end
 
   def mastery_for_all_sections
+    # can still move sittings method into sittings controller
     self.sections.map do |section|
       possible = []
       correct = []

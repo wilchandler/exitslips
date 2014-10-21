@@ -70,8 +70,9 @@ teacher2 = Teacher.create!(first_name: "Alexis", last_name: "Lassus", password: 
 section3 = Section.create!(name: "6th Grade Math 1st Hour", teacher: teacher2, subject: "Math", grade: "6")
 section4 = Section.create!(name: "6th Grade Math 2nd Hour", teacher: teacher2, subject: "Math", grade: "6")
 section5 = Section.create!(name: "6th Grade Math 5th Hour", teacher: teacher2, subject: "Math", grade: "6")
+section6 = Section.create!(name: "6th Grade Math 6th Hour", teacher: teacher2, subject: "Math", grade: "6")
 
-[section3, section4, section5].each do |section|
+[section3, section4, section5, section6].each do |section|
   students = Student.all
   students.each { |student| section.students << student }
 
