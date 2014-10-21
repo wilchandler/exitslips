@@ -8,15 +8,11 @@
 <%= render 'section_data_table' %>
 <% @quizzes.each do |quiz|%>
 	<div id="quiz_table_<%=quiz.id%>" class="quiz_table">
-	<%= render 'section_quiz_data_table' %>
+	<%= render 'section_quiz_data_table', quiz:quiz %>
 	</div>
 <% end %>
 
-<%= link_to "Download as .csv", section_path(@section, format: "csv") %>
 </div>
 
 <%= hidden_field_tag :section_id, @section.id %>
-
-<%= button_to 'Edit', {:controller => 'sections', :action => 'edit'}, {:method => :get} %>
-<%= button_to 'Delete', section_path, :confirm => 'Are you sure?', :method => :delete %>
 

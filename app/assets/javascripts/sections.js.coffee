@@ -42,45 +42,7 @@ depopulateTable = ->
 
 
 
-
-
-
-
-# populateQuizTable = (data) ->
-#   $("<table id='table-quiz'></table>").insertAfter("#table-all-standards")
-#   $("#table-quiz").append("<tr id='header'></tr>")
-#   $("#header").append("<th>Name</th>")
-#   for key, value of data
-#     buildRows(key, value)
-
-# buildRows = (id, questions) ->
-#   $("#table-quiz").append("<tr><th id=#{id}>#{id}</th>")
-#   for question of questions
-#     $("th##{id}").insertAfter("<td>#{question[0]}</td>")
-#     $("#table-quiz").append("</tr>")
-#     buildHeaders(question)
-
-# buildHeaders = (question) ->
-#     console.log("#{question} ROYALS")
-#     $("#header").append("<th>#{question}</th>")
-
-
-
-
-
-# NEW table
-  #NEW table row
-    #NEW table head 'name'
-    # FOR EACH question
-      # NEW table head for question
- #FOR EACH student
-  #NEW table row
-    # NEW table head 'student name'
-    # FOR EACH answer
-      # NEW table data for answer
-
-
-
+# Building table for all standards in a section
 
 $("#table-all-standards").ready ->
   sectionID = $('#section_id').val()
@@ -115,3 +77,46 @@ assignColor = (element, score) ->
     $(element).attr('class', 'yellow-cell')
   else
     $(element).attr('class', 'green-cell')
+
+
+
+# Getting Groups on individual quiz views
+
+$(document).on 'click', '.add-groups-link', (event) ->
+  event.preventDefault()
+  showGroupsForm(event.target)
+
+showGroupsForm = (link) ->
+  $(link).hide()
+  $(link).parent().children('form').show()
+
+$(document).on 'click', '.get-groups-button', (event) ->
+  event.preventDefault()
+  form = $(this).closest('form')[0]
+  getGroups(form)
+
+getGroups = (form) ->
+  url = $(form).attr('action')
+  args = $(form).serializeArray()
+  $.ajax url,
+    type: 'GET',
+    dataType: "JSON",
+    data: args
+    success: (data) ->
+      displayGroups(form, data.groups)
+
+displayGroups = (form, groups) ->
+  listing = $(form).children('.group-listing')
+  listing.empty()
+  $(form).children('.group-listing').empty()
+  for group in groups
+    list = buildGroupView(group)
+    listing.append(list)
+
+buildGroupView = (group) ->
+  view = "<ul>"
+  for student in group
+    view += "<li>#{student}</li>"
+  view += "</ul>"
+
+
