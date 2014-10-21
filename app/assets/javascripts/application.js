@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require d3
+//= require bargraph
 //= require jquery
 //= require jquery-ui.min.js
 //= require jquery_ujs
@@ -39,7 +39,7 @@ $('.grading_area').ready( function() {
       ui.draggable.remove();
       answerID = ui.draggable.attr("id");
       $.ajax({
-        type: "PATCH", 
+        type: "PATCH",
         url: "/answers/"+answerID,
         data: {correct: "true"},
         success: function(response){
@@ -58,8 +58,8 @@ $('.grading_area').ready( function() {
       ui.draggable.remove();
       answerID = ui.draggable.attr("id")
       $.ajax({
-        type: "PATCH", 
-        url: "/answers/"+answerID, 
+        type: "PATCH",
+        url: "/answers/"+answerID,
         data: {correct: "false"},
         success: function(response){
           console.log(response)
@@ -76,8 +76,8 @@ $('.grading_area').ready( function() {
       ui.draggable.remove();
       answerID = ui.draggable.attr("id")
       $.ajax({
-        type: "PATCH", 
-        url: "/answers/"+answerID, 
+        type: "PATCH",
+        url: "/answers/"+answerID,
         data: {correct: "false"},
         success: function(response){
           console.log(response)
