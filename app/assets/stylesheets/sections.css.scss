@@ -13,6 +13,53 @@ button, input[type=submit] {
   border: 1px solid #80C8B5;
 }
 
+.sortable {
+  position: absolute;
+  overflow: hidden;
+  display: inline-block;
+  background-color: #F9F2E7;
+  max-width: 200px;
+  z-index: 1;
+}
+
+#correct {
+  position: fixed;
+  right: 0;
+  bottom: 40%;
+  height: 200px;
+  width: 200px;
+  padding: 5px;
+  background-color: #8FBE00;
+  border-radius: 10px;
+}
+
+#correct-hit-box {
+  position: fixed;
+  right: 0;
+  bottom: 40%;
+  height: 200px;
+  width: 200px;
+}
+
+#incorrect {
+  position: fixed;
+  left: 0;
+  bottom: 40%;
+  height: 200px;
+  width: 200px;
+  padding: 5px;
+  background-color: #8FBE00;
+  border-radius: 10px;
+}
+
+#incorrect-hit-box {
+  position: fixed;
+  left: 0;
+  bottom: 40%;
+  height: 200px;
+  width: 200px;
+}
+
 .groups form {
   display: none;
 }
