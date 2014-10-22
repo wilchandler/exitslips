@@ -1,4 +1,4 @@
-$(function() {
+$("#mastery_by_section").ready(function() {
 
 
 var margin = {top: 10, right: 30, bottom: 20, left: 30},
