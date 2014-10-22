@@ -1,6 +1,6 @@
 <div class="grading-area" >
   <h1><%= @quiz.name %></h1>
-  <h3><%= @quiz.instructions %></h6>
+  <h3><%= @quiz.instructions %></h6><br><br>
       <%= render 'grading_question', ungraded_answers: @ungraded_answers %>
 </div>
 

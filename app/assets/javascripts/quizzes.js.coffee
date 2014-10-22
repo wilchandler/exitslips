@@ -38,7 +38,7 @@ handleOpenResponseBox = (box) ->
 
 
 
-# FUNCTION BELOW! WHY DON'T YOU WORK!?!?!?
+
 
 # removeField (deletion_link) ->
 #   jQuery(deletion_link).prev('input[type=hidden').val('1')

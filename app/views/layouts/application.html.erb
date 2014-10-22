@@ -17,7 +17,8 @@
       <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
-
+<% if current_user %>
   <%= render 'layouts/sidebar' %>
+<%end%>
 </body>
 </html>

@@ -1,0 +1,19 @@
+<h1> Sort Results </h1>
+
+<% @quiz.questions.each do |question| %>
+	<% question.answers.each do |answer| %>
+	<div class="sortable">
+		<p class="query"><%= question.query %></p>
+		<p> <%=answer.content %> </p>
+	</div> 
+	<% end %>
+<% end %>
+
+<div id="incorrect">
+<p> Incorrect </p>
+</div>
+
+<div id="correct">
+<p> Correct </p>
+</div>
+
