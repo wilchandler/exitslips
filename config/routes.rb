@@ -4,10 +4,10 @@ Rails.application.routes.draw do
     get "sign_in", to: "sessions#new"
   end
 
+  root to: 'home#index'
+
   get "/sections/:section_id/quizzes/:id", to: "quizzes#results"
   get "/quizzes/:id/groups", to: "quizzes#groups", as: "quiz_groups"
-
-  root to: 'home#index'
 
   resources :quizzes do
     resources :sittings, only: [:new, :create]

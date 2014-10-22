@@ -6,7 +6,7 @@ load(Rails.root.join( 'db', 'seeds', "production.rb"))
 # ------------------------------------- #
 # ************************************* #
 
-teacher = Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
+teacher = Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: "wil@wilchandler.com")
 
 section1 = Section.create!(name: "4th grade Math Section", teacher: teacher, subject: "nope", grade: "nope")
 section2 = Section.create!(name: "4th grade ELA Section", teacher: teacher, subject: "nope", grade: "nope")

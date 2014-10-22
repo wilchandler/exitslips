@@ -1,19 +1,58 @@
 // Place all the styles related to the Sections controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "shared";
+
 
 #section-name {
-  margin-left: 20%;
+  text-align: center;
   font-size: 2em;
 }
 
 #quiz-selection{
-  padding: 7px;
+  text-align: center;
+  padding: 20px;
   #id {
-    margin-left: 25%;
     width: 200px;
     background: transparent;
     border-radius: 0;
     height: 25px;
   }
+}
+
+#new-section {
+  position: relative;
+  text-align: center;
+  width: 287px;
+  margin: auto;
+  h1 {
+    font-size: 3em;
+  }
+#section_name, #section_subject, #section_grade, input[value='Create Section']  {
+  width: 287px;
+  background: transparent;
+  border-radius: 0;
+  margin: 5px;
+  height: 30px;
+  font-size: 1em;
+  }
+}
+
+table {
+  thead #standard-code {
+    width: 15px;
+    padding: 0;
+    -webkit-transform: rotate(270deg);
+    -moz-transform:    rotate(270deg);
+    -ms-transform:     rotate(270deg);
+    -o-transform:      rotate(270deg);
+  }
+  td {
+    height: 30px;
+    width: 10px;
+    border-right: solid 1px white;
+    border-bottom: solid 1px white;
+    }
+
+
 }

@@ -2,7 +2,7 @@
   <table>
     <thead>
       <tr id='header'>
-        <th id="student-name">Name</th>
+        <th></th>
       </tr>
     </thead>
     <% @students.each do |student| %>
@@ -11,6 +11,8 @@
       </tr>
     <% end %>
   </table>
+
+  <%= link_to "Grade Responses", "/quizzes/#{quiz.id}/grade" %>
 
   <div class="groups">
     <%= link_to "Make Groups", "#", class: 'add-groups-link' %>

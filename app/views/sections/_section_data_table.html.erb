@@ -2,9 +2,9 @@
   <table class="table-active">
     <thead>
       <tr>
-        <th>Name</th>
+        <td></td>
         <% @standards.each do |standard| %>
-          <th><%= standard.code %></th>
+          <td><div id="standard-code"><%= standard.code %></div></td>
         <% end %>
       </tr>
     </thead>
@@ -18,8 +18,8 @@
     <% end %>
   </table>
 
-  <%= link_to "Download as .csv", section_path(@section, format: "csv") %>
+  <%= link_to "Download as .csv", section_path(@section, format: "csv") %><br>
 
-  <%= button_to 'Edit', {:controller => 'sections', :action => 'edit'}, {:method => :get} %>
-  <%= button_to 'Delete', section_path, :confirm => 'Are you sure?', :method => :delete %>
+  <%= link_to 'Edit', {:controller => 'sections', :action => 'edit'}, {:method => :get} %><br>
+  <%= link_to 'Delete', section_path, :confirm => 'Are you sure?', :method => :delete %>
 </div>

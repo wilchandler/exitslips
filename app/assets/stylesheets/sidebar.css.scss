@@ -4,28 +4,26 @@ nav {
   background-color: $dark-blue;
   width: 20%;
   position: fixed;
+  max-width: 250px;
   top: 0;
   left: 0;
   height: 100%;
   line-height: 2em;
   padding: 15px;
-}
-
-#container {
-  margin-left: 20%;
-  width: 86%;
-  padding: 7%;
-  display: block
-}
-
-a {
-  color: white;
-  text-decoration: none;
-  &:hover {
-    color: #bbb;
-    transition: .2s;
+  a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      color: #bbb;
+      transition: .2s;
+    }
+  }
+  h3 {
+font-family: 'Lato', sans-serif;
+font-style: italic;
   }
 }
+
 
 ul {
   li {
@@ -37,6 +35,8 @@ ul {
   font-size: 3em;
   color: white;
 }
+
+
 
 
 
