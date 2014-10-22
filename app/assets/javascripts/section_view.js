@@ -1,7 +1,8 @@
-
 $(document).ready(function() {
-	$("#cr_sect").on("click", function (e) {
+	$("#cr_sect").one("click", function (e) {
 		e.preventDefault();
+		$("form").find("input[type=text]").val("")
+
 		var request = $.ajax({ url: $(this).attr("href"), type: "get"});
 
 		request.done(function(response){
@@ -17,9 +18,24 @@ $(document).ready(function() {
 
 			request.done(function(data){
 				$(".sect_show").append(data)
-				$(".cr_sectshow").remove()
 		var new_link = "<li><a href=/sections/" + data.id + ">"+ data.section + "</li>";
 				$("ul").prepend(new_link);
+				$("form").find("input[type=text]").val("")
+			
+			});
+	});
+});
+
+$(".cr_sectshow").ready(function() {
+	$("#cr_sect").on("click", function (e) {
+			e.preventDefault();
+	$(".cr_sectshow").bPopup({
+											appendTo: 'body'
+											, zIndex: 2
+											, opacity: 0.5
+											, modalClose: true
+											, transition: 'slideIn'
+											
 			});
 	});
 });
@@ -32,6 +48,8 @@ $("#mastery_by_section").ready(function() {
 	});
 });
 
+
+
 //For randomizing colors
 
 // $(document).ready(function() {
@@ -40,5 +58,4 @@ $("#mastery_by_section").ready(function() {
 //   return "hsl(" + Math.random() * 360 + ",100%,50%)";
 // 	});
 // });
-
 
