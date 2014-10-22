@@ -87,6 +87,7 @@ a {
 
 .link-box:hover, .get-groups-button:hover {
   background-color: #0c8d74;
+  transition: .2s;
 }
 
 .tooltip {
