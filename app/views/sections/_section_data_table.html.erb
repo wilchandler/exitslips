@@ -4,22 +4,29 @@
       <tr>
         <td></td>
         <% @standards.each do |standard| %>
-          <td><div id="standard-code"><%= standard.code %></div></td>
+          <td><div class="tooltip-heading" title="<%= standard.description %>" id="standard-code"><%= standard.code %></div></td>
         <% end %>
       </tr>
     </thead>
     <% @students.each do |student| %>
-      <tr id=<%= student.id %>>
-        <td><%= student.full_name %></td>
+      <tr id="<%= student.id %>">
+        <td class="table-student-name"><%= student.full_name %></td>
         <% @standards.count.times do %>
-          <td></td>
+          <td class='table-mastery-cell'></td>
         <% end %>
       </tr>
     <% end %>
   </table>
 
-  <%= link_to "Download as .csv", section_path(@section, format: "csv") %><br>
+  <%= link_to section_path(@section, format: "csv"), class: 'link-box' do %>
+    <div>Download as CSV</div>
+  <% end %>
 
-  <%= link_to 'Edit', {:controller => 'sections', :action => 'edit'}, {:method => :get} %><br>
-  <%= link_to 'Delete', section_path, :confirm => 'Are you sure?', :method => :delete %>
+  <%= link_to edit_section_path(@section), class: 'link-box' do %>
+    <div>Edit Section</div>
+  <% end %>
+
+  <%= link_to @section, method: :delete, confirm: "Are you sure?", class: 'link-box' do %>
+    <div>Delete Section</div>
+  <% end %>
 </div>

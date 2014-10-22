@@ -1,0 +1,6 @@
+<%= form_for @section do |f| %>
+  <%= f.text_field :name,:placeholder => "Name"%><br>
+    <%= f.select :subject, [:Math, :ELA] %><br>
+    <%= f.select :grade, [:K, "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]%><br>
+    <%= f.submit %>
+<% end %>

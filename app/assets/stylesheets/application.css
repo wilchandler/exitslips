@@ -31,12 +31,16 @@ html {
   box-sizing: inherit;
 }
 
+a {
+  text-decoration: none;
+}
+
 #container {
   margin-left: 250px;
   margin-right: 0;
   width: 80%;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 4%;
+  padding-right: 4%;
   padding-top: 5%;
   display: block
 }
@@ -68,4 +72,37 @@ html {
 
 .green-cell {
   background-color: #AEE239;
+}
+
+.link-box, .get-groups-button {
+  background-color: #0FB493;
+  color: white;
+  text-decoration: none;
+  width: 20%;
+  padding: 1em;
+  text-align: center;
+  margin-bottom: 20px;
+  border: none;
+  font-size: 100%;
+  font-weight: 100;
+  display: inline-block;
+}
+
+.link-box:hover, .get-groups-button:hover {
+  background-color: #0c8d74;
+  transition: .2s;
+}
+
+.tooltip {
+  display:none;
+  position:absolute;
+  background-color:#152737;
+  border-radius:5px;
+  padding:10px;
+  color:#ffffff;
+  font-size:12px Arial;
+}
+
+td {
+  white-space:nowrap;
 }

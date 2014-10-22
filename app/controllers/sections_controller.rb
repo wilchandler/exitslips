@@ -67,13 +67,16 @@ class SectionsController < ApplicationController
 	  @sections = current_user.sections
 	  @quizzes = current_user.quizzes
 
+	  render :layout => false
 	end
 
 	def create
-		@section = Section.new(section_params)
+		@section = Section.create!(section_params)
 		@section.teacher_id = current_user.id
-		if @section.save!
-			redirect_to '/'
+		if request.xhr? && @section.save!
+			render json: {section: @section.name, id: @section.id}
+		else
+			redirect_to sections_path
 		end
 	end
 
