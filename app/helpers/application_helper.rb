@@ -23,4 +23,24 @@ module ApplicationHelper
     # debugger
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def current_user_id
+    session["warden.user.user.key"][0][0]
+  end
+
+  def current_teacher
+    Teacher.find_by(id: current_user_id)
+  end
+
+  def current_student
+    Student.find_by(id: current_user_id)
+  end
+
+  def current_user
+    User.find_by(id: current_user_id)
+  end
+
+  def current_user_is_teacher?
+    !(current_teacher.nil?)
+  end
 end
