@@ -1,13 +1,14 @@
 $(document).ready(function() {
 	$("#cr_sect").one("click", function (e) {
 		e.preventDefault();
+		$("form").find("input[type=text]").val("")
+
 		var request = $.ajax({ url: $(this).attr("href"), type: "get"});
 
 		request.done(function(response){
 			$(".cr_sectshow").append(response);
 		});
 	});
-
 
 	$(".cr_sectshow").on("submit", "form", function (e) {
 		e.preventDefault();
@@ -17,15 +18,15 @@ $(document).ready(function() {
 
 			request.done(function(data){
 				$(".sect_show").append(data)
-				$(".cr_sectshow").remove()
 		var new_link = "<li><a href=/sections/" + data.id + ">"+ data.section + "</li>";
 				$("ul").prepend(new_link);
+				$("form").find("input[type=text]").val("")
 			
 			});
 	});
 });
 
-$(document).ready(function() {
+$(".cr_sectshow").ready(function() {
 	$("#cr_sect").on("click", function (e) {
 			e.preventDefault();
 	$(".cr_sectshow").bPopup({
@@ -38,7 +39,6 @@ $(document).ready(function() {
 			});
 	});
 });
-
 
 //show d3.js bargraph
 $("#mastery_by_section").ready(function() {
