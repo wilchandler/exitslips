@@ -15,25 +15,16 @@ class Sitting < ActiveRecord::Base
   end
 
   def self.grade_response(args = {})
-    new_sitting = Sitting.create(
+    new_sitting = Sitting.new(
       student_id: args[:student_id],
       quiz_id: args[:quiz_id],
       correct: 0,
-      possible: 0,
-      graded: true
+      possible: 0
     )
 
     args[:responses].each do |question_id, option|
       question = Question.find_by(id: question_id)
-      mark = question.check(option)
-      Answer.create(
-        student_id: args[:student_id],
-        question_id: question_id,
-        sitting_id: new_sitting.id,
-        content: option,
-        correct: mark
-      )
-      new_sitting.update_count( mark )
+      new_sitting.update_count( question.check(option) )
     end
 
     new_sitting.save
@@ -46,7 +37,7 @@ class Sitting < ActiveRecord::Base
     elsif mark == false
       self.possible += 1
     elsif mark == :pending
-      self.update_attribute(:graded, false)
+      # handle open ended response
     end
   end
 
