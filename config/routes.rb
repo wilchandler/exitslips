@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get "/sections/:section_id/quizzes/:id", to: "quizzes#results"
   get "/quizzes/:id/groups", to: "quizzes#groups", as: "quiz_groups"
-
+  post "/sections/info",to: "sections#info"
   root to: 'home#index'
 
   resources :quizzes do

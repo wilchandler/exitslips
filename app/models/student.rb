@@ -14,13 +14,13 @@ class Student < User
         Sitting.average_sittings(sittings)
       end
       quiz_scores.compact!
-
       return nil if quiz_scores.empty?
       score_by_standard = (quiz_scores.inject(:+).to_f / quiz_scores.length.to_f).round
       scores_by_standard[requirement.standard.code] = score_by_standard
     end
     scores_by_standard
   end
+     
 
   def calculate_scores_by_question(args = {})
     scores_by_question = {}

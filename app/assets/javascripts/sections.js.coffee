@@ -119,4 +119,38 @@ buildGroupView = (group) ->
     view += "<li>#{student}</li>"
   view += "</ul>"
 
+$(document).on 'click','#data', (event) ->
+  url = window.location.pathname;
+  section_id = url.substring(url.lastIndexOf('/') + 1)
+  alert('hey')
+  standard_id = $(this).closest('table').find('th').eq($(this).index()).attr('id')
+  student_id = $(this).parent().attr('id')
+  $.ajax '/sections/info',
+    type: 'POST',
+    dataType: "JSON",
+    data: {section:section_id,student:student_id,standard:standard_id}
+    success: (res) ->
+      AppendtoModal(res)
+      console.log(res)
+ 
+ 
 
+AppendtoModal = (response) ->
+  @incorrect = response.wrong_answers
+  $('#student_information').empty(); 
+  $('#student_information').prepend("#{response.grade}% correct"); 
+  AddQuestionModal(@incorrect)
+
+AddQuestionModal = (questions) ->
+  heading = "<h3>Questions Wrong</h3>"
+  qlist = "<ul>"
+  for question in questions     
+    qlist += "<li>#{question}</li>"
+  qlist += "<ul>"
+  $('#student_information').append(heading)
+  $('#student_information').append(qlist)
+  $('#student_information').dialog( { hide: { effect: "explode", duration: 1000 } })
+   
+
+
+   

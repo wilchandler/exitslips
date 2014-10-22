@@ -18,6 +18,49 @@ class SectionsController < ApplicationController
 	  end
 	end
 
+	def info
+
+		respond_to do |format|
+			
+			
+ 			section_id = params["section"]
+ 			standard_id = params["standard"]
+			student_id = params["student"]
+			stu_number = student_id.to_i
+			stan_number = standard_id.to_i
+			sec_number = section_id.to_i
+			requirement = Requirement.where(standard_id:stan_number,section_id:sec_number)
+			new_requirement = requirement.first
+			quiz = new_requirement.quizzes
+			new_quiz = quiz.first
+			sitting = Sitting.where(student_id:stu_number,quiz_id:new_quiz.id)
+		    new_sitting = sitting.first
+			
+			percentage = new_sitting.calculate_percentage
+
+			answers =[]
+			all_answers = new_sitting.answers
+			puts 100000
+			puts all_answers.pluck(:id)
+			all_answers.each do |answer|
+				if answer.correct == false
+					answers << answer.question.query
+				end
+			end
+			
+			format.json{
+				render :json => {grade: percentage,wrong_answers: answers}
+			}
+		end
+	end
+			
+			
+			
+			
+			
+			
+			
+
 	def show_bargraph
 		respond_to do |format|
 			format.json {

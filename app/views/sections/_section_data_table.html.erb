@@ -4,7 +4,7 @@
       <tr>
         <th>Name</th>
         <% @standards.each do |standard| %>
-          <th><%= standard.code %></th>
+          <th id =<%=standard.id%>><%= standard.code %></th>
         <% end %>
       </tr>
     </thead>
@@ -12,7 +12,7 @@
       <tr id=<%= student.id %>>
         <td><%= student.full_name %></td>
         <% @standards.count.times do %>
-          <td></td>
+          <td id="data"></td>
         <% end %>
       </tr>
     <% end %>
