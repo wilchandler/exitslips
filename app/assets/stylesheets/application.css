@@ -53,7 +53,7 @@ a {
 .notice, .alert {
   color: white;
   background-color: #FF832C;
-  border-radius: 10px;
+  border-radius: 3px;
   list-style: none;
   line-height: 2em;
   max-width: 20%;

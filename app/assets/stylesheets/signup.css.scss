@@ -1,0 +1,21 @@
+@import "shared";
+
+
+#sign-up {
+  position: relative;
+  text-align: center;
+  width: 287px;
+  margin: auto;
+  h1 {
+    font-size: 3em;
+  }
+
+	#user_first_name, #user_last_name, #user_email, #user_type, #user_password, #user_password_confirmation, #user_user_type, input[value='Sign Up'], input[value='Sign In']  {
+	  width: 287px;
+	  background: transparent;
+	  border-radius: 0;
+	  margin: 5px;
+	  height: 30px;
+	  font-size: 1em;
+  }
+}
