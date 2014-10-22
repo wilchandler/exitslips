@@ -1,34 +1,12 @@
-<div class="quiz-data-table">
-  <table>
-    <thead>
-      <tr id='header'>
-        <th></th>
-      </tr>
-    </thead>
-    <% @students.each do |student| %>
-      <tr id="quiz-<%=student.id %>">
-        <td class="student-row"><%= student.full_name %></td>
-      </tr>
-    <% end %>
-  </table>
-
-  <%= link_to "Grade Responses", "/quizzes/#{quiz.id}/grade" %>
-
-  <div class="groups">
-    <%= link_to "Make Groups", "#", class: 'add-groups-link' %>
-    <%= form_tag({controller: "quizzes", action: "groups"}, method: "GET") do %>
-      <%= radio_button_tag :sort_type, "random" %>
-      <%= label_tag :sort_type_random, "Random" %><br/>
-      <%= radio_button_tag :sort_type, "homogenous" %>
-      <%= label_tag :sort_type_homogenous, "Homogenous" %><br/>
-      <%= radio_button_tag :sort_type, "heterogenous" %>
-      <%= label_tag :sort_type_heterogenous, "Heterogenous" %><br/>
-      <%= label_tag :group_size, "Group size:" %>
-      <%= select_tag :group_size, options_for_select(2..(@students.count / 2.0).ceil) %><br/>
-      <button class="get-groups-button" id="groups-<%=quiz.id%>">Get groups</button>
-      <div class="group-listing"></div>
-    <% end %>
-  </div>
-
-
-</div>
+<table>
+  <thead>
+    <tr id='header'>
+      <th id="student-name">Name</th>
+    </tr>
+  </thead>
+  <% @students.each do |student| %>
+    <tr id="quiz-<%=student.id %>">
+      <td class="student-row"><%= student.full_name %></td>
+    </tr>
+  <% end %>
+</table>

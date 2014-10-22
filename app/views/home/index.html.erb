@@ -1,28 +1,56 @@
-<div id="headline">Exit Slips</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ExitSlips</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
-<%= image_tag 'ExitSlipLogo.jpg' %>
+  <link href='http://fonts.googleapis.com/css?family=Philosopher:400italic,700italic' rel='stylesheet' type='text/css'>
 
-<div id="description">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400italic,700italic' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      
+<div id="landing">
+
+<div class="feature" id="headline"><h1>ExitSlips</h1>
+	<a href="#description">Scroll icon</a>
+</div>
+
+<div class="feature" id="description">
 	<h1>Exit slip data made simple.</h1>
 	<p>ExitSlips keeps track of your students' exit slip data so you can spend more time teaching.</p>
+	<a href="#create-quiz">Scroll icon</a>
 </div>
 
-<div id="create-quiz">
+<div class="feature" id="create-quiz">
 	<h1>Create quizzes that target CCSS</h1>
 	<p>Simply indicate your grade level and content area, and exit slips automatically provides codes and descriptions for every Common Core State Standard that applies.</p>
+	<a href="#see-data">Scroll icon</a>
 </div>
 
-<div id="see-data">
+<div class="feature" id="see-data">
 	<h1>See student progress toward class goals</h1>
 	<p>Use ExitSlips to see how your students are mastering the standards, broken down by class and quiz.</p>
+	<a href="#make-groups">Scroll icon</a>
 </div>
 
-<div id="make-groups">
+<div class="feature" id="make-groups">
 	<h1>Make groups based on quiz results</h1>
 	<p>After students complete an exit slip, automatically separate groups based on results. Choose heterogeneous, homogeneous, or random groups and ExitSlips takes care of the rest.</p>
+	<a href="#grade">Scroll icon</a>
 </div>
 
-<div id="grade">
+<div class="feature" id="grade">
 	<h1>Quickly grade open responses</h1>
 	<p>With ExitSlip's Tinder for Student Understanding® feature, quickly swipe through open student responses, easily generating groups for the next day's instruction.</p>
 </div>
+
+</div>
+
+</body>
+</html>

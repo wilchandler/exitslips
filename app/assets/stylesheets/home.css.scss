@@ -1,0 +1,149 @@
+@import "shared";
+
+
+body {
+	margin: 0;
+  font-family: 'Raleway', 'Helvetica', Arial, sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+a:-webkit-any-link {
+cursor: auto;
+}
+
+
+.landing {
+	margin: auto;
+	width: 75%;
+	}
+
+#error_explanation ul {
+  color: white;
+  list-style: none;
+  background-color: #FF832C;
+  border-radius: 10px;
+}
+
+.notice {
+  color: white;
+  background-color: #FF832C;
+  border-radius: 10px;
+  list-style: none;
+  line-height: 2em;
+  max-width: 20%;
+}
+
+.feature{
+	font-family: 'Lato', 'Helvetica', sans-serif;
+	font-style: italic;
+	height: 650px;
+	width: 100%;
+}
+
+#headline {
+	text-align: center;
+	background-color: $dark-blue;
+	h1 {
+		font-size: 4em;
+		vertical-align: middle;
+		display: inline-block;
+		color: white;
+	}
+}
+
+#description {
+	text-align: left;
+	background-color: $light-blue;
+	h1 {
+		font-size: 4em;
+		vertical-align: middle;
+		display: inline-block;
+		color: $midnight-sky;
+	}
+	p {
+		font-size: 2em;
+		color: $midnight-sky;
+	}
+}
+
+#create-quiz {
+	text-align: right;
+	background-color: $green;
+	h1 {
+		font-size: 4em;
+		vertical-align: middle;
+		display: inline-block;
+		color: $midnight-sky;
+	}
+	p {
+		font-size: 2em;
+		color: $midnight-sky;
+	}
+}
+
+#create-quiz {
+	text-align: right;
+	background-color: $green;
+	h1 {
+		font-size: 4em;
+		vertical-align: middle;
+		display: inline-block;
+		color: $midnight-sky;
+	}
+	p {
+		font-size: 2em;
+		color: $midnight-sky;
+	}
+}
+
+#see-data {
+	text-align: center;
+	background-color: $cream;
+	h1 {
+		font-size: 4em;
+		vertical-align: middle;
+		display: inline-block;
+		color: $midnight-sky;
+	}
+	p {
+		font-size: 2em;
+		color: $midnight-sky;
+	}
+}
+
+#make-groups {
+	text-align: left;
+	background-color: $light-blue;
+	h1 {
+		font-size: 4em;
+		vertical-align: middle;
+		display: inline-block;
+		color: $midnight-sky;
+	}
+	p {
+		font-size: 2em;
+		color: $midnight-sky;
+	}
+}
+
+#grade {
+	text-align: right;
+	background-color: $green;
+	h1 {
+		font-size: 4em;
+		vertical-align: middle;
+		display: inline-block;
+		color: $midnight-sky;
+	}
+	p {
+		font-size: 2em;
+		color: $midnight-sky;
+	}
+}
