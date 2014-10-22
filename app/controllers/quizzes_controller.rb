@@ -61,16 +61,15 @@ class QuizzesController < ApplicationController
 	def results
 		@section = Section.find_by(id: params[:section_id])
 		@quiz = Quiz.find_by(id: params[:id])
-		p @quiz
 
 		respond_to do |format|
-		  format.json {
-		    render json: @quiz.calculate_scores_by_question
-		  }
 			format.html {
 		    @students = @section.students
 		    @questions = @quiz.questions
 		    @sittings = @quiz.sittings
+		  }
+		  format.json {
+		    render json: @quiz.calculate_scores_by_question
 		  }
 		end
 	end
