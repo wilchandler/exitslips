@@ -20,6 +20,22 @@ body {
   font-family: 'Raleway', 'Helvetica', Arial, sans-serif;
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+#container {
+  margin-left: 22%;
+  margin-right: 10%;
+  width: 64%;
+  padding: 7%;
+  display: block
+}
+
 
 #error_explanation ul {
   color: white;
@@ -34,7 +50,7 @@ body {
   border-radius: 10px;
   list-style: none;
   line-height: 2em;
-	max-width: 20%;
+  max-width: 20%;
 }
 
 .red-cell {
