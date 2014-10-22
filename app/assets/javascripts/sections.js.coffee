@@ -87,7 +87,7 @@ $(document).on 'click', '.add-groups-link', (event) ->
 
 showGroupsForm = (link) ->
   $(link).hide()
-  $(link).parent().children('form').show()
+  $(link).closest('div.groups').children('form').show()
 
 $(document).on 'click', '.get-groups-button', (event) ->
   event.preventDefault()

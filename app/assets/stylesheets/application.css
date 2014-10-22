@@ -28,6 +28,10 @@ html {
   box-sizing: inherit;
 }
 
+a {
+  text-decoration: none;
+}
+
 #container {
   margin-left: 250px;
   margin-right: 0;
@@ -65,4 +69,18 @@ html {
 
 .green-cell {
   background-color: #AEE239;
+}
+
+.link-box {
+  background-color: #0FB493;
+  color: white;
+  text-decoration: none;
+  width: 20%;
+  padding: 1em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.link-box:hover {
+  background-color: #12ddb5;
 }
