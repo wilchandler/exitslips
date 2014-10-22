@@ -29,10 +29,12 @@ html {
 }
 
 #container {
-  margin-left: 22%;
-  margin-right: 10%;
-  width: 64%;
-  padding: 7%;
+  margin-left: 250px;
+  margin-right: 0;
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
   display: block
 }
 
