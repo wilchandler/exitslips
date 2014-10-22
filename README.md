@@ -1,5 +1,5 @@
 
-# ExitSlips
+# ExitSlips [ ![Codeship Status for wilchandler/exitslips](https://www.codeship.io/projects/61bb5c10-3c53-0132-09ce-3271b0f4e109/status)](https://www.codeship.io/projects/42952)
 
 Quicker feedback. Less paperwork. 
 
