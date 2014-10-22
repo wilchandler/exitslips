@@ -36,8 +36,8 @@ a {
   margin-left: 250px;
   margin-right: 0;
   width: 80%;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 4%;
+  padding-right: 4%;
   padding-top: 5%;
   display: block
 }
@@ -98,4 +98,8 @@ a {
   padding:10px;
   color:#ffffff;
   font-size:12px Arial;
+}
+
+td {
+  white-space:nowrap;
 }
