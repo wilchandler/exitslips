@@ -16,8 +16,6 @@
 </head>
 <body>
 	
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       
 <div id="landing">
 
@@ -27,6 +25,8 @@
 			<li><%= link_to "Sign Up", new_user_path %> </li>
 			<li><%= link_to "Sign In", new_user_session_path %> </li>
 		</ul> 
+      <div class="notice"><%= notice %></div>
+      <div class="alert"><%= alert %></div>
 			<div class="feature-content">
 				<h1>ExitSlips</h1>
 				<p>More feedback. Less Paperwork.</p>

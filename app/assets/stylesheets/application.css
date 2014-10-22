@@ -53,7 +53,7 @@ a {
   border-radius: 10px;
 }
 
-.notice {
+.notice, .alert {
   color: white;
   background-color: #FF832C;
   border-radius: 10px;
