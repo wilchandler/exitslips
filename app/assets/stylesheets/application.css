@@ -71,7 +71,7 @@ a {
   background-color: #AEE239;
 }
 
-.link-box {
+.link-box, .get-groups-button {
   background-color: #0FB493;
   color: white;
   text-decoration: none;
@@ -79,8 +79,22 @@ a {
   padding: 1em;
   text-align: center;
   margin-bottom: 20px;
+  border: none;
+  font-size: 100%;
+  font-weight: 100;
+  display: inline-block;
 }
 
-.link-box:hover {
-  background-color: #12ddb5;
+.link-box:hover, .get-groups-button:hover {
+  background-color: #0c8d74;
+}
+
+.tooltip {
+  display:none;
+  position:absolute;
+  background-color:#152737;
+  border-radius:5px;
+  padding:10px;
+  color:#ffffff;
+  font-size:12px Arial;
 }

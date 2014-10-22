@@ -68,8 +68,10 @@ class QuizzesController < ApplicationController
 		    @questions = @quiz.questions
 		    @sittings = @quiz.sittings
 		  }
-		  format.json {
-		    render json: @quiz.calculate_scores_by_question
+		  format.json { render json:  {
+		  	scores: @quiz.calculate_scores_by_question,
+		  	questions: @quiz.question_ids_and_contents
+		  }
 		  }
 		end
 	end
