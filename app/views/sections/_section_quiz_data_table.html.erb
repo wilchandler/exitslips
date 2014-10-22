@@ -27,7 +27,7 @@
       <%= label_tag :group_size, "Group size:" %>
       <%= select_tag :group_size, options_for_select(2..(@students.count / 2.0).ceil) %><br/>
         <button class="get-groups-button" id="groups-<%=quiz.id%>">Get groups</button>
-      </div>
-      <div class="group-listing"></div>
     <% end %>
+    <div class="group-listing"></div>
   </div>
+</div>
