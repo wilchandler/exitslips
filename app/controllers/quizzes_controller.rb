@@ -70,7 +70,7 @@ class QuizzesController < ApplicationController
 		  }
 		  format.json { render json:  {
 		  	scores: @quiz.calculate_scores_by_question,
-		  	questions: @quiz.question_ids_and_contents
+		  	# questions: @quiz.question_ids_and_contents
 		  }
 		  }
 		end

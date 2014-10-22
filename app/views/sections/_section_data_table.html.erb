@@ -4,7 +4,7 @@
       <tr>
         <td></td>
         <% @standards.each do |standard| %>
-          <td><div id="standard-code"><%= standard.code %></div></td>
+          <td><div class="tooltip-heading" title="<%= standard.description %>" id="standard-code"><%= standard.code %></div></td>
         <% end %>
       </tr>
     </thead>

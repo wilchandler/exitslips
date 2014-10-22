@@ -35,7 +35,7 @@ buildRows = (studentID, questions, quizID) ->
 populateHeader = (value, quizID) ->
   i = 1
   for question, answer of value
-    $("#quiz_table_#{quizID} #header").append("<th class='quiz-question' title='#{question}'>#{i}</th>")
+    $("#quiz_table_#{quizID} #header").append("<th class='tooltip-heading' title='#{question}'>#{i}</th>")
     i+= 1
 
 depopulateTable = ->
@@ -46,12 +46,12 @@ depopulateTable = ->
 
 # # Listeners to display question content on hover
 $('.section_tables').ready ->
-  $('.section_tables').on 'mouseenter', '.quiz-question', (e) ->
+  $('.section_tables').on 'mouseenter', '.tooltip-heading', (e) ->
     console.log(this)
     title = $(this).attr('title')
     $(this).data('tipText', title).removeAttr('title')
     $('<p class="tooltip"></p>').text(title).appendTo('body').fadeIn('slow')
-  $('.section_tables').on 'mouseleave', '.quiz-question', (e) ->
+  $('.section_tables').on 'mouseleave', '.tooltip-heading', (e) ->
     $(this).attr('title', $(this).data('tipText'))
     $('.tooltip').remove()
   $('.section_tables').mousemove (e) ->
