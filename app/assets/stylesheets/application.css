@@ -15,6 +15,9 @@
  *= require_self
  */
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 body {
 	margin: 0;
   font-family: 'Raleway', 'Helvetica', Arial, sans-serif;

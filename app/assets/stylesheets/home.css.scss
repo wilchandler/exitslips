@@ -1,0 +1,169 @@
+@import "shared";
+
+body {
+	margin: 0;
+  font-family: 'Raleway', 'Helvetica', Arial, sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+a:-webkit-any-link {
+cursor: auto;
+}
+
+
+#landing {
+	background-color: $dark-blue;
+	}
+
+#error_explanation ul {
+  color: white;
+  list-style: none;
+  background-color: #FF832C;
+  border-radius: 10px;
+}
+
+.notice {
+  color: white;
+  background-color: #FF832C;
+  border-radius: 10px;
+  list-style: none;
+  line-height: 2em;
+  max-width: 20%;
+}
+
+.feature {
+	font-family: 'Lato', 'Helvetica', sans-serif;
+	font-style: italic;
+	height: 650px;
+	width: 100%;
+}
+
+#log-in {
+	font-family: 'Raleway', sans-serif;
+	display: inline;
+	padding: 5px;
+	a {
+		color: white;
+		text-decoration: none;
+	}
+	}
+
+.feature-content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+	padding: 1.3em;
+	a {
+		color: $midnight-sky;
+		text-decoration: none;
+	}
+	p {
+		padding: 7px;
+	}
+	i {
+		text-align: center
+	}
+}
+
+#headline {
+	text-align: center;
+	background-color: $dark-blue;
+	height: 600px;
+	h1 {
+		font-size: 4em;
+		color: white;
+	}
+	p{
+		padding: 1em;
+		font-size: 2em;
+		color: white;
+	}
+	ul {
+		position: absolute;
+		top: 0;
+		right: 0;
+		li {
+			display: inline;
+			text-align: right;
+			padding: 5px;
+		}
+	}
+	a {
+		color: white;
+		text-decoration: none;
+	}
+}
+
+#description {
+	text-align: left;
+	background-color: $light-blue;
+	h1 {
+		font-size: 4em;
+		color: $midnight-sky;
+	}
+	p {
+		font-size: 2em;
+		color: $midnight-sky;
+	}
+}
+
+#create-quiz {
+	text-align: right;
+	background-color: $green;
+	h1 {
+		font-size: 4em;
+		color: $midnight-sky;
+	}
+	p {
+		font-size: 2em;
+		color: $midnight-sky;
+	}
+}
+
+#see-data {
+	text-align: center;
+	background-color: $cream;
+	h1 {
+		font-size: 4em;
+		color: $midnight-sky;
+	}
+	p {
+		font-size: 2em;
+		color: $midnight-sky;
+		vertical-align: middle;
+		display: inline-block;
+	}
+}
+
+#make-groups {
+	text-align: left;
+	background-color: $light-blue;
+	h1 {
+		font-size: 4em;
+		color: $midnight-sky;
+	}
+	p {
+		font-size: 2em;
+		color: $midnight-sky;
+	}
+}
+
+#grade {
+	text-align: right;
+	background-color: $green;
+	h1 {
+		font-size: 4em;
+		color: $midnight-sky;
+	}
+	p {
+		font-size: 2em;
+		color: $midnight-sky;
+	}
+}
