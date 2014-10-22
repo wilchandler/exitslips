@@ -12,10 +12,11 @@
     <% end %>
   </table>
 
-  <%= link_to "Grade Responses", "/quizzes/#{quiz.id}/grade" %>
+
+  <%= link_to "/quizzes/#{quiz.id}/grade" do %><div class="link-box">Grade Responses</div><% end %>
 
   <div class="groups">
-    <%= link_to "Make Groups", "#", class: 'add-groups-link' %>
+    <%= link_to "#", class: 'add-groups-link' do %><div class="link-box">Make Groups</div><% end %>
     <%= form_tag({controller: "quizzes", action: "groups"}, method: "GET") do %>
       <%= radio_button_tag :sort_type, "random" %>
       <%= label_tag :sort_type_random, "Random" %><br/>
@@ -25,10 +26,8 @@
       <%= label_tag :sort_type_heterogenous, "Heterogenous" %><br/>
       <%= label_tag :group_size, "Group size:" %>
       <%= select_tag :group_size, options_for_select(2..(@students.count / 2.0).ceil) %><br/>
-      <button class="get-groups-button" id="groups-<%=quiz.id%>">Get groups</button>
+        <button class="get-groups-button" id="groups-<%=quiz.id%>">Get groups</button>
+      </div>
       <div class="group-listing"></div>
     <% end %>
   </div>
-
-
-</div>
