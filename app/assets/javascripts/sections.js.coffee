@@ -13,7 +13,8 @@ $('.section_tables').ready ->
       $("#quiz_table_#{quizID}").show()
       unless ($("#quiz_table_#{quizID} .student-row").siblings().length)
         $.get "/sections/#{sectionID}/quizzes/#{quizID}.json", (data) ->
-          populateQuizTable(data, quizID)
+          console.log(data)
+          populateQuizTable(data.scores, quizID)
     else
       $(".quiz_table").hide()
       $("#table-all-standards").show()
@@ -32,12 +33,31 @@ buildRows = (studentID, questions, quizID) ->
 
 
 populateHeader = (value, quizID) ->
+  i = 1
   for question, answer of value
-    $("#quiz_table_#{quizID} #header").append("<th>#{question}</th>")
+    $("#quiz_table_#{quizID} #header").append("<th class='tooltip-heading' title='#{question}'>#{i}</th>")
+    i+= 1
 
 depopulateTable = ->
   $("#table-quiz #student-name").siblings().remove()
   $("#table-quiz .student-row").siblings().remove()
+
+
+
+# # Listeners to display question content on hover
+$('.section_tables').ready ->
+  $('.section_tables').on 'mouseenter', '.tooltip-heading', (e) ->
+    console.log(this)
+    title = $(this).attr('title')
+    $(this).data('tipText', title).removeAttr('title')
+    $('<p class="tooltip"></p>').text(title).appendTo('body').fadeIn('slow')
+  $('.section_tables').on 'mouseleave', '.tooltip-heading', (e) ->
+    $(this).attr('title', $(this).data('tipText'))
+    $('.tooltip').remove()
+  $('.section_tables').mousemove (e) ->
+    mousex = e.pageX + 20
+    mousey = e.pageY + 10
+    $('.tooltip').css({ top: mousey, left: mousex })
 
 
 
@@ -81,13 +101,13 @@ assignColor = (element, score) ->
 
 # Getting Groups on individual quiz views
 
-$(document).on 'click', '.add-groups-link', (event) ->
+$(document).on 'mouseenter', '.add-groups-link', (event) ->
   event.preventDefault()
   showGroupsForm(event.target)
 
 showGroupsForm = (link) ->
   $(link).hide()
-  $(link).parent().children('form').show()
+  $(link).closest('div.groups').children('form').show()
 
 $(document).on 'click', '.get-groups-button', (event) ->
   event.preventDefault()

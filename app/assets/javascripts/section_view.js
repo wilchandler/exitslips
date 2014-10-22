@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$("#cr_sect").on("click", function (e) {
+	$("#cr_sect").one("click", function (e) {
 		e.preventDefault();
 		var request = $.ajax({ url: $(this).attr("href"), type: "get"});
 
@@ -7,19 +7,6 @@ $(document).ready(function() {
 			$(".cr_sectshow").append(response);
 		});
 	});
-
-	// $("#cr_sect").on("click", function (e) {
-	// 		e.preventDefault();
-	// // 		$(".cr_sectshow").bPopup()
-
-	// 		var bPop = $(".cr_sectshow").bPopup({
-	// 										appendTo: 'body'
-	// 										, zIndex: 2
-	// 										, opacity: 0.5
-	// 										, modalClose: true
-											
-	// 		});
-	// });
 
 
 	$(".cr_sectshow").on("submit", "form", function (e) {
@@ -30,7 +17,7 @@ $(document).ready(function() {
 
 			request.done(function(data){
 				$(".sect_show").append(data)
-				// $(".cr_sectshow").remove()
+				$(".cr_sectshow").remove()
 		var new_link = "<li><a href=/sections/" + data.id + ">"+ data.section + "</li>";
 				$("ul").prepend(new_link);
 			
@@ -41,7 +28,6 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$("#cr_sect").on("click", function (e) {
 			e.preventDefault();
-	// 		$(".cr_sectshow").bPopup()
 	$(".cr_sectshow").bPopup({
 											appendTo: 'body'
 											, zIndex: 2
@@ -52,8 +38,6 @@ $(document).ready(function() {
 			});
 	});
 });
-
-
 
 
 //show d3.js bargraph

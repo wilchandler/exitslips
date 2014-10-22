@@ -21,11 +21,11 @@ class Quiz < ActiveRecord::Base
   end
 
   def calculate_scores_by_question
-    @questions = self.questions
-    @students = self.students
+    questions = self.questions
+    students = self.students
     scores = {}
 
-    @students.each do |student|
+    students.each do |student|
       quiz_results = student.calculate_scores_by_question({
         questions: self.questions,
         quiz_id: self.id
@@ -33,6 +33,12 @@ class Quiz < ActiveRecord::Base
       scores[student.id] = quiz_results
     end
     scores
+  end
+
+  def question_ids_and_contents
+    question_bindings = {}
+    self.questions.each { |q| question_bindings[q.id] = q.query }
+    question_bindings
   end
 
   def group_by_quiz_scores(group_size, sort_type)

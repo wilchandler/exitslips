@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  layout false
+
   def index
     if user_signed_in? && current_user.class == Teacher
     	redirect_to sections_path
@@ -6,6 +8,5 @@ class HomeController < ApplicationController
     	redirect_to quizzes_path
     end
 
-    render 'home/index', layout: false
   end
 end
