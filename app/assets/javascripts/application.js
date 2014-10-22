@@ -39,7 +39,7 @@ $('.grading_area').ready( function() {
       ui.draggable.remove();
       answerID = ui.draggable.attr("id");
       $.ajax({
-        type: "PATCH", 
+        type: "PATCH",
         url: "/answers/"+answerID,
         data: {correct: "true"},
         success: function(response){
@@ -58,8 +58,8 @@ $('.grading_area').ready( function() {
       ui.draggable.remove();
       answerID = ui.draggable.attr("id")
       $.ajax({
-        type: "PATCH", 
-        url: "/answers/"+answerID, 
+        type: "PATCH",
+        url: "/answers/"+answerID,
         data: {correct: "false"},
         success: function(response){
           console.log(response)
@@ -76,8 +76,8 @@ $('.grading_area').ready( function() {
       ui.draggable.remove();
       answerID = ui.draggable.attr("id")
       $.ajax({
-        type: "PATCH", 
-        url: "/answers/"+answerID, 
+        type: "PATCH",
+        url: "/answers/"+answerID,
         data: {correct: "false"},
         success: function(response){
           console.log(response)

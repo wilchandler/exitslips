@@ -31,14 +31,14 @@ class SectionsController < ApplicationController
 		@section = Section.find(params[:id])
 		@quizzes = @section.quizzes
 
-		respond_to do |format|
+    respond_to do |format|
+      format.json {
+        render json: @section.calculate_scores_by_standard
+      }
       format.html {
         @students = @section.students
         @standards = @section.standards
         @quizzes = @section.quizzes
-      }
-      format.json {
-        render json: @section.calculate_scores_by_standard
       }
       format.csv {
         send_data @section.to_csv

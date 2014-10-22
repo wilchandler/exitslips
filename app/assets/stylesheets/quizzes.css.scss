@@ -1,3 +1,50 @@
 // Place all the styles related to the Quizzes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "shared";
+
+.sortable {
+  position: absolute;
+  overflow: hidden;
+  display: inline-block;
+  background-color: #F9F2E7;
+  max-width: 200px;
+  z-index: 1;
+}
+
+
+#correct-hit-box {
+  position: fixed;
+  right: 0;
+  bottom: 40%;
+  height: 200px;
+  width: 200px;
+}
+
+#incorrect-hit-box {
+  position: fixed;
+  left: 0;
+  bottom: 40%;
+  height: 200px;
+  width: 200px;
+}
+
+.groups form {
+  display: none;
+}
+
+.grading-area {
+  text-align: center;
+  margin: auto;
+  h1{
+    font-size: 2em;
+    margin: 5px;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+}
+
+
+
+

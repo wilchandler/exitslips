@@ -1,0 +1,19 @@
+<nav id="sidebar">
+  <h3 id="exit-slips">ExitSlips</h3>
+  <br>
+  <%= link_to "Sections", sections_path %>
+  <ul>
+    <% if @current_teacher = current_teacher %>
+      <% @current_teacher.sections.each do |section| %>
+        <li><%= link_to section.name, section_path(section) %></li>
+      <% end %>
+      <%= link_to "Create Section", new_section_path %><br>
+      <%= link_to "Create Quiz", new_quiz_path %>
+    <% elsif @current_student = current_student %>
+      <% @current_student.sections.each do |section| %>
+        <li><%= link_to section.name, section_path(section) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+ </nav>
