@@ -53,6 +53,32 @@ table {
     border-right: solid 1px white;
     border-bottom: solid 1px white;
     }
+  .table-student-name {
+    padding: 0 3px 0 0;
+    vertical-align: middle;
+  }
+}
 
+.quiz-data-table table {
+  td, th {
+    border: 1px solid $dark-blue;
+    padding: 5px;
+  }
+  th {
+    text-align: left;
+    width: 30px;
+    background-color: $dark-blue;
+    color: white;
+  }
+  td {
+    margin-right: 5px;
+  }
+  .student-row {
+    padding: 5px;
+    white-space:nowrap
+  }
+}
 
+.group-listing ul {
+  margin-top: 1em
 }

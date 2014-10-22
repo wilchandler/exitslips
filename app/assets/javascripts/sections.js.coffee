@@ -44,16 +44,19 @@ depopulateTable = ->
 
 
 
-# # Listeners to display question content on hover
+# Listeners to display question content on hover
+
 $('.section_tables').ready ->
   $('.section_tables').on 'mouseenter', '.tooltip-heading', (e) ->
     console.log(this)
     title = $(this).attr('title')
     $(this).data('tipText', title).removeAttr('title')
     $('<p class="tooltip"></p>').text(title).appendTo('body').fadeIn('slow')
+
   $('.section_tables').on 'mouseleave', '.tooltip-heading', (e) ->
     $(this).attr('title', $(this).data('tipText'))
     $('.tooltip').remove()
+
   $('.section_tables').mousemove (e) ->
     mousex = e.pageX + 20
     mousey = e.pageY + 10
@@ -101,7 +104,7 @@ assignColor = (element, score) ->
 
 # Getting Groups on individual quiz views
 
-$(document).on 'mouseenter', '.add-groups-link', (event) ->
+$(document).on 'click', '.add-groups-link', (event) ->
   event.preventDefault()
   showGroupsForm(event.target)
 
@@ -125,12 +128,13 @@ getGroups = (form) ->
       displayGroups(form, data.groups)
 
 displayGroups = (form, groups) ->
-  listing = $(form).children('.group-listing')
-  listing.empty()
-  $(form).children('.group-listing').empty()
+  parentDiv = $(form).closest('div')[0]
+  $listing = $(parentDiv).children('.group-listing')
+  console.log($listing)
+  $listing.empty()
   for group in groups
     list = buildGroupView(group)
-    listing.append(list)
+    $listing.append(list)
 
 buildGroupView = (group) ->
   view = "<ul>"

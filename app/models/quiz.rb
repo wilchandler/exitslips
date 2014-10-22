@@ -91,6 +91,7 @@ class Quiz < ActiveRecord::Base
   end
 
   def group_randomly(args = {})
+    raise args.inspect
     groups = args[:groups]
     scores = args[:scores]
     until scores.empty?
