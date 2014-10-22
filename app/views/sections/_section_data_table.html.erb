@@ -2,9 +2,9 @@
   <table class="table-active">
     <thead>
       <tr>
-        <td></td>
+        <th></th>
         <% @standards.each do |standard| %>
-          <td><div class="tooltip-heading" title="<%= standard.description %>" id="standard-code"><%= standard.code %></div></td>
+          <th><div class="tooltip-heading" title="<%= standard.description %>" id="standard-code"><%= standard.code %></div></th>
         <% end %>
       </tr>
     </thead>
@@ -17,7 +17,7 @@
       </tr>
     <% end %>
   </table>
-
+<br>
   <%= link_to section_path(@section, format: "csv"), class: 'link-box' do %>
     <div>Download as CSV</div>
   <% end %>
