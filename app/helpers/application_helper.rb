@@ -38,4 +38,8 @@ module ApplicationHelper
   def current_user_is_teacher?
     !(current_teacher.nil?)
   end
+
+  def logged_in?
+    !(current_user_id.nil?)
+  end
 end
