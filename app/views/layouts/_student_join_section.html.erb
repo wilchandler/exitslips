@@ -1,0 +1,8 @@
+<div id="student-join-section">
+  <p id="enrollment-message"></p>
+  <%= form_tag enrollments_path, method: "post", id: 'student-join-section-form' do %>
+    <%= label_tag :passcode, "Section passcode: " %><br/>
+    <%= text_field_tag :passcode %>
+    <%= submit_tag "Join" %>
+  <% end %>
+</div>

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :sections
   resources :users, except: [:index]
+  resources :enrollments, only: [:create]
 
   patch "/answers/:id", to: "answers#update"
 
