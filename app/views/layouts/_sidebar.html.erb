@@ -7,7 +7,7 @@
       <% @current_teacher.sections.each do |section| %>
         <li><%= link_to section.name, section_path(section) %></li>
       <% end %>
-      <%= link_to "Create Section", new_section_path %><br>
+      <%= link_to "Create Section", new_section_path, :id => "cr_sect" %><br>
       <%= link_to "Create Quiz", new_quiz_path %>
     <% elsif @current_student = current_student %>
       <% @current_student.sections.each do |section| %>

@@ -67,6 +67,7 @@ class SectionsController < ApplicationController
 	  @sections = current_user.sections
 	  @quizzes = current_user.quizzes
 
+	  render :layout => false
 	end
 
 	def create
