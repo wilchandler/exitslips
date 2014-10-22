@@ -15,6 +15,7 @@
 //= require jquery-ui.min.js
 //= require jquery_ujs
 //= require jquery-readyselector
+//= require jquery-bpop-min.js
 //= require_tree .
 
 // $(document).ready( function () {

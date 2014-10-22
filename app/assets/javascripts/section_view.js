@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 	$("#cr_sect").on("click", function (e) {
 		e.preventDefault();
@@ -9,6 +8,20 @@ $(document).ready(function() {
 		});
 	});
 
+	// $("#cr_sect").on("click", function (e) {
+	// 		e.preventDefault();
+	// // 		$(".cr_sectshow").bPopup()
+
+	// 		var bPop = $(".cr_sectshow").bPopup({
+	// 										appendTo: 'body'
+	// 										, zIndex: 2
+	// 										, opacity: 0.5
+	// 										, modalClose: true
+											
+	// 		});
+	// });
+
+
 	$(".cr_sectshow").on("submit", "form", function (e) {
 		e.preventDefault();
 		var link = $(this).attr("action");
@@ -17,12 +30,31 @@ $(document).ready(function() {
 
 			request.done(function(data){
 				$(".sect_show").append(data)
-				$(".cr_sectshow").remove()
+				// $(".cr_sectshow").remove()
 		var new_link = "<li><a href=/sections/" + data.id + ">"+ data.section + "</li>";
 				$("ul").prepend(new_link);
+			
 			});
 	});
 });
+
+$(document).ready(function() {
+	$("#cr_sect").on("click", function (e) {
+			e.preventDefault();
+	// 		$(".cr_sectshow").bPopup()
+	$(".cr_sectshow").bPopup({
+											appendTo: 'body'
+											, zIndex: 2
+											, opacity: 0.5
+											, modalClose: true
+											, transition: 'slideIn'
+											
+			});
+	});
+});
+
+
+
 
 //show d3.js bargraph
 $("#mastery_by_section").ready(function() {
@@ -32,6 +64,8 @@ $("#mastery_by_section").ready(function() {
 	});
 });
 
+
+
 //For randomizing colors
 
 // $(document).ready(function() {
@@ -40,5 +74,4 @@ $("#mastery_by_section").ready(function() {
 //   return "hsl(" + Math.random() * 360 + ",100%,50%)";
 // 	});
 // });
-
 
