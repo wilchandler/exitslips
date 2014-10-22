@@ -12,7 +12,7 @@ $('.section_tables').ready ->
       $(".quiz_table").hide()
       $("#quiz_table_#{quizID}").show()
       unless ($("#quiz_table_#{quizID} .student-row").siblings().length)
-        $.get "/sections/#{sectionID}/quizzes/#{quizID}", (data) ->
+        $.get "/sections/#{sectionID}/quizzes/#{quizID}.json", (data) ->
           populateQuizTable(data, quizID)
     else
       $(".quiz_table").hide()
@@ -36,7 +36,6 @@ populateHeader = (value, quizID) ->
     $("#quiz_table_#{quizID} #header").append("<th>#{question}</th>")
 
 depopulateTable = ->
-  console.log($("#table-quiz #student-name").siblings())
   $("#table-quiz #student-name").siblings().remove()
   $("#table-quiz .student-row").siblings().remove()
 
@@ -47,7 +46,7 @@ depopulateTable = ->
 $("#table-all-standards").ready ->
   sectionID = $('#section_id').val()
 
-  $.get "/sections/#{sectionID}", (data) ->
+  $.get "/sections/#{sectionID}.json", (data) ->
     populateSectionTable(data)
 
 populateSectionTable = (data) ->
