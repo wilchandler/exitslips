@@ -88,7 +88,6 @@ class SectionsController < ApplicationController
 
 
 	def edit
-	  student_leave
 	  @section = Section.find(params[:id])
 	end
 
