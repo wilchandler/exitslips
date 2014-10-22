@@ -26,7 +26,7 @@
     <div>Edit Section</div>
   <% end %>
 
-  <%= link_to @section, method: :delete, confirm: "Are you sure?", class: 'link-box' do %>
+  <%= link_to @section, method: :delete, data: {confirm: 'Are you sure?'}, class: 'link-box' do %>
     <div>Delete Section</div>
   <% end %>
 </div>
