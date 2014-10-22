@@ -97,8 +97,10 @@ class SectionsController < ApplicationController
 	end
 
 	def destroy
+		
 		@section = Section.find(params[:id])
-		 if @section.destroy
+
+		 if @section.destroy!
 		 	redirect_to sections_path
 		 else
 		 	redirect_to sections_path
