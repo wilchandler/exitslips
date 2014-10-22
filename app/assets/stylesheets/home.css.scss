@@ -1,6 +1,5 @@
 @import "shared";
 
-
 body {
 	margin: 0;
   font-family: 'Raleway', 'Helvetica', Arial, sans-serif;
@@ -19,9 +18,8 @@ cursor: auto;
 }
 
 
-.landing {
-	margin: auto;
-	width: 75%;
+#landing {
+	background-color: $dark-blue;
 	}
 
 #error_explanation ul {
@@ -40,21 +38,66 @@ cursor: auto;
   max-width: 20%;
 }
 
-.feature{
+.feature {
 	font-family: 'Lato', 'Helvetica', sans-serif;
 	font-style: italic;
 	height: 650px;
 	width: 100%;
 }
 
+#log-in {
+	font-family: 'Raleway', sans-serif;
+	display: inline;
+	padding: 5px;
+	a {
+		color: white;
+		text-decoration: none;
+	}
+	}
+
+.feature-content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+	padding: 1.3em;
+	a {
+		color: $midnight-sky;
+		text-decoration: none;
+	}
+	p {
+		padding: 7px;
+	}
+	i {
+		text-align: center
+	}
+}
+
 #headline {
 	text-align: center;
 	background-color: $dark-blue;
+	height: 600px;
 	h1 {
 		font-size: 4em;
-		vertical-align: middle;
-		display: inline-block;
 		color: white;
+	}
+	p{
+		padding: 1em;
+		font-size: 2em;
+		color: white;
+	}
+	ul {
+		position: absolute;
+		top: 0;
+		right: 0;
+		li {
+			display: inline;
+			text-align: right;
+			padding: 5px;
+		}
+	}
+	a {
+		color: white;
+		text-decoration: none;
 	}
 }
 
@@ -63,8 +106,6 @@ cursor: auto;
 	background-color: $light-blue;
 	h1 {
 		font-size: 4em;
-		vertical-align: middle;
-		display: inline-block;
 		color: $midnight-sky;
 	}
 	p {
@@ -78,23 +119,6 @@ cursor: auto;
 	background-color: $green;
 	h1 {
 		font-size: 4em;
-		vertical-align: middle;
-		display: inline-block;
-		color: $midnight-sky;
-	}
-	p {
-		font-size: 2em;
-		color: $midnight-sky;
-	}
-}
-
-#create-quiz {
-	text-align: right;
-	background-color: $green;
-	h1 {
-		font-size: 4em;
-		vertical-align: middle;
-		display: inline-block;
 		color: $midnight-sky;
 	}
 	p {
@@ -108,13 +132,13 @@ cursor: auto;
 	background-color: $cream;
 	h1 {
 		font-size: 4em;
-		vertical-align: middle;
-		display: inline-block;
 		color: $midnight-sky;
 	}
 	p {
 		font-size: 2em;
 		color: $midnight-sky;
+		vertical-align: middle;
+		display: inline-block;
 	}
 }
 
@@ -123,8 +147,6 @@ cursor: auto;
 	background-color: $light-blue;
 	h1 {
 		font-size: 4em;
-		vertical-align: middle;
-		display: inline-block;
 		color: $midnight-sky;
 	}
 	p {
@@ -138,8 +160,6 @@ cursor: auto;
 	background-color: $green;
 	h1 {
 		font-size: 4em;
-		vertical-align: middle;
-		display: inline-block;
 		color: $midnight-sky;
 	}
 	p {
