@@ -8,7 +8,7 @@ feature 'Registration' do
       @liberty = Teacher.create!(first_name: "liberty", last_name: "valance", email: "valance@mail.com", password: "12345678")
     end
 
-    it "will show errors for invalid email" do
+    xit "will show errors for invalid email" do
       fill_in 'user_email', with: "test@mail.com "
       fill_in 'user_password', with: "12345678"
       expect(page).to_not have_content("valance@mail.com")
@@ -16,7 +16,7 @@ feature 'Registration' do
       expect(page).to have_content "Invalid email or password"
     end
 
-    it "redirects to show page for teacher when logged in" do
+    xit "redirects to show page for teacher when logged in" do
       fill_in 'user_email', with: "valance@mail.com"
       fill_in 'user_password', with: "12345678"
       first('input[type="submit"]').click
@@ -24,7 +24,7 @@ feature 'Registration' do
       expect(page).to have_content("Welcome")
     end
 
-    it "shows a logout button if user is logged in" do
+    xit "shows a logout button if user is logged in" do
       fill_in 'user_email', with: "valance@mail.com"
       fill_in 'user_password', with: "12345678"
       first('input[type="submit"]').click

@@ -11,13 +11,13 @@ feature "Section_show" do
   end
 
   context "Welcome page for Teacher" do
-    it "should display name of teacher logged in" do
+    xit "should display name of teacher logged in" do
       expect(page).to have_content("Welcome, liberty valance")
     end
-    it "should display Sections of the teacher" do
+    xit "should display Sections of the teacher" do
       expect(page).to have_content("Math")
     end
-    it "should put All Sections before Latest Quiz on page" do
+    xit "should put All Sections before Latest Quiz on page" do
       ("Mastery of Standards vs. Sections").should appear_before("Latest Quiz")
     end
 
