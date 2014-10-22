@@ -5,7 +5,7 @@ class SectionsController < ApplicationController
 
 	def index
 		# student_leave
-	  #--------Mastery---------------
+
 	  respond_to do |format|
 	  	format.json {
 			  render json: current_teacher.mastery_by_section
@@ -119,8 +119,3 @@ class SectionsController < ApplicationController
     	params.require(:section).permit(:name,:subject,:grade)
     end
 end
-
-
-
-
-
