@@ -4,18 +4,21 @@ class SectionsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		# student_leave
-
-	  respond_to do |format|
-	  	format.json {
-			  render json: current_teacher.mastery_by_section
-	  	}
-	  	format.html{
-	  		@teacher = current_teacher
-			  @sections = @teacher.sections
-			  @mastery = @teacher.mastery_for_all_sections
-	  	}
-	  end
+    if @student = current_student
+      @sections = @student.sections.includes(:teacher)
+      render 'index_student'
+    elsif @teacher = current_teacher
+  	  respond_to do |format|
+  	  	format.json {
+  			  render json: current_teacher.mastery_by_section
+  	  	}
+  	  	format.html{
+  	  		@teacher = current_teacher
+  			  @sections = @teacher.sections
+  			  @mastery = @teacher.mastery_for_all_sections
+  	  	}
+      end
+    end
 	end
 
 	def show_bargraph
@@ -27,22 +30,26 @@ class SectionsController < ApplicationController
 	end
 
 	def show
-		# student_leave
-		@section = Section.find(params[:id])
-		@quizzes = @section.quizzes
+    @section = Section.includes(:quizzes).find(params[:id])
+    @quizzes = @section.quizzes
 
-    respond_to do |format|
-      format.json {
-        render json: @section.calculate_scores_by_standard
-      }
-      format.html {
-        @students = @section.students
-        @standards = @section.standards
-        @quizzes = @section.quizzes
-      }
-      format.csv {
-        send_data @section.to_csv
-      }
+    if @student = current_student
+      @teacher = @section.teacher
+      render 'show_student'
+    elsif current_teacher
+      respond_to do |format|
+        format.json {
+          render json: @section.calculate_scores_by_standard
+        }
+        format.html {
+          @students = @section.students
+          @standards = @section.standards
+          @quizzes = @section.quizzes
+        }
+        format.csv {
+          send_data @section.to_csv
+        }
+      end
 		end
 	end
 
@@ -61,7 +68,6 @@ class SectionsController < ApplicationController
   end
 
   def new
-	 	# student_leave
 	 	@section = Section.new
 		@teacher = current_user
 	  @sections = current_user.sections
@@ -97,7 +103,9 @@ class SectionsController < ApplicationController
 	end
 
 	def destroy
+		
 		@section = Section.find(params[:id])
+
 		 if @section.destroy
 		 	redirect_to sections_path
 		 else

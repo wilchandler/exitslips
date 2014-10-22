@@ -12,7 +12,11 @@ class ApplicationController < ActionController::Base
 	end
 
   def current_teacher
-    Teacher.find_by(id: session["warden.user.user.key"][0])
+    Teacher.find_by(id: current_user_id)
+  end
+
+  def current_student
+    Student.find_by(id: current_user_id)
   end
 
   def current_user_id

@@ -18,6 +18,7 @@
       <% @current_student.sections.each do |section| %>
         <li><%= link_to section.name, section_path(section) %></li>
       <% end %>
+      <%= render partial: 'layouts/student_join_section' %>
     <% end %>
       <br />
 

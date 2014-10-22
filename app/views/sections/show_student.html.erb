@@ -1,0 +1,7 @@
+<h1><%= @section.name %></h1>
+<h3>with <%= @teacher.full_name %>
+
+<% @quizzes.each do |quiz| %>
+  <%= link_to quiz.name, new_quiz_sitting_path(quiz), class: 'link-to-siting' %>
+  <br />
+<% end %>

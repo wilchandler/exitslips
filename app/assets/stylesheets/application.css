@@ -15,9 +15,6 @@
  *= require_self
  */
 
-@import "font-awesome-sprockets";
-@import "font-awesome";
-
 body {
 	margin: 0;
   font-family: 'Raleway', 'Helvetica', Arial, sans-serif;
@@ -53,7 +50,7 @@ a {
   border-radius: 10px;
 }
 
-.notice {
+.notice, .alert {
   color: white;
   background-color: #FF832C;
   border-radius: 10px;
