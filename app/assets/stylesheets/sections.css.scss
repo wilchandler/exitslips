@@ -79,6 +79,12 @@ table {
   }
 }
 
+#table-all-standards table {
+  td {
+    border: 1px solid $dark-blue;
+  }
+}
+
 .group-listing ul {
   margin-top: 1em
 }

@@ -2,17 +2,15 @@
 <div class="section_tables">
 <h1 id="section-name"><%=@section.name%></h1>
 <%= render 'quizzes_drop_down'%>
-
+<br><br>
 <%= render 'section_data_table' %>
 <% @quizzes.each do |quiz|%>
 	<div id="quiz_table_<%=quiz.id%>" class="quiz_table">
-	<%= render 'section_quiz_data_table', quiz:quiz %>
-	</div>
+  <%= render 'section_quiz_data_table', quiz:quiz %>
+  </div>
 <% end %>
 
 </div>
-
     <div class="cr_sectshow"></div>
-
 
 <%= hidden_field_tag :section_id, @section.id %>
