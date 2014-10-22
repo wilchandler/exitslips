@@ -23,8 +23,4 @@ class ApplicationController < ActionController::Base
     session["warden.user.user.key"][0][0]
   end
 
-  def logged_in?
-    !(current_user_id.nil?)
-  end
-
 end
