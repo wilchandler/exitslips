@@ -32,17 +32,17 @@ $ rails s
 ## Technologies
 
 * Ruby on Rails
-* Backbone.js
+* D3
 * PostgreSQL
 * RSpec, Capybara, Jasmine
-* Heroku
-* CI Testing: 
+* Deployment: Heroku
+* CI Testing: Codeship
 
 ## Contributors
 
 | Name          |   Github                                   |   LinkedIn                                  |
 | :-----------: | :----------------------------------------: | :-----------------------------------------: |
-| Wil Chandler | [TODO](https://github.com/graceekyim) | [TODO](https://www.linkedin.com/in/graceekyim) ||
-| Lovinder Pnag | [TODO](https://github.com/axhi) | [TODO](https://www.linkedin.com/in/joeysabani) ||
-| Neel Shah | [TODO](https://github.com/jochambo) | [TODO](https://www.linkedin.com/in/joeychamberlin) ||
-| Colin Shevlin | [TODO](https://github.com/robschwartz) | [TODO](https://www.linkedin.com/in/robschwartz10) ||
+| Wil Chandler | [wilchandler](https://github.com/wilchandler) | [Wil Chandler](www.linkedin.com/in/wilchandler) ||
+| Lovinder Pnag | [LoRyder1](https://github.com/LoRyder1) | [Lovinder Pnag](www.linkedin.com/pub/lovinder-pnag/26/6a1/a98) ||
+| Neel Shah | [nshah20](https://github.com/nshah20) | [Neel Shah](www.linkedin.com/pub/neel-shah/64/641/34a) ||
+| Colin Shevlin | [cwshevlin](https://github.com/cwshevlin) | [Colin Shevlin](www.linkedin.com/pub/colin-shevlin/27/a87/466/) ||
