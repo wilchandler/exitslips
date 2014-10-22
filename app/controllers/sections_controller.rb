@@ -30,7 +30,7 @@ class SectionsController < ApplicationController
 	end
 
 	def show
-    @section = Section.includes(:quizzes).find(params[:id])
+    @section = Section.includes(:quizzes, :requirements).find(params[:id])
     @quizzes = @section.quizzes
 
     if @student = current_student
@@ -103,7 +103,7 @@ class SectionsController < ApplicationController
 	end
 
 	def destroy
-		
+
 		@section = Section.find(params[:id])
 
 		 if @section.destroy

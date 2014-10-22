@@ -28,6 +28,7 @@ class Section < ActiveRecord::Base
     students = self.students
     scores = {}
 
+
     students.each do |student|
       s = student.calculate_scores_by_standard({
         requirements: requirements,

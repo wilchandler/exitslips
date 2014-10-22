@@ -6,10 +6,10 @@ load(Rails.root.join( 'db', 'seeds', "production.rb"))
 # ------------------------------------- #
 # ************************************* #
 
-teacher = Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: Faker::Internet.email)
+teacher = Teacher.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "12345678", email: "wil@wilchandler.com")
 
-section1 = Section.create!(name: "4th grade Math Section", teacher: teacher, subject: "Math", grade: "4")
-section2 = Section.create!(name: "4th grade ELA Section", teacher: teacher, subject: "ELA", grade: "4")
+section1 = Section.create!(name: "4th grade Math Section", teacher: teacher, subject: "nope", grade: "nope")
+section2 = Section.create!(name: "4th grade ELA Section", teacher: teacher, subject: "nope", grade: "nope")
 
 standard1 = Standard.create!(subject: "Math", grade: "4", code: "B.A.4", description: "Do advanced math")
 standard2 = Standard.create!(subject: "Math", grade: "4", code: "B.A.5", description: "Do basic math")
@@ -91,7 +91,7 @@ end
 sdx = Student.all
 
 sdx.each do |s|
-  10.times do 
+  10.times do
     Answer.create!(question_id: [q1, q2, q3].sample, content: "Testing123", correct: [true, false].sample, student_id: s.id)
   end
 end
