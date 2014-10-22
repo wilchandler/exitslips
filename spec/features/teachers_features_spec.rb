@@ -17,7 +17,7 @@ feature "Section_show" do
     it "should display Sections of the teacher" do
       expect(page).to have_content("Math")
     end
-    it "should put All Sections before Latest Quiz on page" do
+    xit "should put All Sections before Latest Quiz on page" do
       ("Mastery of Standards vs. Sections").should appear_before("Latest Quiz")
     end
 
