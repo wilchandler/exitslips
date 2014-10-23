@@ -18,16 +18,8 @@
 //= require jquery-bpop-min.js
 //= require_tree .
 
-// $(document).ready( function () {
-//     $('#section_table').DataTable({
-//     	"ordering": true
-//     });
-// } );
-
-
-// require fuse.min.js
-
 // Smooth scroll for in page links
+
 $(function(){
     var target, scroll;
 
@@ -39,11 +31,11 @@ $(function(){
             if (target.length) {
                 if (typeof document.body.style.transitionProperty === 'string') {
                     e.preventDefault();
-                  
+
                     var avail = $(document).height() - $(window).height();
 
                     scroll = target.offset().top;
-                  
+
                     if (scroll > avail) {
                         scroll = avail;
                     }

@@ -21,7 +21,7 @@ $(document).ready(function() {
 		var new_link = "<li><a href=/sections/" + data.id + ">"+ data.section + "</li>";
 				$("ul").prepend(new_link);
 				$("form").find("input[type=text]").val("")
-			
+
 			});
 	});
 });
@@ -35,7 +35,7 @@ $(".cr_sectshow").ready(function() {
 											, opacity: 0.5
 											, modalClose: true
 											, transition: 'slideIn'
-											
+
 			});
 	});
 });
@@ -47,15 +47,3 @@ $("#mastery_by_section").ready(function() {
 	$("#mastery_by_section").show();
 	});
 });
-
-
-
-//For randomizing colors
-
-// $(document).ready(function() {
-
-//   d3.selectAll(".bar").style("fill", function() {
-//   return "hsl(" + Math.random() * 360 + ",100%,50%)";
-// 	});
-// });
-

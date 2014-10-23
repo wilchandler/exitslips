@@ -30,11 +30,6 @@ jQuery ->
     validateStandard()
     validateOption()
 
-
-
-
-
-
 handleOpenResponseBox = (box) ->
   question = $(box).closest('fieldset')
   if $(box).prop("checked") == true
@@ -61,11 +56,6 @@ validateOption = () ->
   if $(".open-response-checkbox").prop("checked") == false
     alert("Questions must either have answers or be open response.")
     return false
-
-
-
-
-
 
 # removeField (deletion_link) ->
 #   jQuery(deletion_link).prev('input[type=hidden').val('1')
