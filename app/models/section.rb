@@ -7,7 +7,7 @@ class Section < ActiveRecord::Base
   has_many :requirements
   has_many :standards, through: :requirements
 
-  before_create do |section|
+  after_create do |section|
     section.generate_requirements
     section.generate_passcode
   end
