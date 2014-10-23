@@ -112,7 +112,7 @@ students.each do |s|
     quiz: quiz,
     possible: 0,
     correct: 0,
-    graded false
+    graded: false
   )
 
   res = ["Plastic bags end up in landfills", "Plastic bags are not recyclable",
