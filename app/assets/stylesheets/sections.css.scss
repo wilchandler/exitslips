@@ -4,6 +4,8 @@
 @import "shared";
 
 
+
+
 #section-name {
   text-align: center;
   font-size: 2em;
@@ -99,5 +101,11 @@ table {
   margin: 20px auto 10px auto;
   h6 {
     // font-weight: 700;
+  }
+}
+
+#section-index{
+  #teacher-name {
+    font-size: 2em;
   }
 }
