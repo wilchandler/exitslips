@@ -1,10 +1,10 @@
 
 <% @ungraded_answers.each do |question, responses| %>
-  <div class="grading-question">
+  <div class="grading-question grading-inactive">
     <h3><%= question %></h3>
     <% responses.each do |response| %>
       <% next unless response.correct.nil? %>
-      <div class="sortable" id="<%=response.id%>">
+      <div class="sortable grading-inactive grading-answer" id="<%=response.id%>">
         <p><%= response.content %></p>
       </div>
     <% end %>
