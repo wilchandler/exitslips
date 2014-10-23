@@ -73,3 +73,33 @@ math.requirements.each_with_index do |r, i|
   end
 
 end
+
+english.requirements.each_with_index do |r, i|
+  standard = r.standard
+  english.quizzes << q = Quiz.create!(
+    requirement: r,
+    name: "Quiz on #{standard.code}",
+    instructions: standard.description
+  )
+
+  students.each do |s|
+    num_correct = (math_smarts.include? s) ? rand(6..10) : rand(4..8)
+    num_correct -= 3 if standard.code == "4.RI.8" && !(s.first_name == "Virginia" || s.first_name == "Willa") # WRITE QUESTIONS!
+    num_correct -= 2 if standard.code == "4.NBT.4"
+    num_correct -= 1 if s.first_name == "Ernest"
+    num_correct += 1 if s.first_name == "Virginia"
+
+    Sitting.create!(
+      student: s,
+      quiz: q,
+      possible: 10,
+      correct: num_correct,
+      graded: true
+    )
+  end
+
+end
+
+quiz = Quiz.find_by_name("Quiz on 4.RI.8")
+
+Question.create(quiz_id: quiz.id, query: "Read the passage about banning plastic bags in Chicago. What reasons does the author give for wanting to ban plastic bags?", question_type: open_response)
