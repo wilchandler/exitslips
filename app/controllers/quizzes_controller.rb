@@ -100,6 +100,6 @@ class QuizzesController < ApplicationController
 
 	def check_for_requirement_errors(failures = [])
 		return if failures.empty?
-		flash[:notice] = "The selected standard does not apply to the following sections: #{failures.join(", ")}"
+		flash[:alert] = "The selected standard does not apply to the following sections: #{failures.join(", ")}"
 	end
 end
