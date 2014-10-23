@@ -24,8 +24,12 @@ class Teacher < User
       possible = []
       correct = []
       section.sittings.each do |sitting|
-        possible << sitting.possible
-        correct << sitting.correct
+        if sitting.possible.empty? || sitting.correct.empty?
+          return nil
+        else
+          possible << sitting.possible
+          correct << sitting.correct
+        end
       end
       {section: section.name, mastery: (correct.sum.to_f / possible.sum.to_f) * 100}
     end
