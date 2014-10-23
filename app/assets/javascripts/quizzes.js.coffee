@@ -26,6 +26,15 @@ jQuery ->
   $('form').on 'change', '.open-response-checkbox', (event) ->
     handleOpenResponseBox(event.target)
 
+  $('form').on 'submit', (event) ->
+    validateStandard()
+    validateOption()
+
+
+
+
+
+
 handleOpenResponseBox = (box) ->
   question = $(box).closest('fieldset')
   if $(box).prop("checked") == true
@@ -35,12 +44,26 @@ handleOpenResponseBox = (box) ->
     $(question).children('fieldset').show()
     $(question).children('.add_fields').show()
 
-$('#new_quiz').on 'submit', (event) ->
-  validateForm()
 
-validateForm = () ->
-  standard = document.forms["#new_quiz"]["standard"].val();
-  console.log(standard)
+validateStandard = () ->
+  standard = $("#standard").val();
+  if (standard == null || standard == "")
+    alert("Standard can't be blank.")
+    return false
+
+# validateSection = () ->
+#   if $("input[type='checkbox']").prop("checked") == false
+#     alert("You must select a section.")
+#     return false
+
+
+validateOption = () ->
+  if $(".open-response-checkbox").prop("checked") == false
+    alert("Questions must either have answers or be open response.")
+    return false
+
+
+
 
 
 

@@ -5,7 +5,7 @@
 
   <% @sections.each do |section| %>
     <%= check_box_tag "[sections][#{section.id}]" %>
-    <%= label_tag section.name %><br/>
+    <%= label_tag section.name %><br>
   <% end %>
 
   <%= render 'quiz', f: f %>

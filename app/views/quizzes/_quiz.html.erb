@@ -1,8 +1,8 @@
 
   <%= f.label :name %>
-  <%= f.text_field :name %><br/>
+  <%= f.text_field :name, required: true %><br/>
   <%= f.label :instructions %>
-  <%= f.text_area :instructions %><br/>
+  <%= f.text_area :instructions, required: true %><br/>
 
   <%= f.fields_for :questions do |builder| %>
     <%= render 'question_fields', f: builder %>

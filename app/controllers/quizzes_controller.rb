@@ -31,7 +31,7 @@ class QuizzesController < ApplicationController
 				quiz = Quiz.new(section: section, requirement: requirement)
 				quiz.process_quiz_form(params[:quiz])
 			else
-				render 'new'
+				flash[:error] = "Unable to save quiz."
 			end
 		end
 		flash[:notice] = "Quiz successfully created"
