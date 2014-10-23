@@ -7,10 +7,12 @@ class Sitting < ActiveRecord::Base
     return nil if sittings.empty?
 
     percentages = sittings.map { |sitting| sitting.calculate_percentage }
-    (percentages.inject(:+).to_f / percentages.length.to_f).round
+      return nil if percentages.all? &:nil?
+      (percentages.inject(:+).to_f / percentages.length.to_f).round
   end
 
   def calculate_percentage
+    return nil if self.possible == 0
     (self.correct.to_f / self.possible.to_f * 100).round
   end
 
