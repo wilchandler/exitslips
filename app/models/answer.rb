@@ -16,4 +16,12 @@ class Answer < ActiveRecord::Base
     (self.correct.to_f / self.possible.to_f * 100).round
   end
 
+  def record_open_response_grade(mark)
+    success = update_attribute(:correct, mark)
+    sitting = self.sitting
+    sitting.update_count(self.correct)
+    sitting.mark_graded_if_all_graded
+    success
+  end
+
 end

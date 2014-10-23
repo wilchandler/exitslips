@@ -26,4 +26,5 @@ class SittingsController < ApplicationController
     end
     redirect_to section_path(quiz.section)
   end
+
 end
