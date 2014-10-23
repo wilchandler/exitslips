@@ -158,7 +158,6 @@ class Quiz < ActiveRecord::Base
       ungraded_answers[q.query] = answers_for_question
     end
     ungraded_answers
-    debugger
   end
 
 end

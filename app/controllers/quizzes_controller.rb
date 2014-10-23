@@ -92,7 +92,7 @@ class QuizzesController < ApplicationController
 	def grade
 		@quiz = Quiz.find_by(id: params[:id])
 		@ungraded_answers = @quiz.get_ungraded_answers
-
+		debugger
 
 		# @responses = @quiz.answers.where(correct: nil).includes(:questions)
 		# @questions = Set.new
