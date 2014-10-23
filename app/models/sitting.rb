@@ -46,8 +46,19 @@ class Sitting < ActiveRecord::Base
     elsif mark == false
       self.possible += 1
     elsif mark == :pending
-      # handle open ended response
+      # handle open ended response later
     end
+  end
+
+  def mark_graded_if_all_graded
+    update_attribute(:graded, true) if all_graded?
+  end
+
+  def all_graded?
+    self.answers.each do |answer|
+      return false if answer.correct.nil?
+    end
+    true
   end
 
 end
