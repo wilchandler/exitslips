@@ -30,7 +30,7 @@ class Question < ActiveRecord::Base
   def process_options_from_form(options)
     self.update_attribute(:question_type, "multiple_choice")
     options.each do |option_data|
-      Option.process_quiz_form(question.id, option_data)
+      Option.process_quiz_form(self.id, option_data)
     end
   end
 
