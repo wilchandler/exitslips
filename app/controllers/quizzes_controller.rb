@@ -91,7 +91,6 @@ class QuizzesController < ApplicationController
 		@ungraded_answers = @quiz.get_ungraded_answers
 	end
 
-
 		private
 
 	def quiz_params
