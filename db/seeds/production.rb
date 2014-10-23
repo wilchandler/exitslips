@@ -58,8 +58,8 @@ math.requirements.each_with_index do |r, i|
 
   students.each do |s|
     num_correct = (math_smarts.include? s) ? rand(6..10) : rand(4..8)
-    num_correct -= 3 if standard.code == "4.NBT.4" && !(s.first_name == "Ada" || s.first_name == "Grace")
-    num_correct -= 2 if standard.code == "4.NF.4"
+    num_correct -= 3 if standard.code == "4.NF.3.a" && !(s.first_name == "Ada" || s.first_name == "Grace") # WRITE QUESTIONS!
+    num_correct -= 2 if standard.code == "4.NBT.4"
     num_correct -= 1 if s.first_name == "Ernest"
     num_correct += 1 if s.first_name == "Virginia"
 
