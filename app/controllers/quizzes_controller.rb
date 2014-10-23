@@ -57,10 +57,6 @@ class QuizzesController < ApplicationController
 	def delete
 	end
 
-	def finish
-
-	end
-
 	def results
 		@section = Section.find_by(id: params[:section_id])
 		@quiz = Quiz.find_by(id: params[:id])
