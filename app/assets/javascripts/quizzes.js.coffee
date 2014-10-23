@@ -35,8 +35,12 @@ handleOpenResponseBox = (box) ->
     $(question).children('fieldset').show()
     $(question).children('.add_fields').show()
 
+$('#new_quiz').on 'submit', (event) ->
+  validateForm()
 
-
+validateForm = () ->
+  standard = document.forms["#new_quiz"]["standard"].val();
+  console.log(standard)
 
 
 
