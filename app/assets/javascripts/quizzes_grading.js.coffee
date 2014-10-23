@@ -16,10 +16,14 @@ $('.grading-area').ready ->
     activeClass: "ui-state-default",
     hoverClass: "ui-state-hover",
     drop: (event, ui) ->
+
       answerID = ui.draggable.attr("id")
       updateGradingArea(ui.draggable)
       sendGrade(answerID, "false")
   })
+
+processMark = (element, mark, answerID) ->
+
 
 sendGrade = (answerID, mark) ->
   $.ajax "/answers/#{answerID}",
