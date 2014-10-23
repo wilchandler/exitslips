@@ -88,7 +88,7 @@ populateRow = (row, scores) ->
 
 findHeader = (cells, content) ->
   for cell in cells
-    header = $(cell).closest('table').find('td').eq( cell.cellIndex )[0];
+    header = $(cell).closest('table').find('th').eq( cell.cellIndex )[0];
     if $(header).text() == content
       return cell
 

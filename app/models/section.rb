@@ -7,10 +7,8 @@ class Section < ActiveRecord::Base
   has_many :requirements
   has_many :standards, through: :requirements
 
-  before_create do |section|
-    section.generate_requirements
-    section.generate_passcode
-  end
+  before_create { generate_passcode }
+  after_create { generate_requirements}
 
   def generate_passcode
     self.passcode = ('a'..'z').to_a.sample(7).join
@@ -27,6 +25,7 @@ class Section < ActiveRecord::Base
     requirements = self.requirements
     students = self.students
     scores = {}
+
 
     students.each do |student|
       s = student.calculate_scores_by_standard({

@@ -6,9 +6,6 @@ class QuizzesController < ApplicationController
 		@quizzes = current_user.quizzes
 	end
 
-	def teacher_index
-	end
-
 	def show
 		@quiz = Quiz.find_by(id: params[:id])
 	end
@@ -23,15 +20,24 @@ class QuizzesController < ApplicationController
 
 	def create
 		# NEED TO VALIDATE IF NO SECTIONS ARE SELECTED OR NO Q/A
-
+		failures = []
 		params[:sections].keys.each do |section_id|
 			section = Section.find_by(id: section_id)
-			requirement = Requirement.find_by(section_id: section_id, standard_id: params[:standard])
-			if section && section.teacher_id == current_teacher.id && requirement
-				quiz = Quiz.new(section: section, requirement: requirement)
+			requirement = Requirement.find_by(section_id: section_id.to_i, standard_id: params[:standard])
+			if section && section.teacher_id == current_teacher.id
+				if requirement
+					quiz = Quiz.new(section: section, requirement: requirement)
+					quiz.process_quiz_form(params[:quiz])
+				else
+					failures << section.name
+				end
+			else
+				flash[:error] = "Unable to save quiz."
 			end
-			quiz.process_quiz_form(params[:quiz])
+
 		end
+
+		check_for_requirement_errors(failures)
 		redirect_to sections_path
 	end
 
@@ -52,10 +58,6 @@ class QuizzesController < ApplicationController
 	end
 
 	def delete
-	end
-
-	def finish
-
 	end
 
 	def results
@@ -87,11 +89,6 @@ class QuizzesController < ApplicationController
 	def grade
 		@quiz = Quiz.find_by(id: params[:id])
 		@ungraded_answers = @quiz.get_ungraded_answers
-
-
-		# @responses = @quiz.answers.where(correct: nil).includes(:questions)
-		# @questions = Set.new
-		# @responses.each { |r| @questions << r.question }
 	end
 
 
@@ -99,5 +96,10 @@ class QuizzesController < ApplicationController
 
 	def quiz_params
 		params.require(:quiz).permit(:name, :instructions, :section_id)
+	end
+
+	def check_for_requirement_errors(failures = [])
+		return if failures.empty?
+		flash[:alert] = "The selected standard does not apply to the following sections: #{failures.join(", ")}"
 	end
 end

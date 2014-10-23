@@ -4,6 +4,8 @@
 @import "shared";
 
 
+
+
 #section-name {
   text-align: center;
   font-size: 2em;
@@ -79,6 +81,48 @@ table {
   }
 }
 
+#table-all-standards table {
+  td {
+    border: 1px solid $dark-blue;
+  }
+}
+
 .group-listing ul {
   margin-top: 1em
+}
+
+#student-join-section {
+  color: white;
+}
+#passcode-listing {
+  width: 30%;
+  text-align: center;
+  display: block;
+  margin: 20px auto 10px auto;
+  h6 {
+    // font-weight: 400;
+  }
+}
+
+#section-index{
+  #teacher-name {
+    font-size: 2em;
+  }
+}
+
+#student-name, #student-section {
+  font-size: 2em;
+}
+
+#student-teach-name {
+  font-size: 1em;
+}
+#student-quizzes {
+  a {
+  color: $light-blue;
+  &:hover{
+    color: $midnight-sky;
+    transition: .5s;
+  }
+}
 }

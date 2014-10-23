@@ -46,17 +46,22 @@ a {
 #error_explanation ul {
   color: white;
   list-style: none;
-  background-color: #FF832C;
+  background-color: #0FB493;
   border-radius: 10px;
 }
 
 .notice, .alert {
   color: white;
-  background-color: #FF832C;
-  border-radius: 10px;
+  background-color: #0F9FB4;
+  border-radius: 3px;
   list-style: none;
   line-height: 2em;
-  max-width: 20%;
+  max-width: 30%;
+  margin: auto;
+  text-align: center;
+  p{
+    margin: 5px;
+  }
 }
 
 .red-cell {

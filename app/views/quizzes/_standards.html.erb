@@ -1,5 +1,5 @@
 
   <%= label_tag :standard, "Standard:" %>
-    <%= select_tag :standard, options_for_select(@standard_options, @standard_current), include_blank: true %>
+    <%= select_tag :standard, options_for_select(@standard_options, @standard_current), include_blank: true, required: true %>
 
   <br />

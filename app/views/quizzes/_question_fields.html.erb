@@ -1,6 +1,6 @@
 <fieldset>
   <%= f.label :query, "Question" %>
-  <%= f.text_area :query %>
+  <%= f.text_area :query, required: true %>
 
   <%= f.hidden_field :_destroy %>
   <%= link_to "Delete question", "#", class: "remove_question", confirm: "Are you sure?" %>
@@ -11,3 +11,4 @@
   <%= f.check_box :question_type, class: 'open-response-checkbox'%>
   <%= f.label :question_type, "Open response" %>
 </fieldset>
+d

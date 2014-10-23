@@ -2,8 +2,9 @@ class AnswersController < ApplicationController
 
 	def update
 		answer = Answer.find_by(id: params[:id])
-		answer.update(correct: params[:correct])
-		if answer.save
+		success = answer.record_open_response_grade(params[:correct])
+
+		if success
 			respond_to do |format|
 			format.json {
 					puts "JSON"

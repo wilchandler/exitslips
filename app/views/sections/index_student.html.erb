@@ -1,9 +1,11 @@
-<h1>Hi, <%= @student.first_name %>!</h1>
+<h1 id="student_name">Hi, <%= @student.first_name %>!</h1>
+<br>
 
 <% if @sections.empty? %>
 <!-- !!! -->
 <% else %>
   <h3>Your sections:</h3>
+  <br>
   <ul>
     <% @sections.each do |section| %>
       <%= link_to section, class: "link-box" do %>

@@ -7,15 +7,17 @@ class Sitting < ActiveRecord::Base
     return nil if sittings.empty?
 
     percentages = sittings.map { |sitting| sitting.calculate_percentage }
-    (percentages.inject(:+).to_f / percentages.length.to_f).round
+      return nil if percentages.all? &:nil?
+      (percentages.inject(:+).to_f / percentages.length.to_f).round
   end
 
   def calculate_percentage
+    return nil if self.possible == 0
     (self.correct.to_f / self.possible.to_f * 100).round
   end
 
   def self.grade_response(args = {})
-    new_sitting = Sitting.new(
+    new_sitting = Sitting.create(
       student_id: args[:student_id],
       quiz_id: args[:quiz_id],
       correct: 0,
@@ -24,6 +26,13 @@ class Sitting < ActiveRecord::Base
 
     args[:responses].each do |question_id, option|
       question = Question.find_by(id: question_id)
+      mark = question.check(option)
+      Answer.create(
+        question: question,
+        student_id: args[:student_id],
+        sitting: new_sitting,
+        content: option
+      )
       new_sitting.update_count( question.check(option) )
     end
 
@@ -37,8 +46,19 @@ class Sitting < ActiveRecord::Base
     elsif mark == false
       self.possible += 1
     elsif mark == :pending
-      # handle open ended response
+      # handle open ended response later
     end
+  end
+
+  def mark_graded_if_all_graded
+    update_attribute(:graded, true) if all_graded?
+  end
+
+  def all_graded?
+    self.answers.each do |answer|
+      return false if answer.correct.nil?
+    end
+    true
   end
 
 end
