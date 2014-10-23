@@ -1,6 +1,10 @@
 
 <div class="section_tables">
 <h1 id="section-name"><%=@section.name%></h1>
+<div id="passcode-listing">
+  <p>Student code to join: </p>
+  <h6><%= @section.passcode %></h6>
+</div>
 <%= render 'quizzes_drop_down'%>
 <br><br>
 <%= render 'section_data_table' %>
