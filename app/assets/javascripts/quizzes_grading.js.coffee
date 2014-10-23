@@ -7,23 +7,29 @@ $('.grading-area').ready ->
     activeClass: "ui-state-default",
     hoverClass: "ui-state-hover",
     drop: (event, ui) ->
-      answerID = ui.draggable.attr('id')
-      updateGradingArea(ui.draggable)
-      sendGrade(answerID, "true")
+      processMark(ui.draggable, "true")
   }
 
   $('#incorrect-hit-box').droppable({
     activeClass: "ui-state-default",
     hoverClass: "ui-state-hover",
     drop: (event, ui) ->
-
-      answerID = ui.draggable.attr("id")
-      updateGradingArea(ui.draggable)
-      sendGrade(answerID, "false")
+      processMark(ui.draggable, "false")
   })
 
-processMark = (element, mark, answerID) ->
+  $(document).keyup (e) ->
+    switch e.which
+      when 37 # left arrow key
+        $element = $('.grading-question .grading-active')
+        processMark($element, "true")
+      when 39 # right arrow key
+        $element = $('.grading-question .grading-active')
+        processMark($element, "true")
 
+processMark = ($element, mark) ->
+  answerID = $element.attr("id")
+  sendGrade(answerID, mark)
+  updateGradingArea($element)
 
 sendGrade = (answerID, mark) ->
   $.ajax "/answers/#{answerID}",
@@ -32,8 +38,6 @@ sendGrade = (answerID, mark) ->
     success: (response) ->
       # ???
     dataType: "text"
-
-
 
 loadNextQuestion = ->
   question = $('.grading-question')[0]
@@ -45,9 +49,9 @@ loadNextQuestion = ->
   else
     makeActive(answer)
 
-updateGradingArea = (draggable) ->
-  draggable.remove()
-  question = draggable.parent()[0]
+updateGradingArea = ($element) ->
+  $element.remove()
+  question = $element.parent()[0]
   answer = getNextAnswer(question)
   if answer == null
     $(question).remove()
