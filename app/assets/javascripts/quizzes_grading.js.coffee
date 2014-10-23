@@ -21,6 +21,14 @@ $('.grading-area').ready ->
       sendGrade(answerID, "false")
   })
 
+#   $(document).keydown (e) ->
+#     switch(e.which)
+#       when 37 then processGrade('false')
+#       when 39 then processGrade('true')
+
+# processGrade = (mark) ->
+#   answerID = $('.active-grading .grading-answer')
+
 sendGrade = (answerID, mark) ->
   $.ajax "/answers/#{answerID}",
     type: "PATCH",
@@ -29,10 +37,11 @@ sendGrade = (answerID, mark) ->
       # ???
     dataType: "text"
 
-
-
 loadNextQuestion = ->
   question = $('.grading-question')[0]
+  if question == undefined
+    allCaughtUp()
+    return
   makeActive(question)
   answer = getNextAnswer(question)
   if answer == null
@@ -61,3 +70,8 @@ getNextAnswer = (question) ->
 makeActive = (element) ->
   $(element).removeClass('grading-inactive')
   $(element).addClass('grading-active')
+
+allCaughtUp = ->
+  $('.grading-area').append("<h1>All caught up!</h1>")
+
+
