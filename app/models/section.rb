@@ -7,10 +7,8 @@ class Section < ActiveRecord::Base
   has_many :requirements
   has_many :standards, through: :requirements
 
-  after_create do |section|
-    section.generate_requirements
-    section.generate_passcode
-  end
+  before_create { generate_passcode }
+  after_create { generate_requirements}
 
   def generate_passcode
     self.passcode = ('a'..'z').to_a.sample(7).join
