@@ -109,3 +109,20 @@ table {
     font-size: 2em;
   }
 }
+
+#student-name, #student-section {
+  font-size: 2em;
+}
+
+#student-teach-name {
+  font-size: 1em;
+}
+#student-quizzes {
+  a {
+  color: $light-blue;
+  &:hover{
+    color: $midnight-sky;
+    transition: .5s;
+  }
+}
+}

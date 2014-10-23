@@ -1,5 +1,6 @@
+<div id="new-sitting">
 <h1><%= @quiz.name %></h1>
-<p><%= @quiz.instructions %></p>
+<p id="instructions">Instructions: <%= @quiz.instructions %></p>
 
 <%= form_for :response, url: quiz_sittings_path(@quiz) do |f| %>
   <% @questions.each_with_index do |question, i| %>
@@ -10,6 +11,7 @@
     <% end %>
   <% end %>
 
-  <%= submit_tag "Submit" %>
+  <br>
+  <%= submit_tag "Submit", class: 'link-box' %>
 <% end %>
-
+</div>
