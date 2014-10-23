@@ -96,5 +96,4 @@ RSpec.describe Teacher, :type => :model do
     end
   end
   		
-
 end
