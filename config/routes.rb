@@ -24,7 +24,6 @@ Rails.application.routes.draw do
 
   resources :standards, only: [:index], :defaults => { :format => 'json' }
 
-  # get "/quizzes/:id/finished_quiz" => "quizzes#finish", as: "quizzes_finish"
   get "/quizzes/:id/grade" => "quizzes#grade", as: "quiz_grade"
 
 

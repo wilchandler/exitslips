@@ -6,9 +6,6 @@ class QuizzesController < ApplicationController
 		@quizzes = current_user.quizzes
 	end
 
-	def teacher_index
-	end
-
 	def show
 		@quiz = Quiz.find_by(id: params[:id])
 	end
@@ -103,6 +100,6 @@ class QuizzesController < ApplicationController
 
 	def check_for_requirement_errors(failures = [])
 		return if failures.empty?
-		flash[:notice] = "The selected standard does not apply to the following sections: #{failures.join(", ")}"
+		flash[:alert] = "The selected standard does not apply to the following sections: #{failures.join(", ")}"
 	end
 end

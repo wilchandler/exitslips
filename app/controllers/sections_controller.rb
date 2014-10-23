@@ -53,25 +53,9 @@ class SectionsController < ApplicationController
 		end
 	end
 
-  def confirm
-  	@section = Section.find(params[:section_id])
-  end
-
-  def confirmed
-  	@section = Section.find(params[:section_id])
-  	if params[:passcode] = @section.passcode ||
-  		Enrollment.create(section_id:@section.id,student_id:current_user.id)
-  		redirect_to section_path(@section)
-  	else
-  		redirect_to sections_path
-		end
-  end
-
   def new
 	 	@section = Section.new
 		@teacher = current_user
-	  @sections = current_user.sections
-	  @quizzes = current_user.quizzes
 
 	  render :layout => false
 	end
