@@ -29,9 +29,12 @@ class QuizzesController < ApplicationController
 			requirement = Requirement.find_by(section_id: section_id, standard_id: params[:standard])
 			if section && section.teacher_id == current_teacher.id && requirement
 				quiz = Quiz.new(section: section, requirement: requirement)
+				quiz.process_quiz_form(params[:quiz])
+			else
+				render 'new'
 			end
-			quiz.process_quiz_form(params[:quiz])
 		end
+		flash[:notice] = "Quiz successfully created"
 		redirect_to sections_path
 	end
 
