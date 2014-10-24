@@ -43,7 +43,7 @@ class SectionsController < ApplicationController
         }
         format.html {
           @students = @section.students
-          @standards = @section.standards
+          @standards = @section.standards.sort_by { |s| s.id }
           @quizzes = @section.quizzes
         }
         format.csv {
