@@ -13,7 +13,6 @@ $('.section_tables').ready ->
       $("#quiz_table_#{quizID}").show()
       unless ($("#quiz_table_#{quizID} .student-row").siblings().length)
         $.get "/sections/#{sectionID}/quizzes/#{quizID}.json", (data) ->
-          console.log(data)
           populateQuizTable(data.scores, quizID)
     else
       $(".quiz_table").hide()
@@ -48,7 +47,6 @@ depopulateTable = ->
 
 $('.section_tables').ready ->
   $('.section_tables').on 'mouseenter', '.tooltip-heading', (e) ->
-    console.log(this)
     title = $(this).attr('title')
     $(this).data('tipText', title).removeAttr('title')
     $('<p class="tooltip"></p>').text(title).appendTo('body').fadeIn('slow')
@@ -131,7 +129,6 @@ getGroups = (form) ->
 displayGroups = (form, groups) ->
   parentDiv = $(form).closest('div')[0]
   $listing = $(parentDiv).children('.group-listing')
-  console.log($listing)
   $listing.empty()
   for group in groups
     list = buildGroupView(group)
