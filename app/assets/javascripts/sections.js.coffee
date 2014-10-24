@@ -15,6 +15,7 @@ $('.section_tables').ready ->
       $("#quiz_table_#{quizID}").show()
       unless ($("#quiz_table_#{quizID} .student-row").siblings().length)
         $.get "/sections/#{sectionID}/quizzes/#{quizID}.json", (data) ->
+          console.log(data)
           populateQuizTable(data.scores, quizID)
     else
       $(".quiz_table").hide()
@@ -30,8 +31,6 @@ populateQuizTable = (data, quizID) ->
 
 buildRows = (studentID, questions, quizID) ->
   for question, answer of questions
-    if answer == 0
-      answer = "N/A"
     $("#quiz_table_#{quizID} #quiz-#{studentID}").append("<td>#{answer}</td>")
 
 

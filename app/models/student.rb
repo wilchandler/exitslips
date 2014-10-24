@@ -27,6 +27,8 @@ class Student < User
     question_scores = args[:questions].map do |question|
       answers = self.find_answers_by_question(question.id)
       answer = Answer.average_answers(answers)
+      # assigning N/A to the answer in case that it's nil. 
+      answer = "N/A" if answer == nil
       scores_by_question[question.query] = answer
     end
     scores_by_question
