@@ -101,28 +101,28 @@ english.requirements.each_with_index do |r, i|
 end
 
 
-quiz = Quiz.find_by_name("Quiz on 4.NF.3.a")
+# quiz = Quiz.find_by_name("Quiz on 4.NF.3.a")
 
-question = Question.create(quiz_id: quiz.id, query: "Wil has 2/6 of a candy bar. Lo has 1/2 of a candy bar. If they put their pieces together, what fraction would they have? Explain how you know. ", question_type: "open_response")
+# question = Question.create(quiz_id: quiz.id, query: "Wil has 2/6 of a candy bar. Lo has 1/2 of a candy bar. If they put their pieces together, what fraction would they have? Explain how you know. ", question_type: "open_response")
 
 
-students.each do |s|
-  sitting = Sitting.create!(
-    student: s,
-    quiz: quiz,
-    possible: 0,
-    correct: 0,
-    graded: false
-  )
+# students.each do |s|
+#   sitting = Sitting.create!(
+#     student: s,
+#     quiz: quiz,
+#     possible: 0,
+#     correct: 0,
+#     graded: false
+#   )
 
-  res = ["3/8 because I added and because I am smart.", "5/6. I know that Wil's candy bar is 2/6 and I know that Lo's candy bar is 1/2 which I know is 3/6. When we put them together, they have 5/6 of a full candy bar.", "I don't know",
-          "5/6 because Wil almost has half a candy bar but he has 1/6 less. So when they put the half and the almost half together they will have 1/6 less than a whole candy bar.", "I think it's like a whole candy bar but I'm not sure.",
-         "five sixths I think because I added."]
+#   res = ["3/8 because I added and because I am smart.", "5/6. I know that Wil's candy bar is 2/6 and I know that Lo's candy bar is 1/2 which I know is 3/6. When we put them together, they have 5/6 of a full candy bar.", "I don't know",
+#           "5/6 because Wil almost has half a candy bar but he has 1/6 less. So when they put the half and the almost half together they will have 1/6 less than a whole candy bar.", "I think it's like a whole candy bar but I'm not sure.",
+#          "five sixths I think because I added."]
 
-  Answer.create!(
-    question: question,
-    content: res.sample,
-    student: s,
-    sitting: sitting  
-  )
-end
+#   Answer.create!(
+#     question: question,
+#     content: res.sample,
+#     student: s,
+#     sitting: sitting  
+#   )
+# end

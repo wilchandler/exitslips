@@ -1,7 +1,5 @@
 @import "shared";
 
-
-
 #sign-up-background {
 	position: absolute;
 	top: 0;
@@ -13,6 +11,7 @@
 
 
 #sign-up {
+  font-family: 'Lato', 'Helvetica', sans-serif;
   position: relative;
   background-color: $dark-blue;
   top: 50%;
@@ -21,7 +20,6 @@
   width: 287px;
   margin: auto;
   color: white;
-  font-family: 'Lato', 'Helvetica', sans-serif;
   h1 {
     font-size: 3em;
   }
