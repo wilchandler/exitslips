@@ -16,7 +16,9 @@ end
 
 teacher = Teacher.create!(first_name: "Casey", last_name: "Cumbow", password: "boom1234", email: "case-eee@yahoo.com")
 math = Section.create!(name: "5th Period Math", teacher: teacher, subject: "Math", grade: "4" )
-english = Section.create!(name: "3rd Period English", teacher: teacher, subject: "ELA", grade: "4" )
+math2 = Section.create!(name: "4th Period Math", teacher: teacher, subject: "Math", grade: "4" )
+english = Section.create!(name: "3rd Period Math", teacher: teacher, subject: "Math", grade: "4" )
+english2 = Section.create!(name: "1st Period English", teacher: teacher, subject: "ELA", grade: "4" )
 
 math_smarts = [
   Student.new(first_name: "Grace", last_name: "Hopper", email: "student1@yahoo.com", password: "12345678"),
@@ -39,13 +41,42 @@ english_smarts = [
   Student.new(first_name: "Ernest", last_name: "Hemingway", email: "student15@yahoo.com", password: "12345678")
 ]
 
+science_smarts = [
+  Student.new(first_name: "Marie", last_name: "Curie", email: "student16@yahoo.com", password: "12345678"),
+  Student.new(first_name: "Isaac", last_name: "Newton", email: "student17@yahoo.com", password: "12345678"),
+  Student.new(first_name: "Carl", last_name: "Sagan", email: "student18@yahoo.com", password: "12345678"),
+  Student.new(first_name: "Galileo", last_name: "Galilei", email: "student19@yahoo.com", password: "12345678"),
+  Student.new(first_name: "Nicola", last_name: "Tesla", email: "student20@yahoo.com", password: "12345678"),
+  Student.new(first_name: "Nick", last_name: "Copernicus", email: "student21@yahoo.com", password: "12345678"),
+  Student.new(first_name: "Charles", last_name: "Darwin", email: "student22@yahoo.com", password: "12345678")
+]
+
+history_smarts = [
+  Student.new(first_name: "Adam", last_name: "Smith", email: "student23@yahoo.com", password: "12345678"),
+  Student.new(first_name: "Benjamin", last_name: "Franklin", email: "student24@yahoo.com", password: "12345678"),
+  Student.new(first_name: "Thomas", last_name: "Jefferson", email: "student25@yahoo.com", password: "12345678"),
+  Student.new(first_name: "Thomas", last_name: "Paine", email: "student26@yahoo.com", password: "12345678"),
+  Student.new(first_name: "John", last_name: "Locke", email: "student27@yahoo.com", password: "12345678"),
+  Student.new(first_name: "Walt", last_name: "Whitman", email: "student28@yahoo.com", password: "12345678"),
+  Student.new(first_name: "Charles", last_name: "Rouseau", email: "student29@yahoo.com", password: "12345678")
+]
+
 students = (math_smarts + english_smarts).shuffle
 
+students2 = (science_smarts + history_smarts).shuffle
+
 students.sort_by{ |s| s.last_name }.each{ |s| s.save }
+
+students2.sort_by{ |s| s.last_name }.each{ |s| s.save }
 
 students.each do |student|
   math.students << student
   english.students << student
+end
+
+students2.each do |student|
+  math2.students << student
+  english2.students << student
 end
 
 math.requirements.each_with_index do |r, i|
@@ -88,6 +119,58 @@ english.requirements.each_with_index do |r, i|
     num_correct -= 2 if standard.code == "4.RL.4"
     num_correct -= 1 if s.first_name == "Ernest"
     num_correct += 1 if s.first_name == "Virginia"
+
+    Sitting.create!(
+      student: s,
+      quiz: q,
+      possible: 10,
+      correct: num_correct,
+      graded: true
+    )
+  end
+
+end
+
+math2.requirements.each_with_index do |r, i|
+  standard = r.standard
+  math2.quizzes << q = Quiz.create!(
+    requirement: r,
+    name: "Quiz on #{standard.code}",
+    instructions: standard.description
+  )
+
+  students2.each do |s|
+    num_correct = (science_smarts.include? s) ? rand(6..10) : rand(4..8)
+    num_correct -= 3 if standard.code == "4.NF.3.a" && !(s.first_name == "Isaac" || s.first_name == "Marie") # WRITE QUESTIONS!
+    num_correct -= 2 if standard.code == "4.NBT.4"
+    num_correct -= 1 if s.first_name == "Carl"
+    num_correct += 1 if s.first_name == "Marie"
+
+    Sitting.create!(
+      student: s,
+      quiz: q,
+      possible: 10,
+      correct: num_correct,
+      graded: true
+    )
+  end
+
+end
+
+english2.requirements.each_with_index do |r, i|
+  standard = r.standard
+  english2.quizzes << q = Quiz.create!(
+    requirement: r,
+    name: "Quiz on #{standard.code}",
+    instructions: standard.description
+  )
+
+  students2.each do |s|
+    num_correct = (history_smarts.include? s) ? rand(5..9) : rand(3..8)
+    num_correct -= 3 if standard.code == "4.RI.8" && !(s.first_name == "Isaac" || s.first_name == "Thomas") # WRITE QUESTIONS!
+    num_correct -= 2 if standard.code == "4.RL.4"
+    num_correct -= 1 if s.first_name == "Charles"
+    num_correct += 1 if s.first_name == "Walt"
 
     Sitting.create!(
       student: s,
