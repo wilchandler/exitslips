@@ -21,9 +21,38 @@
       <%= radio_button_tag :sort_type, "random" %>
       <%= label_tag :sort_type_random, "Random" %><br/>
       <%= radio_button_tag :sort_type, "homogenous" %>
-      <%= label_tag :sort_type_homogenous, "Homogenous" %><br/>
+      <%= label_tag :sort_type_homogenous, "Homogenous" %>
+      <svg height="10" width="10">
+        <circle cx="5" cy="5" r="4" stroke="none" stroke-width="0" fill="#1D2F3E" />
+      </svg>
+      <svg height="10" width="10" class="svg-break">
+        <circle cx="5" cy="5" r="4" stroke="none" stroke-width="0" fill="#1D2F3E" />
+      </svg>
+      <svg height="10" width="10">
+        <circle cx="5" cy="5" r="4" stroke="none" stroke-width="0" fill="#A31919" />
+      </svg>
+      <svg height="10" width="10">
+        <circle cx="5" cy="5" r="4" stroke="none" stroke-width="0" fill="#A31919" />
+      </svg>
+
+
+      <br/>
       <%= radio_button_tag :sort_type, "heterogenous" %>
-      <%= label_tag :sort_type_heterogenous, "Heterogenous" %><br/>
+      <%= label_tag :sort_type_heterogenous, "Heterogenous" %>
+      <svg height="10" width="10">
+        <circle cx="5" cy="5" r="4" stroke="none" stroke-width="0" fill="#1D2F3E" />
+      </svg>
+      <svg height="10" width="10" class="svg-break">
+        <circle cx="5" cy="5" r="4" stroke="none" stroke-width="0" fill="#A31919" />
+      </svg>
+      <svg height="10" width="10">
+        <circle cx="5" cy="5" r="4" stroke="none" stroke-width="0" fill="#1D2F3E" />
+      </svg>
+      <svg height="10" width="10">
+        <circle cx="5" cy="5" r="4" stroke="none" stroke-width="0" fill="#A31919" />
+      </svg>
+
+      <br/>
       <%= label_tag :group_size, "Group size:" %>
       <%= select_tag :group_size, options_for_select(2..(@students.count / 2.0).ceil) %><br/>
         <button class="get-groups-button" id="groups-<%=quiz.id%>">Get groups</button>

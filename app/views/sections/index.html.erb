@@ -1,14 +1,13 @@
 <div id="section-index">
     <h1 id="teacher-name"> Welcome, <%= @teacher.full_name %>!</h1>
     <hr>
-    <h1> Mastery of standards by section:</h1>
+    <h1 id="mastery-label"> Mastery of standards by section:</h1>
 
 	<div id="mastery_by_section">
 		<label id="sorting"><input type="checkbox">Sort values</label>
 		<script>window.masteries_data = <%= @mastery.to_json.html_safe %>;</script>
 	</div>
 
-    <hr>
     <div class="cr_sectshow"></div>
 
 </div>
