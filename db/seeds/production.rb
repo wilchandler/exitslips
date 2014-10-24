@@ -83,7 +83,7 @@ english.requirements.each_with_index do |r, i|
   )
 
   students.each do |s|
-    num_correct = (english_smarts.include? s) ? rand(6..10) : rand(4..8)
+    num_correct = (english_smarts.include? s) ? rand(5..9) : rand(3..8)
     num_correct -= 3 if standard.code == "4.RI.8" && !(s.first_name == "Virginia" || s.first_name == "Willa") # WRITE QUESTIONS!
     num_correct -= 2 if standard.code == "4.RL.4"
     num_correct -= 1 if s.first_name == "Ernest"
@@ -101,9 +101,9 @@ english.requirements.each_with_index do |r, i|
 end
 
 
-quiz = Quiz.find_by_name("Quiz on 4.RI.8")
+quiz = Quiz.find_by_name("Quiz on 4.NF.3.a")
 
-question = Question.create(quiz_id: quiz.id, query: "Read the passage about banning plastic bags in Chicago. What reasons does the author give for wanting to ban plastic bags?", question_type: open_response)
+question = Question.create(quiz_id: quiz.id, query: "Wil has 2/6 of a candy bar. Lo has 1/2 of a candy bar. If they put their pieces together, what fraction would they have? Explain how you know. ", question_type: "open_response")
 
 
 students.each do |s|
@@ -115,9 +115,9 @@ students.each do |s|
     graded: false
   )
 
-  res = ["Plastic bags end up in landfills", "Plastic bags are not recyclable",
-         "Plastic bags are rarely reused", "Paper bags are tougher", "Rahm Emanuel has been mayor for 3 years",
-         "the Cubs were once in a commercial saying we shouldn't use plastic bags"]
+  res = ["3/8 because I added and because I am smart.", "5/6. I know that Wil's candy bar is 2/6 and I know that Lo's candy bar is 1/2 which I know is 3/6. When we put them together, they have 5/6 of a full candy bar.", "I don't know",
+          "5/6 because Wil almost has half a candy bar but he has 1/6 less. So when they put the half and the almost half together they will have 1/6 less than a whole candy bar.", "I think it's like a whole candy bar but I'm not sure.",
+         "five sixths I think because I added."]
 
   Answer.create!(
     question: question,
