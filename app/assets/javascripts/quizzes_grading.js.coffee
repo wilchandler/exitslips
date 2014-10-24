@@ -21,10 +21,15 @@ $('.grading-area').ready ->
     switch e.which
       when 37 # left arrow key
         $element = $('.grading-question .grading-active')
-        processMark($element, "true")
+        $element.animate({left: "-=100%"}, ->
+          processMark($element, "false")
+        )
       when 39 # right arrow key
         $element = $('.grading-question .grading-active')
-        processMark($element, "true")
+        $element.animate({left: "+=100%"}, ->
+          processMark($element, "true")
+        )
+
 
 processMark = ($element, mark) ->
   answerID = $element.attr("id")
@@ -41,6 +46,9 @@ sendGrade = (answerID, mark) ->
 
 loadNextQuestion = ->
   question = $('.grading-question')[0]
+  if question == undefined
+    allCaughtUp()
+    return
   makeActive(question)
   answer = getNextAnswer(question)
   if answer == null
@@ -69,3 +77,10 @@ getNextAnswer = (question) ->
 makeActive = (element) ->
   $(element).removeClass('grading-inactive')
   $(element).addClass('grading-active')
+
+allCaughtUp = ->
+  $('.grading-area').append("<h1>Quiz graded!</h1>")
+  $('#correct-hit-box').hide()
+  $('#incorrect-hit-box').hide()
+
+
