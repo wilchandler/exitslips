@@ -117,12 +117,23 @@ table {
 #student-teach-name {
   font-size: 1em;
 }
+
 #student-quizzes {
   a {
-  color: $light-blue;
-  &:hover{
-    color: $midnight-sky;
-    transition: .5s;
+    color: $light-blue;
+    &:hover{
+      color: $midnight-sky;
+      transition: .5s;
+    }
   }
 }
+
+.group-listing {
+  ul {
+    display: block;
+    width: 30%;
+    border: 1px solid $light-blue;
+    padding: 10px 0px;
+  }
+  margin-bottom: 30px;
 }
