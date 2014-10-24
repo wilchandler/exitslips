@@ -126,6 +126,7 @@ getGroups = (form) ->
     data: args
     success: (data) ->
       displayGroups(form, data.groups)
+      scrollToBottom()
 
 displayGroups = (form, groups) ->
   parentDiv = $(form).closest('div')[0]
@@ -142,4 +143,5 @@ buildGroupView = (group) ->
     view += "<li>#{student}</li>"
   view += "</ul>"
 
-
+scrollToBottom = ->
+  $("html, body").animate({ scrollTop: $(document).height() }, 1000);

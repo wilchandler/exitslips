@@ -13,22 +13,22 @@ $(document).ready(function() {
 	$(".cr_sectshow").on("submit", "form", function (e) {
 		e.preventDefault();
 		$(".cr_sectshow").bPopup().close()
-		
+
 		var link = $(this).attr("action");
 		var data = $(this).serialize();
-	    
+
 
 		var request = $.ajax({url: link, data: data, type: "post", dataType: "JSON"});
-       
+
 			request.done(function(data){
 				$(".sect_show").append(data)
 		var new_link = "<li><a href=/sections/" + data.id + ">"+ data.section + "</li>";
 				$("ul").prepend(new_link);
 				$("form").find("input[type=text]").val("")
-     
+
 
 			});
-	  
+
 	});
 });
 
