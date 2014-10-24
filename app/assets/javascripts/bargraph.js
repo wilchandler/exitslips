@@ -2,7 +2,7 @@ $("#mastery_by_section").ready(function() {
 
 
 var margin = {top: 10, right: 30, bottom: 20, left: 30},
-    width = 600 - margin.left - margin.right,
+    width = 800 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 
 var formatPercent = d3.format(".%");
