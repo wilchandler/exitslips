@@ -2,14 +2,12 @@
 
 .sortable {
   position: absolute;
-  &:last-child{
-    box-shadow: 5px 5px $midnight-sky;
-  }
   overflow: hidden;
-  background-color: $cream;
+  background-color: $green;
+  color: white;
   width: 20%;
   min-height: 100px;
-  text-align: left;
+  text-align: center;
   z-index: 1;
   padding: 5px;
   left: 50%;
@@ -21,6 +19,11 @@
   height: 100%;
   width: 300px;
   display: block;
+}
+
+.landing-zones {
+  border: 1px solid $dark-blue;
+  padding: 10px;
 }
 
 #incorrect-hit-box {
