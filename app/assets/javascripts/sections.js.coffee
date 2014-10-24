@@ -2,6 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# Building a quiz section table. 
+
 $('.section_tables').ready ->
   $(".quiz_table").hide()
   $('#id').change ->
@@ -28,6 +30,8 @@ populateQuizTable = (data, quizID) ->
 
 buildRows = (studentID, questions, quizID) ->
   for question, answer of questions
+    if answer == 0
+      answer = "N/A"
     $("#quiz_table_#{quizID} #quiz-#{studentID}").append("<td>#{answer}</td>")
 
 
