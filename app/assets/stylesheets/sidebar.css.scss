@@ -1,6 +1,7 @@
 @import "shared";
 
 nav {
+  z-index: 1;
   background-color: $dark-blue;
   width: 20%;
   position: fixed;
@@ -35,8 +36,3 @@ ul {
   font-size: 3em;
   color: white;
 }
-
-
-
-
-
