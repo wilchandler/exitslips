@@ -7,14 +7,20 @@ $('.grading-area').ready ->
     activeClass: "ui-state-default",
     hoverClass: "ui-state-hover",
     drop: (event, ui) ->
-      processMark(ui.draggable, "true")
+      $element = ui.draggable
+      $element.animate({left: "+=100%"}, ->
+        processMark($element, "true")
+      )
   }
 
   $('#incorrect-hit-box').droppable({
     activeClass: "ui-state-default",
     hoverClass: "ui-state-hover",
     drop: (event, ui) ->
-      processMark(ui.draggable, "false")
+      $element = ui.draggable
+      $element.animate({left: "-=100%"}, ->
+        processMark($element, "false")
+      )
   })
 
   $(document).keyup (e) ->
