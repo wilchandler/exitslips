@@ -91,7 +91,7 @@ class QuizzesController < ApplicationController
 		@ungraded_answers = @quiz.get_ungraded_answers
 	end
 
-		private
+	private
 
 	def quiz_params
 		params.require(:quiz).permit(:name, :instructions, :section_id)

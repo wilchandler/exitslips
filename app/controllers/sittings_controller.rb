@@ -22,7 +22,7 @@ class SittingsController < ApplicationController
     if sittings_new_count > sittings_beginning_count
       flash[:notice] = "Quiz successfully submitted!"
     else
-      flash[:error] = "Something went wrong..."
+      flash[:error] = "Something went wrong!"
     end
     redirect_to section_path(quiz.section)
   end
