@@ -10,7 +10,7 @@ ExitSlips provides teachers with a simple way to collect data and act on it. Tea
 ### Getting Started
 
 Visit our deployed app at:
-[ExitSlips](http://exitslips.herokuapp.com)
+[ExitSlips](http://exit-slips.herokuapp.com)
 
 
 Alternatively, 
