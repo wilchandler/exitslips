@@ -16,8 +16,6 @@ Rails.application.routes.draw do
 
   get "/sections/show_bargraph" => "sections#show_bargraph", as: "show_bargraph"
 
-  get '/demo' => "users#demo", as: "demo"
-
   resources :sections
   resources :users, except: [:index]
   resources :enrollments, only: [:create]

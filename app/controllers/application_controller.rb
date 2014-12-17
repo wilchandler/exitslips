@@ -24,13 +24,4 @@ class ApplicationController < ActionController::Base
     session["warden.user.user.key"][0][0]
   end
 
-  def log_in_demo
-    casey = User.find_by(email: ENV["DEMO_EMAIL"])
-    if casey
-      sign_in casey
-    else
-      return nil
-    end
-  end
-
 end
